@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
+// https://www.jianshu.com/p/9c41202a86f1
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
