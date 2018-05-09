@@ -7,25 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FCDB56CE20A1A8BE009E7AEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56CD20A1A8BE009E7AEF /* AppDelegate.m */; };
-		FCDB56D120A1A8BE009E7AEF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56D020A1A8BE009E7AEF /* ViewController.m */; };
 		FCDB56D420A1A8C0009E7AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D220A1A8C0009E7AEF /* Main.storyboard */; };
 		FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */; };
 		FCDB56D920A1A8C0009E7AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D720A1A8C0009E7AEF /* LaunchScreen.storyboard */; };
-		FCDB56DC20A1A8C0009E7AEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56DB20A1A8C0009E7AEF /* main.m */; };
+		FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56E520A2F3C7009E7AEF /* ViewController.m */; };
+		FCDB56EF20A2F3C7009E7AEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56E920A2F3C7009E7AEF /* AppDelegate.m */; };
+		FCDB56F020A2F3C7009E7AEF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56EA20A2F3C7009E7AEF /* Info.plist */; };
+		FCDB56F120A2F3C7009E7AEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56EB20A2F3C7009E7AEF /* main.m */; };
+		FCDB56F420A2F55D009E7AEF /* ZYProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56F320A2F55D009E7AEF /* ZYProfileViewController.m */; };
+		FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56F620A2F694009E7AEF /* ZYLoginView.m */; };
+		FCDB56F920A2F700009E7AEF /* ZYLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56F820A2F700009E7AEF /* ZYLoginView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FCDB56C920A1A8BD009E7AEF /* MVVMXBBX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMXBBX.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCDB56CC20A1A8BD009E7AEF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		FCDB56CD20A1A8BE009E7AEF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FCDB56CF20A1A8BE009E7AEF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FCDB56D020A1A8BE009E7AEF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FCDB56D320A1A8C0009E7AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCDB56D820A1A8C0009E7AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FCDB56DA20A1A8C0009E7AEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FCDB56DB20A1A8C0009E7AEF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCDB56E420A2F3C7009E7AEF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FCDB56E520A2F3C7009E7AEF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FCDB56E820A2F3C7009E7AEF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FCDB56E920A2F3C7009E7AEF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FCDB56EA20A2F3C7009E7AEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCDB56EB20A2F3C7009E7AEF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCDB56F220A2F55D009E7AEF /* ZYProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileViewController.h; sourceTree = "<group>"; };
+		FCDB56F320A2F55D009E7AEF /* ZYProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileViewController.m; sourceTree = "<group>"; };
+		FCDB56F520A2F694009E7AEF /* ZYLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYLoginView.h; sourceTree = "<group>"; };
+		FCDB56F620A2F694009E7AEF /* ZYLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYLoginView.m; sourceTree = "<group>"; };
+		FCDB56F820A2F700009E7AEF /* ZYLoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYLoginView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,17 +67,70 @@
 		FCDB56CB20A1A8BD009E7AEF /* MVVMXBBX */ = {
 			isa = PBXGroup;
 			children = (
-				FCDB56CC20A1A8BD009E7AEF /* AppDelegate.h */,
-				FCDB56CD20A1A8BE009E7AEF /* AppDelegate.m */,
-				FCDB56CF20A1A8BE009E7AEF /* ViewController.h */,
-				FCDB56D020A1A8BE009E7AEF /* ViewController.m */,
+				FCDB56E220A2F3C7009E7AEF /* Class */,
 				FCDB56D220A1A8C0009E7AEF /* Main.storyboard */,
 				FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */,
 				FCDB56D720A1A8C0009E7AEF /* LaunchScreen.storyboard */,
-				FCDB56DA20A1A8C0009E7AEF /* Info.plist */,
-				FCDB56DB20A1A8C0009E7AEF /* main.m */,
 			);
 			path = MVVMXBBX;
+			sourceTree = "<group>";
+		};
+		FCDB56E220A2F3C7009E7AEF /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				FCDB56E320A2F3C7009E7AEF /* Controller */,
+				FCDB56E620A2F3C7009E7AEF /* Model */,
+				FCDB56EC20A2F3C7009E7AEF /* View */,
+				FCDB56ED20A2F3C7009E7AEF /* ViewModel */,
+				FCDB56E720A2F3C7009E7AEF /* Other */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		FCDB56E320A2F3C7009E7AEF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FCDB56E420A2F3C7009E7AEF /* ViewController.h */,
+				FCDB56E520A2F3C7009E7AEF /* ViewController.m */,
+				FCDB56F220A2F55D009E7AEF /* ZYProfileViewController.h */,
+				FCDB56F320A2F55D009E7AEF /* ZYProfileViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FCDB56E620A2F3C7009E7AEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FCDB56E720A2F3C7009E7AEF /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				FCDB56E820A2F3C7009E7AEF /* AppDelegate.h */,
+				FCDB56E920A2F3C7009E7AEF /* AppDelegate.m */,
+				FCDB56EA20A2F3C7009E7AEF /* Info.plist */,
+				FCDB56EB20A2F3C7009E7AEF /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		FCDB56EC20A2F3C7009E7AEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCDB56F520A2F694009E7AEF /* ZYLoginView.h */,
+				FCDB56F620A2F694009E7AEF /* ZYLoginView.m */,
+				FCDB56F820A2F700009E7AEF /* ZYLoginView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCDB56ED20A2F3C7009E7AEF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +159,7 @@
 		FCDB56C120A1A8BB009E7AEF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = ZY;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = me2;
 				TargetAttributes = {
@@ -129,8 +192,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCDB56F020A2F3C7009E7AEF /* Info.plist in Resources */,
 				FCDB56D920A1A8C0009E7AEF /* LaunchScreen.storyboard in Resources */,
 				FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */,
+				FCDB56F920A2F700009E7AEF /* ZYLoginView.xib in Resources */,
 				FCDB56D420A1A8C0009E7AEF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,9 +207,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCDB56D120A1A8BE009E7AEF /* ViewController.m in Sources */,
-				FCDB56DC20A1A8C0009E7AEF /* main.m in Sources */,
-				FCDB56CE20A1A8BE009E7AEF /* AppDelegate.m in Sources */,
+				FCDB56EF20A2F3C7009E7AEF /* AppDelegate.m in Sources */,
+				FCDB56F120A2F3C7009E7AEF /* main.m in Sources */,
+				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,
+				FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */,
+				FCDB56F420A2F55D009E7AEF /* ZYProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
