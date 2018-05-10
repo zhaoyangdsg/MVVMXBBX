@@ -17,6 +17,7 @@
 		FCDB56F420A2F55D009E7AEF /* ZYProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56F320A2F55D009E7AEF /* ZYProfileViewController.m */; };
 		FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56F620A2F694009E7AEF /* ZYLoginView.m */; };
 		FCDB56F920A2F700009E7AEF /* ZYLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56F820A2F700009E7AEF /* ZYLoginView.xib */; };
+		FCE6A86320A42FF600B6D42F /* ZYLogViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCE6A86220A42FF600B6D42F /* ZYLogViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		FCDB56F520A2F694009E7AEF /* ZYLoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYLoginView.h; sourceTree = "<group>"; };
 		FCDB56F620A2F694009E7AEF /* ZYLoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYLoginView.m; sourceTree = "<group>"; };
 		FCDB56F820A2F700009E7AEF /* ZYLoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYLoginView.xib; sourceTree = "<group>"; };
+		FCE6A86120A42FF600B6D42F /* ZYLogViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYLogViewModel.h; sourceTree = "<group>"; };
+		FCE6A86220A42FF600B6D42F /* ZYLogViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYLogViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 		FCDB56ED20A2F3C7009E7AEF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FCE6A86120A42FF600B6D42F /* ZYLogViewModel.h */,
+				FCE6A86220A42FF600B6D42F /* ZYLogViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE6A86320A42FF600B6D42F /* ZYLogViewModel.m in Sources */,
 				FCDB56EF20A2F3C7009E7AEF /* AppDelegate.m in Sources */,
 				FCDB56F120A2F3C7009E7AEF /* main.m in Sources */,
 				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,

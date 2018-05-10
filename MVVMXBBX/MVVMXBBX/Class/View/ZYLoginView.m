@@ -7,8 +7,36 @@
 //
 
 #import "ZYLoginView.h"
+#import "ZYLogViewModel.h"
 
+@interface ZYLoginView()
+@property (weak, nonatomic) IBOutlet UITextField *LogUserField;
+@property (weak, nonatomic) IBOutlet UITextField *LogPwdField;
+@property (strong,nonatomic) ZYLogViewModel *logViewModel;
+
+@end
 @implementation ZYLoginView
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self.LogUserField addTarget:self action:@selector(userChange:) forControlEvents:(UIControlEventValueChanged)];
+    
+}
+- (IBAction)loginAction {
+    [self.logViewModel goLogInSuccess:^(id json) {
+        NSLog(@"登录成功 %@",json);
+    } fail:^(id error) {
+        NSLog(@"登录失败 %@",error);
+    }];
+}
+- (void)userChange:(UITextField *)userField{
+    self.logViewModel.user = userField.text;
+}
+- (IBAction)pwdChange:(UITextField *)sender {
+    self.logViewModel.pwd = sender.text;
+}
+
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -7,6 +7,7 @@
 //
 
 #import "ZYProfileViewController.h"
+#import "ZYLoginView.h"
 
 @interface ZYProfileViewController ()
 
@@ -29,7 +30,10 @@
 - (void)setupSubView {
     Boolean isLogin = false;
     if (!isLogin) {
+      ZYLoginView *loginView = [[[NSBundle mainBundle] loadNibNamed:@"ZYLoginView" owner:self options:nil] firstObject];
+        loginView.frame = self.view.bounds;
         
+        [self.view addSubview:loginView];
     }
     
 }
