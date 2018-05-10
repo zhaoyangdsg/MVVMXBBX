@@ -13,5 +13,6 @@ typedef void(^blk)(id)  ;
 @property(nonatomic,copy,readwrite) NSString *user;
 @property(nonatomic,copy,readwrite) NSString *pwd;
 @property(nonatomic,readonly,assign) Boolean isLogging;
+@property(nonatomic,readonly,assign) Boolean isEnable;
 - (void)goLogInSuccess:(blk)successBlk fail:(blk)failBlk;
 @end

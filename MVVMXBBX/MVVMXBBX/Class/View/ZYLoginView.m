@@ -13,13 +13,18 @@
 @property (weak, nonatomic) IBOutlet UITextField *LogUserField;
 @property (weak, nonatomic) IBOutlet UITextField *LogPwdField;
 @property (strong,nonatomic) ZYLogViewModel *logViewModel;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @end
 @implementation ZYLoginView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.LogUserField addTarget:self action:@selector(userChange:) forControlEvents:(UIControlEventValueChanged)];
+    self.logViewModel = [[ZYLogViewModel alloc]init];
+    [self.LogUserField addTarget:self action:@selector(userChange:) forControlEvents:(UIControlEventEditingChanged)];
+    [self setKVO];
+    [self.loginBtn setEnabled:false];
+    
     
 }
 - (IBAction)loginAction {
@@ -30,12 +35,33 @@
     }];
 }
 - (void)userChange:(UITextField *)userField{
+//    UITextField *field = userField;
     self.logViewModel.user = userField.text;
 }
 - (IBAction)pwdChange:(UITextField *)sender {
     self.logViewModel.pwd = sender.text;
 }
 
+- (void)setKVO {
+    [self.logViewModel addObserver:self forKeyPath:@"_isEnable" options:NSKeyValueObservingOptionNew context:nil];
+    [self.logViewModel addObserver:self forKeyPath:@"_isLogging" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"_isEnable"]) {
+        NSLog(@"change %@",change);
+        
+//        Boolean isEnable = (Boolean)[change valueForKey:@"new"];
+//        NSLog(@"isEnable %d",[change  );
+        NSNumber *num = [change objectForKey:@"new"];
+        if ([num boolValue]) {
+            NSLog(@"it's true");
+        }
+        
+        [self.loginBtn setEnabled: [num boolValue]];
+        
+    }
+}
 
 
 /*

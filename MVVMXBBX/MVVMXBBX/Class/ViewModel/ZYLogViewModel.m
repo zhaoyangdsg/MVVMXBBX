@@ -7,8 +7,44 @@
 //
 
 #import "ZYLogViewModel.h"
-
+@interface ZYLogViewModel ()
+//- (void)setIsEnable:(Boolean)isEnable;
+@end
 @implementation ZYLogViewModel
+
+- (instancetype)init {
+    
+    if (self=[super init]) {
+        [self addObserver:self forKeyPath:@"user" options:NSKeyValueObservingOptionNew context:nil];
+    }
+    return self;
+    
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    NSLog(@"keyPath: %@",keyPath);
+    if ([keyPath isEqualToString: @"user"]) {
+        NSString *userStr = [change valueForKey:@"new"];
+        if (userStr.length == 11) {
+            self.isEnable = true;
+            
+//            [self setValue: forKey:@"isEnable"];
+//            [self setIsEnable:true];
+            
+        }else {
+            self.isEnable = false;
+        }
+    }
+    NSLog(@"%@",change);
+}
+- (void)setIsLogging:(Boolean)isLogging {
+    
+}
+
+- (void)setIsEnable:(Boolean)isEnable {
+    NSLog(@"setIsEnable %d",isEnable);
+    NSLog(@"%d %d",true,false);
+    [self setValue:@(isEnable) forKey:@"_isEnable"];
+}
 
 - (void)goLogInSuccess:(blk)successBlk fail:(blk)failBlk {
     NSLog(@"user: %@ pwd: %@ ", self.user,self.pwd);
@@ -21,4 +57,7 @@
         failBlk(@"登录失败,获得失败原因");
     }
 }
+
+
+
 @end

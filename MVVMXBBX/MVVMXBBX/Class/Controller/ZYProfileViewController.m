@@ -33,7 +33,7 @@
       ZYLoginView *loginView = [[[NSBundle mainBundle] loadNibNamed:@"ZYLoginView" owner:self options:nil] firstObject];
         loginView.frame = self.view.bounds;
         
-        [self.view addSubview:loginView];
+        [UIApplication.sharedApplication.keyWindow addSubview:loginView];
     }
     
 }
