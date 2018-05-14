@@ -54,9 +54,6 @@
                     <color key="tintColor" red="0.97547853210000002" green="0.97547853210000002" blue="0.97547853210000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="登录"/>
                     <state key="disabled" title="不能登录"/>
-                    <connections>
-                        <action selector="loginAction" destination="iN0-l3-epB" eventType="touchUpInside" id="kGf-ew-Elj"/>
-                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHb-sw-DNe" userLabel="UserView">
                     <rect key="frame" x="19" y="280" width="337.5" height="60"/>
@@ -99,9 +96,6 @@
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <action selector="pwdChange:" destination="iN0-l3-epB" eventType="valueChanged" id="k2B-Z5-AcH"/>
-                            </connections>
                         </textField>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,9 +131,9 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="LogPwdField" destination="EXL-Ct-CAq" id="KXt-1B-X0O"/>
-                <outlet property="LogUserField" destination="oD5-uC-8z0" id="KRi-WE-CC5"/>
-                <outlet property="loginBtn" destination="IrL-yc-z52" id="ptd-Vt-AgK"/>
+                <outlet property="logPwdField" destination="EXL-Ct-CAq" id="wXT-8H-MHL"/>
+                <outlet property="logUserField" destination="oD5-uC-8z0" id="2qy-Ak-4jT"/>
+                <outlet property="loginBtn" destination="IrL-yc-z52" id="hKv-4a-brM"/>
             </connections>
             <point key="canvasLocation" x="-551" y="27"/>
         </view>

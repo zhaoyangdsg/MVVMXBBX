@@ -15,26 +15,23 @@
 - (instancetype)init {
     
     if (self=[super init]) {
-        [self addObserver:self forKeyPath:@"user" options:NSKeyValueObservingOptionNew context:nil];
+//        [self addObserver:self forKeyPath:@"user" options:NSKeyValueObservingOptionNew context:nil];
+//        [self addObserver:self forKeyPath:@"pwd" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
     
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    NSLog(@"keyPath: %@",keyPath);
-    if ([keyPath isEqualToString: @"user"]) {
-        NSString *userStr = [change valueForKey:@"new"];
-        if (userStr.length == 11) {
-            self.isEnable = true;
-            
-//            [self setValue: forKey:@"isEnable"];
-//            [self setIsEnable:true];
-            
-        }else {
-            self.isEnable = false;
-        }
+
+    
+}
+
+- (void)checkUserPwd {
+    if (self.pwd.length >= 6 && self.user.length == 11 ) {
+        self.isEnable = true;
+    }else {
+        self.isEnable = false;
     }
-    NSLog(@"%@",change);
 }
 - (void)setIsLogging:(Boolean)isLogging {
     
@@ -57,7 +54,15 @@
         failBlk(@"登录失败,获得失败原因");
     }
 }
+- (void)setUser:(NSString *)user {
+    _user = user;
+    [self checkUserPwd];
+}
 
+- (void)setPwd:(NSString *)pwd {
+    _pwd = pwd;
+    [self checkUserPwd];
+}
 
 
 @end

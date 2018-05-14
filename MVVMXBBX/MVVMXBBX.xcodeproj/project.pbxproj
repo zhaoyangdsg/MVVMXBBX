@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2E162820A9835400C1E7C9 /* UIView+ZY.m */; };
 		FCDB56D420A1A8C0009E7AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D220A1A8C0009E7AEF /* Main.storyboard */; };
 		FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */; };
 		FCDB56D920A1A8C0009E7AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D720A1A8C0009E7AEF /* LaunchScreen.storyboard */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD2E162720A9835400C1E7C9 /* UIView+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ZY.h"; sourceTree = "<group>"; };
+		DD2E162820A9835400C1E7C9 /* UIView+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZY.m"; sourceTree = "<group>"; };
 		FCDB56C920A1A8BD009E7AEF /* MVVMXBBX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMXBBX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDB56D320A1A8C0009E7AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +54,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD2E162620A9819A00C1E7C9 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				DD2E162720A9835400C1E7C9 /* UIView+ZY.h */,
+				DD2E162820A9835400C1E7C9 /* UIView+ZY.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
 		FCDB56C020A1A8BB009E7AEF = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +123,7 @@
 		FCDB56E720A2F3C7009E7AEF /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				DD2E162620A9819A00C1E7C9 /* category */,
 				FCDB56E820A2F3C7009E7AEF /* AppDelegate.h */,
 				FCDB56E920A2F3C7009E7AEF /* AppDelegate.m */,
 				FCDB56EA20A2F3C7009E7AEF /* Info.plist */,
@@ -213,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCE6A86320A42FF600B6D42F /* ZYLogViewModel.m in Sources */,
+				DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */,
 				FCDB56EF20A2F3C7009E7AEF /* AppDelegate.m in Sources */,
 				FCDB56F120A2F3C7009E7AEF /* main.m in Sources */,
 				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,

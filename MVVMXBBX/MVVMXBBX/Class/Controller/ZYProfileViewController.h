@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZYProfileViewController : UITableViewController
+@interface ZYProfileViewController : UIViewController
 
 @end

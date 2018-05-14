@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ZYLoginView : UIView
-
+@property (weak, nonatomic) IBOutlet UITextField *logUserField;
+@property (weak, nonatomic) IBOutlet UITextField *logPwdField;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @end
