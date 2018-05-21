@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ZYProfileViewController : UIViewController
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event;
 @end

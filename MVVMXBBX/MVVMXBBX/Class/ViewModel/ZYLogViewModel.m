@@ -7,6 +7,7 @@
 //
 
 #import "ZYLogViewModel.h"
+#import "ZYProfileHeaderViewModel.h"
 @interface ZYLogViewModel ()
 //- (void)setIsEnable:(Boolean)isEnable;
 @end
@@ -43,13 +44,15 @@
     [self setValue:@(isEnable) forKey:@"_isEnable"];
 }
 
-- (void)goLogInSuccess:(blk)successBlk fail:(blk)failBlk {
+- (void)goLogInSuccess:(void(^)(id))successBlk fail:(void(^)(id))failBlk {
     NSLog(@"user: %@ pwd: %@ ", self.user,self.pwd);
     // 访问网络
     NSLog(@"访问登录接口");
     Boolean isSuccess = true;
     if (isSuccess) {
-        successBlk(@"登录成功,获得user信息");
+        ZYProfileHeaderViewModel *model = [[ZYProfileHeaderViewModel alloc]initWithUser];
+        
+        successBlk(model);
     }else {
         failBlk(@"登录失败,获得失败原因");
     }

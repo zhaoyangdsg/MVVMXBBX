@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^blk)(id)  ;
+//typedef void(^blk)(id)  ;
 @interface ZYLogViewModel : NSObject
 @property(nonatomic,copy,readwrite) NSString *user;
 @property(nonatomic,copy,readwrite) NSString *pwd;
 @property(nonatomic,readonly,assign) Boolean isLogging;
 @property(nonatomic,readonly,assign) Boolean isEnable;
-- (void)goLogInSuccess:(blk)successBlk fail:(blk)failBlk;
+- (void)goLogInSuccess:(void(^)(id))successBlk fail:(void(^)(id))failBlk;
 @end

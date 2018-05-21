@@ -10,6 +10,8 @@
 #import "ZYLoginView.h"
 #import "ZYLogViewModel.h"
 #import "UIView+ZY.h"
+#import "ZYProfileHeaderViewModel.h"
+#import "ZYProfileHeaderView.h"
 
 @interface ZYProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) ZYLogViewModel *logViewModel;
@@ -17,6 +19,8 @@
 @property (weak,nonatomic)ZYLoginView *loginView;
 /** tableView */
 @property (weak,nonatomic)UITableView *tableView;
+@property(strong,nonatomic)ZYProfileHeaderViewModel *headerViewModel;
+@property(weak,nonatomic)ZYProfileHeaderView *headerView;
 @end
 
 @implementation ZYProfileViewController
@@ -42,11 +46,17 @@
         [self.view addSubview:loginView];
     }else {
         [self.view addSubview:self.tableView];
+        
         self.tableView.frame = self.view.bounds;
-        UIView *headerView =  [[UIView alloc]init];
-        headerView.backgroundColor = [UIColor redColor];
-        headerView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
-        self.tableView.tableHeaderView = headerView;
+//        UIView *headerView =  [[UIView alloc]init];
+//        headerView.backgroundColor = [UIColor redColor];
+//        headerView.frame = CGRectMake(0, 0, self.view.width, 100);
+        
+        self.headerView = [[NSBundle mainBundle]loadNibNamed:@"ZYProfileHeaderView" owner:self options:nil].firstObject;
+        self.headerView.frame = CGRectMake(0, 0, self.view.width, 100);
+        self.headerViewModel = [[ZYProfileHeaderViewModel alloc]initWithUser];
+        self.headerView.viewModel = self.headerViewModel;
+        self.tableView.tableHeaderView = self.headerView;
         
     }
 }
@@ -64,9 +74,12 @@
 }
 - (void)loginAction {
     
-    [self.logViewModel goLogInSuccess:^(id json) {
-        NSLog(@"登录成功 %@",json);
-        self.loginView.hidden = true;
+    [self.logViewModel goLogInSuccess:^(id headerModel) {
+        NSLog(@"登录成功 ");
+//        self.headerViewModel = (ZYProfileHeaderViewModel*)headerModel;
+//        self.loginView.hidden = true;
+//        [self.tableView reloadData];
+        [self setupSubView];
     } fail:^(id error) {
         NSLog(@"登录失败 %@",error);
     }];
@@ -91,6 +104,9 @@
         [self.loginView.loginBtn setEnabled: [num boolValue]];
         
     }
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
 }
 
 - (ZYLogViewModel *)logViewModel {
@@ -133,6 +149,10 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cellId"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellId"];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行", indexPath.row];
     return cell;
 }
 
