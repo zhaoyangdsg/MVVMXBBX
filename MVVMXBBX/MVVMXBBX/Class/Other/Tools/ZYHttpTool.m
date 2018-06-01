@@ -16,6 +16,9 @@
 @end
 @implementation ZYHttpTool
 
++ (ZYHttpTool *)defaultTool {
+   return [[ZYHttpTool alloc]initWithBaseUrl:@"http://app.xiaobaibao.com/"];
+}
 - (instancetype)init {
     return [self initWithBaseUrl:nil];
 }
@@ -43,16 +46,16 @@
         
         self.session = [NSURLSession sessionWithConfiguration:self.configuration delegate:self delegateQueue:self.operationQueue];
     }
-    return  nil;
+    return  self;
 }
 
-- (void)postRequestWithUrl:(NSString *)url parameters:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+- (void)postRequestWithUrl:(NSString *)url parameters:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *error))failure {
     
-    [self requestWithMethod:@"GET" url:url parameters:params success:success failure:failure];
+    [self requestWithMethod:@"POST" url:url parameters:params success:success failure:failure];
 }
 
 - (void)getRequestWithUrl:(NSString *)url parameters:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    [self requestWithMethod:@"POST" url:url parameters:params success:success failure:failure];
+    [self requestWithMethod:@"GET" url:url parameters:params success:success failure:failure];
 }
 
 - (void)downloadWithUrl:(NSString *)url success:(NSString *(^)(NSString *))success failure:(void (^)(NSError *))failure {
@@ -68,7 +71,7 @@
     }else {
         url = [NSURL URLWithString:urlStr];
     }
-
+    NSString * str = url.absoluteString;
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
     request.HTTPMethod = method;
     if ([method isEqualToString:@"POST"]) {
@@ -79,11 +82,16 @@
         urlComponents.percentEncodedQuery = [self queryParameters:params] ;
         request.URL = urlComponents.URL;
     }
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type" ];// .setValue("application/json", forHTTPHeaderField: "Content-Type")
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             failure(error);
         }else {
-            
+            if (((NSHTTPURLResponse*)response).statusCode == 200) {
+                success(data);
+            }else {
+                failure([NSError errorWithDomain:@"response error" code:((NSHTTPURLResponse*)response).statusCode userInfo:nil]);
+            }
         }
     }];
     

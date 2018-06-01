@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,7 @@
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IrL-yc-z52">
-                    <rect key="frame" x="37" y="380" width="300" height="44"/>
+                    <rect key="frame" x="37" y="348" width="300" height="44"/>
                     <color key="backgroundColor" red="0.94017578130000001" green="0.63973597630000001" blue="0.19610685929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <accessibility key="accessibilityConfiguration">
                         <bool key="isElement" value="NO"/>
@@ -35,16 +35,16 @@
                     <state key="disabled" title="不能登录"/>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHb-sw-DNe" userLabel="UserView">
-                    <rect key="frame" x="19" y="200" width="337.5" height="60"/>
+                    <rect key="frame" x="19" y="200" width="337.5" height="44"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="账号" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oD5-uC-8z0">
-                            <rect key="frame" x="67.5" y="6" width="270" height="48"/>
+                            <rect key="frame" x="67.5" y="4.5" width="270" height="35"/>
                             <nil key="textColor"/>
-                            <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="20"/>
+                            <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKj-ZA-81c">
-                            <rect key="frame" x="10" y="19" width="39" height="23"/>
+                            <rect key="frame" x="10" y="11" width="39" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -54,7 +54,7 @@
                     <constraints>
                         <constraint firstItem="oD5-uC-8z0" firstAttribute="centerY" secondItem="OHb-sw-DNe" secondAttribute="centerY" id="7X6-jl-PSQ"/>
                         <constraint firstItem="IKj-ZA-81c" firstAttribute="centerY" secondItem="OHb-sw-DNe" secondAttribute="centerY" id="ElF-LG-Mdd"/>
-                        <constraint firstAttribute="height" constant="60" id="J7N-Ep-G58"/>
+                        <constraint firstAttribute="height" constant="44" id="J7N-Ep-G58"/>
                         <constraint firstItem="IKj-ZA-81c" firstAttribute="leading" secondItem="OHb-sw-DNe" secondAttribute="leading" constant="10" id="ZGI-xy-Rre"/>
                         <constraint firstAttribute="trailing" secondItem="oD5-uC-8z0" secondAttribute="trailing" id="mfD-KZ-yx6"/>
                         <constraint firstItem="oD5-uC-8z0" firstAttribute="width" secondItem="OHb-sw-DNe" secondAttribute="width" multiplier="0.8" id="oRK-gM-AmY"/>
@@ -62,16 +62,16 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVj-8v-Xfv" userLabel="PwdView">
-                    <rect key="frame" x="19" y="270" width="337.5" height="60"/>
+                    <rect key="frame" x="19" y="254" width="337.5" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMZ-Lf-DMu">
-                            <rect key="frame" x="10" y="18.5" width="39" height="23"/>
+                            <rect key="frame" x="10" y="10.5" width="39" height="23"/>
                             <fontDescription key="fontDescription" type="system" pointSize="19"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EXL-Ct-CAq">
-                            <rect key="frame" x="67" y="6" width="270" height="48"/>
+                            <rect key="frame" x="67" y="4.5" width="270" height="35"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>

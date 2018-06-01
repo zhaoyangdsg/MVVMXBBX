@@ -9,10 +9,7 @@
 #import "UIViewController+ZY.h"
 
 @implementation UIViewController (ZY)
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if ( [self canBecomeFirstResponder]) {
-        
-        [self becomeFirstResponder];
+    - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+        [self.view endEditing:true];
     }
-}
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ZYHttpTool : NSObject
-
++ (ZYHttpTool*)defaultTool;
 - (instancetype)init;
 - (instancetype)initWithBaseUrl:(NSString *)baseUrl;
 - (instancetype)initWithBaseUrl:(NSString *)baseUrl configuration:(NSURLSessionConfiguration *)configuration;

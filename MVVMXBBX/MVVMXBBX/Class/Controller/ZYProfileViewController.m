@@ -105,9 +105,7 @@
         
     }
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    
-}
+
 
 - (ZYLogViewModel *)logViewModel {
     if (_logViewModel != nil) {

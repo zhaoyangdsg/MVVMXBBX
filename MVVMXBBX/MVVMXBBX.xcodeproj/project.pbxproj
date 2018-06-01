@@ -13,6 +13,8 @@
 		0C5A072420AEC6BE007B0D34 /* UIImage+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A072320AEC6BD007B0D34 /* UIImage+ZY.m */; };
 		0C5A072720AEDAD5007B0D34 /* UIViewController+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A072620AEDAD5007B0D34 /* UIViewController+ZY.m */; };
 		0C5A073720B2612F007B0D34 /* ZYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A073620B2612F007B0D34 /* ZYHttpTool.m */; };
+		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
+		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
 		DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2E162820A9835400C1E7C9 /* UIView+ZY.m */; };
 		FCDB56D420A1A8C0009E7AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D220A1A8C0009E7AEF /* Main.storyboard */; };
 		FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */; };
@@ -39,6 +41,11 @@
 		0C5A072620AEDAD5007B0D34 /* UIViewController+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZY.m"; sourceTree = "<group>"; };
 		0C5A073520B2612F007B0D34 /* ZYHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpTool.h; sourceTree = "<group>"; };
 		0C5A073620B2612F007B0D34 /* ZYHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHttpTool.m; sourceTree = "<group>"; };
+		0CA37B0120C0E9DA0075D840 /* ZYProfileHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHttpTool.h; sourceTree = "<group>"; };
+		0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHttpTool.m; sourceTree = "<group>"; };
+		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
+		0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYBaseHttpTool.m; sourceTree = "<group>"; };
+		0CA37B0720C1296F0075D840 /* ZYSharedable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYSharedable.h; sourceTree = "<group>"; };
 		DD2E162720A9835400C1E7C9 /* UIView+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ZY.h"; sourceTree = "<group>"; };
 		DD2E162820A9835400C1E7C9 /* UIView+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZY.m"; sourceTree = "<group>"; };
 		FCDB56C920A1A8BD009E7AEF /* MVVMXBBX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMXBBX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +83,11 @@
 			children = (
 				0C5A073520B2612F007B0D34 /* ZYHttpTool.h */,
 				0C5A073620B2612F007B0D34 /* ZYHttpTool.m */,
+				0CA37B0120C0E9DA0075D840 /* ZYProfileHttpTool.h */,
+				0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */,
+				0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */,
+				0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */,
+				0CA37B0720C1296F0075D840 /* ZYSharedable.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -263,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C5A071C20AE7CAC007B0D34 /* ZYProfileHeaderView.m in Sources */,
+				0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */,
 				FCE6A86320A42FF600B6D42F /* ZYLogViewModel.m in Sources */,
 				DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */,
 				0C5A072720AEDAD5007B0D34 /* UIViewController+ZY.m in Sources */,
@@ -272,6 +285,7 @@
 				FCDB56F120A2F3C7009E7AEF /* main.m in Sources */,
 				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,
 				FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */,
+				0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */,
 				0C5A072420AEC6BE007B0D34 /* UIImage+ZY.m in Sources */,
 				FCDB56F420A2F55D009E7AEF /* ZYProfileViewController.m in Sources */,
 			);
@@ -410,10 +424,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3S239MD82;
 				INFOPLIST_FILE = MVVMXBBX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zy.MVVMXBBX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -424,10 +439,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3S239MD82;
 				INFOPLIST_FILE = MVVMXBBX/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zy.MVVMXBBX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
