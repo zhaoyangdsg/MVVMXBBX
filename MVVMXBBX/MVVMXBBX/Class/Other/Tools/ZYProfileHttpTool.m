@@ -8,9 +8,12 @@
 
 #import "ZYProfileHttpTool.h"
 #import "ZYHttpTool.h"
+#import "NSURLRequest+ZY.h"
 
 @interface ZYProfileHttpTool()
 @property(nonatomic,strong)ZYHttpTool *httpTool;
+/** request */
+@property (nonatomic,strong)NSURLRequest *request;
 @end
 @implementation ZYProfileHttpTool
 
@@ -27,13 +30,23 @@
     
     NSString *apiUrl = @"app/user/login.do";
     
-    [self.httpTool postRequestWithUrl:apiUrl parameters:paramDic success:^(id resp) {
-        NSLog(@"%@",(NSData *)resp);
-        successHandler(resp);
-    } failure:^(NSError *error) {
-        NSLog(error);
-        failureHandler(error);
-    }];
+    self.request = [self.httpTool postRequestWithUrl:apiUrl parameters:paramDic];
+    
+    self.request.responseJsonWithSuccess = ^(id respJson) {
+        NSLog(@"%@",respJson);
+//        successHandler()
+        // 根据返回报表 做出判断 成功:返回user信息 失败:返回失败原因
+    };
+    self.request.failureHandler = ^(NSError *error) {
+        NSLog(@"%@",error.domain);
+    };
+        
+    
+//     [self.request responseJsonWithSuccess:^(id respJson) {
+//         NSLog(@"%@",respJson);
+//     } failure:^(NSError *error) {
+//         NSLog(@"%@",error.domain);
+//     }];
 }
 
 - (ZYHttpTool *)httpTool {

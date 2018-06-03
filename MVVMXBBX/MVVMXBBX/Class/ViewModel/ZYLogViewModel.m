@@ -51,6 +51,8 @@
     NSLog(@"访问登录接口");
     [ZYProfileHttpTool.shareInstance loginWithUser:self.user password:self.pwd successHandler:^(id resp) {
         NSLog(@"%@", resp);
+        NSString *respStr = [[NSString alloc]initWithData:resp encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",respStr);
         ZYProfileHeaderViewModel *model = [[ZYProfileHeaderViewModel alloc]initWithUser];
         
         successBlk(model);

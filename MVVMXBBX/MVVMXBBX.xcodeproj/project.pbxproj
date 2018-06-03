@@ -15,6 +15,8 @@
 		0C5A073720B2612F007B0D34 /* ZYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A073620B2612F007B0D34 /* ZYHttpTool.m */; };
 		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
+		DD2A202520C3CD7D0001AC18 /* NSURLRequest+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A202420C3CD7D0001AC18 /* NSURLRequest+ZY.m */; };
+		DD2A202820C3EAE20001AC18 /* NSURLResponse+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A202720C3EAE20001AC18 /* NSURLResponse+ZY.m */; };
 		DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2E162820A9835400C1E7C9 /* UIView+ZY.m */; };
 		FCDB56D420A1A8C0009E7AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D220A1A8C0009E7AEF /* Main.storyboard */; };
 		FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */; };
@@ -46,6 +48,10 @@
 		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
 		0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYBaseHttpTool.m; sourceTree = "<group>"; };
 		0CA37B0720C1296F0075D840 /* ZYSharedable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYSharedable.h; sourceTree = "<group>"; };
+		DD2A202320C3CD7D0001AC18 /* NSURLRequest+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+ZY.h"; sourceTree = "<group>"; };
+		DD2A202420C3CD7D0001AC18 /* NSURLRequest+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+ZY.m"; sourceTree = "<group>"; };
+		DD2A202620C3EAE20001AC18 /* NSURLResponse+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+ZY.h"; sourceTree = "<group>"; };
+		DD2A202720C3EAE20001AC18 /* NSURLResponse+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+ZY.m"; sourceTree = "<group>"; };
 		DD2E162720A9835400C1E7C9 /* UIView+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ZY.h"; sourceTree = "<group>"; };
 		DD2E162820A9835400C1E7C9 /* UIView+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZY.m"; sourceTree = "<group>"; };
 		FCDB56C920A1A8BD009E7AEF /* MVVMXBBX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMXBBX.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +107,10 @@
 				0C5A072320AEC6BD007B0D34 /* UIImage+ZY.m */,
 				0C5A072520AEDAD5007B0D34 /* UIViewController+ZY.h */,
 				0C5A072620AEDAD5007B0D34 /* UIViewController+ZY.m */,
+				DD2A202320C3CD7D0001AC18 /* NSURLRequest+ZY.h */,
+				DD2A202420C3CD7D0001AC18 /* NSURLRequest+ZY.m */,
+				DD2A202620C3EAE20001AC18 /* NSURLResponse+ZY.h */,
+				DD2A202720C3EAE20001AC18 /* NSURLResponse+ZY.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -276,6 +286,7 @@
 			files = (
 				0C5A071C20AE7CAC007B0D34 /* ZYProfileHeaderView.m in Sources */,
 				0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */,
+				DD2A202520C3CD7D0001AC18 /* NSURLRequest+ZY.m in Sources */,
 				FCE6A86320A42FF600B6D42F /* ZYLogViewModel.m in Sources */,
 				DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */,
 				0C5A072720AEDAD5007B0D34 /* UIViewController+ZY.m in Sources */,
@@ -287,6 +298,7 @@
 				FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */,
 				0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */,
 				0C5A072420AEC6BE007B0D34 /* UIImage+ZY.m in Sources */,
+				DD2A202820C3EAE20001AC18 /* NSURLResponse+ZY.m in Sources */,
 				FCDB56F420A2F55D009E7AEF /* ZYProfileViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

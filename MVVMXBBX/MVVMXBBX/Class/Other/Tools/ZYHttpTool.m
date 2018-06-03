@@ -7,6 +7,8 @@
 //
 
 #import "ZYHttpTool.h"
+#import "NSURLRequest+ZY.h"
+#import "NSURLResponse+ZY.h"
 
 @interface ZYHttpTool()<NSURLSessionDelegate,NSURLSessionTaskDelegate,NSURLSessionDataDelegate>
 @property(nonatomic,strong)NSURLSession * session;
@@ -49,20 +51,20 @@
     return  self;
 }
 
-- (void)postRequestWithUrl:(NSString *)url parameters:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *error))failure {
+- (NSURLRequest*)postRequestWithUrl:(NSString *)url parameters:(NSDictionary *)params {
     
-    [self requestWithMethod:@"POST" url:url parameters:params success:success failure:failure];
+    return  [self requestWithMethod:@"POST" url:url parameters:params];
 }
 
-- (void)getRequestWithUrl:(NSString *)url parameters:(NSDictionary *)params success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    [self requestWithMethod:@"GET" url:url parameters:params success:success failure:failure];
+- (NSURLRequest*)getRequestWithUrl:(NSString *)url parameters:(NSDictionary *)params {
+    return  [self requestWithMethod:@"GET" url:url parameters:params];
 }
 
 - (void)downloadWithUrl:(NSString *)url success:(NSString *(^)(NSString *))success failure:(void (^)(NSError *))failure {
     
 }
 
-- (void)requestWithMethod:(NSString *)method url:(NSString *)urlStr parameters:(NSDictionary *)params  success:(void (^)(id))success failure:(void (^)(NSError *))failure {
+- (NSURLRequest *)requestWithMethod:(NSString *)method url:(NSString *)urlStr parameters:(NSDictionary *)params {
     
     NSURL * url;
 
@@ -82,20 +84,32 @@
         urlComponents.percentEncodedQuery = [self queryParameters:params] ;
         request.URL = urlComponents.URL;
     }
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type" ];// .setValue("application/json", forHTTPHeaderField: "Content-Type")
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type" ];// .setValue("application/json", forHTTPHeaderField: "Content-Type")
+    [request setValue :@"application/x-www-form-urlencoded; charset=utf-8"  forHTTPHeaderField: @"Content-Type"];
+//    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request];
+    
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
-            failure(error);
-        }else {
+            request.respError = error;
+        }
+
+        if (response) {
             if (((NSHTTPURLResponse*)response).statusCode == 200) {
-                success(data);
+                response.data = data;
             }else {
-                failure([NSError errorWithDomain:@"response error" code:((NSHTTPURLResponse*)response).statusCode userInfo:nil]);
+                NSError *error = [NSError errorWithDomain:@"response error" code:((NSHTTPURLResponse*)response).statusCode userInfo:nil];
+                response.error = error;
             }
         }
+
+        request.response = response;
+        NSLog(@"%@",NSThread.currentThread);
+
     }];
     
     [task resume];
+    
+    return request;
 }
 
 ///  把所有参数拼接成字符串
@@ -190,8 +204,27 @@ public func queryComponents(fromKey key: String, value: Any) -> [(String, String
 */
 
 
+
 @end
 
 @interface ZYHttpTool(SessionDelegate)
 
 @end
+
+@implementation ZYHttpTool(SessionDelegate)
+//- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
+//
+//}
+//
+//- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
+//
+//}
+//- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
+//
+//}
+@end
+
+
+
+
+

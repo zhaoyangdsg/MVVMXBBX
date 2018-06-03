@@ -13,7 +13,7 @@
 - (instancetype)init;
 - (instancetype)initWithBaseUrl:(NSString *)baseUrl;
 - (instancetype)initWithBaseUrl:(NSString *)baseUrl configuration:(NSURLSessionConfiguration *)configuration;
-- (void)postRequestWithUrl:(NSString *) url parameters:(NSDictionary *)params success:(void(^)(id resp))success failure:(void(^)(NSError *))failure;
-- (void)getRequestWithUrl:(NSString *) url parameters:(NSDictionary *)params success:(void(^)(id resp))success failure:(void(^)(NSError *))failure;
+- (NSURLRequest*)postRequestWithUrl:(NSString *) url parameters:(NSDictionary *)params ;
+- (NSURLRequest*)getRequestWithUrl:(NSString *) url parameters:(NSDictionary *)params ;
 - (void)downloadWithUrl:(NSString *) url success:(NSString*(^)(NSString* address))success failure:(void(^)(NSError *))failure;
 @end
