@@ -54,7 +54,9 @@
         
         self.headerView = [[NSBundle mainBundle]loadNibNamed:@"ZYProfileHeaderView" owner:self options:nil].firstObject;
         self.headerView.frame = CGRectMake(0, 0, self.view.width, 100);
-        self.headerViewModel = [[ZYProfileHeaderViewModel alloc]initWithUser];
+        NSData *userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+        ZYUserItem *user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
+        self.headerViewModel = [[ZYProfileHeaderViewModel alloc]initWithUser:user];
         self.headerView.viewModel = self.headerViewModel;
         self.tableView.tableHeaderView = self.headerView;
         
@@ -79,7 +81,9 @@
 //        self.headerViewModel = (ZYProfileHeaderViewModel*)headerModel;
 //        self.loginView.hidden = true;
 //        [self.tableView reloadData];
-        [self setupSubView];
+//        [self setupSubView];
+        self.headerView.viewModel = headerModel;
+        self.loginView.hidden = true;
     } fail:^(id error) {
         NSLog(@"登录失败 %@",error);
     }];

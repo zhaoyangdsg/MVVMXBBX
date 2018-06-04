@@ -7,19 +7,21 @@
 //
 
 #import "ZYProfileHeaderViewModel.h"
-
+#import "ZYUserItem.h"
 @implementation ZYProfileHeaderViewModel
 
-- (instancetype)initWithUser {
+- (instancetype)initWithUser:(ZYUserItem*)user {
     if (self = [super init]) {
-        self.avatar = @"image.xiaobaibao.com/xxxx.jpg";
+        NSString *pic = user.appHeadPic;
+        NSLog(@"%@",pic);
+        self.avatar = pic;// @"image.xiaobaibao.com/xxxx.jpg";
         int level = 1;
         if (level==1) {
             self.level = @"小白达人";
         }else {
             self.level = @"未认证";
         }
-        self.name = @"姓名";
+        self.name = [NSString stringWithFormat:@"%@", user.userName ]; //user.userName;// @"姓名";
     }
     return self;
 }

@@ -9,6 +9,9 @@
 #import "ZYProfileHttpTool.h"
 #import "ZYHttpTool.h"
 #import "NSURLRequest+ZY.h"
+#import "ZYLoginResutItem.h"
+#import "ZYUserItem.h"
+#import "MJExtension.h"
 
 @interface ZYProfileHttpTool()
 @property(nonatomic,strong)ZYHttpTool *httpTool;
@@ -32,21 +35,35 @@
     
     self.request = [self.httpTool postRequestWithUrl:apiUrl parameters:paramDic];
     
+    // response 返回成功
     self.request.responseJsonWithSuccess = ^(id respJson) {
-        NSLog(@"%@",respJson);
-//        successHandler()
+        
+        [ZYLoginResutItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"userId":@"id"};
+        }];
+        NSLog(@"%@",[respJson valueForKey:@"param"][0]);
+        ZYLoginResutItem *loginResult = [ZYLoginResutItem mj_objectWithKeyValues:[respJson valueForKey:@"param"][0]];
+        if (loginResult.success == 1) {
+            ZYUserItem *user = loginResult.user[0];
+            NSData* userData = [NSKeyedArchiver archivedDataWithRootObject:user];
+            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+            [userDefault setObject:userData forKey:@"user"];
+            [userDefault synchronize];
+            successHandler(user);
+            
+        }else {
+            NSError *error = [NSError errorWithDomain:@"用户名或密码不正确" code:11 userInfo:nil];
+            failureHandler(error);
+        }
+
         // 根据返回报表 做出判断 成功:返回user信息 失败:返回失败原因
     };
+    // response 返回失败
     self.request.failureHandler = ^(NSError *error) {
         NSLog(@"%@",error.domain);
+        failureHandler(error);
     };
-        
     
-//     [self.request responseJsonWithSuccess:^(id respJson) {
-//         NSLog(@"%@",respJson);
-//     } failure:^(NSError *error) {
-//         NSLog(@"%@",error.domain);
-//     }];
 }
 
 - (ZYHttpTool *)httpTool {

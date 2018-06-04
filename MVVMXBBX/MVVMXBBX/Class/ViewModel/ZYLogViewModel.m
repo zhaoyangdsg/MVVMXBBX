@@ -9,6 +9,7 @@
 #import "ZYLogViewModel.h"
 #import "ZYProfileHeaderViewModel.h"
 #import "ZYProfileHttpTool.h"
+#import "ZYUserItem.h"
 @interface ZYLogViewModel ()
 //- (void)setIsEnable:(Boolean)isEnable;
 @end
@@ -49,13 +50,15 @@
     NSLog(@"user: %@ pwd: %@ ", self.user,self.pwd);
     // 访问网络
     NSLog(@"访问登录接口");
-    [ZYProfileHttpTool.shareInstance loginWithUser:self.user password:self.pwd successHandler:^(id resp) {
-        NSLog(@"%@", resp);
-        NSString *respStr = [[NSString alloc]initWithData:resp encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",respStr);
-        ZYProfileHeaderViewModel *model = [[ZYProfileHeaderViewModel alloc]initWithUser];
-        
-        successBlk(model);
+    [ZYProfileHttpTool.shareInstance loginWithUser:self.user password:self.pwd successHandler:^(id user) {
+        NSLog(@"%@",user);
+        if (user) {
+            ZYProfileHeaderViewModel *model = [[ZYProfileHeaderViewModel alloc]initWithUser:user];
+            successBlk(model);
+        }else {
+            failBlk(@"用户获取失败");
+        }
+
     } failureHandler:^(id error) {
         NSLog(@"%@",error);
          failBlk(@"登录失败,获得失败原因");

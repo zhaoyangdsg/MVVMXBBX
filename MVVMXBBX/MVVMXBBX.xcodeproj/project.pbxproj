@@ -15,6 +15,9 @@
 		0C5A073720B2612F007B0D34 /* ZYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A073620B2612F007B0D34 /* ZYHttpTool.m */; };
 		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
+		0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */; };
+		0CA37B0E20C4E6860075D840 /* ZYUserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0D20C4E6860075D840 /* ZYUserItem.m */; };
+		A482E3AA308D1FE0B7A8AEAD /* Pods_MVVMXBBX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF0977223E1FC15820BF5CC /* Pods_MVVMXBBX.framework */; };
 		DD2A202520C3CD7D0001AC18 /* NSURLRequest+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A202420C3CD7D0001AC18 /* NSURLRequest+ZY.m */; };
 		DD2A202820C3EAE20001AC18 /* NSURLResponse+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A202720C3EAE20001AC18 /* NSURLResponse+ZY.m */; };
 		DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2E162820A9835400C1E7C9 /* UIView+ZY.m */; };
@@ -48,12 +51,19 @@
 		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
 		0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYBaseHttpTool.m; sourceTree = "<group>"; };
 		0CA37B0720C1296F0075D840 /* ZYSharedable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYSharedable.h; sourceTree = "<group>"; };
+		0CA37B0920C4E34E0075D840 /* ZYLoginResutItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYLoginResutItem.h; sourceTree = "<group>"; };
+		0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYLoginResutItem.m; sourceTree = "<group>"; };
+		0CA37B0C20C4E6860075D840 /* ZYUserItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYUserItem.h; sourceTree = "<group>"; };
+		0CA37B0D20C4E6860075D840 /* ZYUserItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYUserItem.m; sourceTree = "<group>"; };
+		53EA23ACF22506D07637EC60 /* Pods-MVVMXBBX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMXBBX.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX.release.xcconfig"; sourceTree = "<group>"; };
+		AEF0977223E1FC15820BF5CC /* Pods_MVVMXBBX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMXBBX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2A202320C3CD7D0001AC18 /* NSURLRequest+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+ZY.h"; sourceTree = "<group>"; };
 		DD2A202420C3CD7D0001AC18 /* NSURLRequest+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+ZY.m"; sourceTree = "<group>"; };
 		DD2A202620C3EAE20001AC18 /* NSURLResponse+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+ZY.h"; sourceTree = "<group>"; };
 		DD2A202720C3EAE20001AC18 /* NSURLResponse+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+ZY.m"; sourceTree = "<group>"; };
 		DD2E162720A9835400C1E7C9 /* UIView+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ZY.h"; sourceTree = "<group>"; };
 		DD2E162820A9835400C1E7C9 /* UIView+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZY.m"; sourceTree = "<group>"; };
+		DFA55980665EA08D47826424 /* Pods-MVVMXBBX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMXBBX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX.debug.xcconfig"; sourceTree = "<group>"; };
 		FCDB56C920A1A8BD009E7AEF /* MVVMXBBX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMXBBX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDB56D320A1A8C0009E7AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,12 +88,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A482E3AA308D1FE0B7A8AEAD /* Pods_MVVMXBBX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06A9E1D59E08FC537957E09A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AEF0977223E1FC15820BF5CC /* Pods_MVVMXBBX.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0C5A073420B2610E007B0D34 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +115,15 @@
 				0CA37B0720C1296F0075D840 /* ZYSharedable.h */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		259FFA2DD91466C617DC3FFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DFA55980665EA08D47826424 /* Pods-MVVMXBBX.debug.xcconfig */,
+				53EA23ACF22506D07637EC60 /* Pods-MVVMXBBX.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		DD2E162620A9819A00C1E7C9 /* category */ = {
@@ -120,6 +148,8 @@
 			children = (
 				FCDB56CB20A1A8BD009E7AEF /* MVVMXBBX */,
 				FCDB56CA20A1A8BD009E7AEF /* Products */,
+				259FFA2DD91466C617DC3FFD /* Pods */,
+				06A9E1D59E08FC537957E09A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +198,10 @@
 		FCDB56E620A2F3C7009E7AEF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0CA37B0920C4E34E0075D840 /* ZYLoginResutItem.h */,
+				0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */,
+				0CA37B0C20C4E6860075D840 /* ZYUserItem.h */,
+				0CA37B0D20C4E6860075D840 /* ZYUserItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,9 +250,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCDB56DF20A1A8C0009E7AEF /* Build configuration list for PBXNativeTarget "MVVMXBBX" */;
 			buildPhases = (
+				EC7E694686E5BB63C2E1BE74 /* [CP] Check Pods Manifest.lock */,
 				FCDB56C520A1A8BD009E7AEF /* Sources */,
 				FCDB56C620A1A8BD009E7AEF /* Frameworks */,
 				FCDB56C720A1A8BD009E7AEF /* Resources */,
+				4FC6C9DD46BD1C36D502CC32 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -279,6 +315,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4FC6C9DD46BD1C36D502CC32 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC7E694686E5BB63C2E1BE74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MVVMXBBX-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FCDB56C520A1A8BD009E7AEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -294,12 +369,14 @@
 				0C5A072120AE8595007B0D34 /* ZYProfileHeaderViewModel.m in Sources */,
 				FCDB56EF20A2F3C7009E7AEF /* AppDelegate.m in Sources */,
 				FCDB56F120A2F3C7009E7AEF /* main.m in Sources */,
+				0CA37B0E20C4E6860075D840 /* ZYUserItem.m in Sources */,
 				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,
 				FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */,
 				0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */,
 				0C5A072420AEC6BE007B0D34 /* UIImage+ZY.m in Sources */,
 				DD2A202820C3EAE20001AC18 /* NSURLResponse+ZY.m in Sources */,
 				FCDB56F420A2F55D009E7AEF /* ZYProfileViewController.m in Sources */,
+				0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +508,7 @@
 		};
 		FCDB56E020A1A8C0009E7AEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFA55980665EA08D47826424 /* Pods-MVVMXBBX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -446,6 +524,7 @@
 		};
 		FCDB56E120A1A8C0009E7AEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53EA23ACF22506D07637EC60 /* Pods-MVVMXBBX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

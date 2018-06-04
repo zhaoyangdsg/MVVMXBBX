@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class ZYUserItem;
 @interface ZYProfileHeaderViewModel : NSObject
 @property(nonatomic,copy)NSString *avatar;
 @property(nonatomic,copy)NSString *level;
 @property(nonatomic,copy)NSString *name;
-- (instancetype)initWithUser;
+- (instancetype)initWithUser:(ZYUserItem *)user;
 @end

@@ -103,7 +103,7 @@
         }
 
         request.response = response;
-        NSLog(@"%@",NSThread.currentThread);
+//        NSLog(@"%@",NSThread.currentThread);
 
     }];
     
