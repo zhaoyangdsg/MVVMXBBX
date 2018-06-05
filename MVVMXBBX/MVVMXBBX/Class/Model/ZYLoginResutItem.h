@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ZYUserItem;
+#import "ZYUserItem.h"
 @interface ZYLoginResutItem : NSObject
 //var user: [XBBXUserItem]?
 //
