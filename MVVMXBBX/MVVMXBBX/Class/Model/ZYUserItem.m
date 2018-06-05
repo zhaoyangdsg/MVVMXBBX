@@ -7,7 +7,7 @@
 //
 
 #import "ZYUserItem.h"
-
+#import "MJExtension.h"
 @implementation ZYUserItem
-
+MJCodingImplementation
 @end

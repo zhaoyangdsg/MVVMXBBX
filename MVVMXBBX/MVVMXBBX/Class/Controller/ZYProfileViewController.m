@@ -83,7 +83,10 @@
 //        [self.tableView reloadData];
 //        [self setupSubView];
         self.headerView.viewModel = headerModel;
-        self.loginView.hidden = true;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.loginView.hidden = true;
+        });
     } fail:^(id error) {
         NSLog(@"登录失败 %@",error);
     }];

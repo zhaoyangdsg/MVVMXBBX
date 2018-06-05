@@ -17,6 +17,7 @@
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
 		0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */; };
 		0CA37B0E20C4E6860075D840 /* ZYUserItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0D20C4E6860075D840 /* ZYUserItem.m */; };
+		0CA37B1120C67B240075D840 /* ZYUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B1020C67B240075D840 /* ZYUserTool.m */; };
 		A482E3AA308D1FE0B7A8AEAD /* Pods_MVVMXBBX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF0977223E1FC15820BF5CC /* Pods_MVVMXBBX.framework */; };
 		DD2A202520C3CD7D0001AC18 /* NSURLRequest+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A202420C3CD7D0001AC18 /* NSURLRequest+ZY.m */; };
 		DD2A202820C3EAE20001AC18 /* NSURLResponse+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A202720C3EAE20001AC18 /* NSURLResponse+ZY.m */; };
@@ -55,6 +56,8 @@
 		0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYLoginResutItem.m; sourceTree = "<group>"; };
 		0CA37B0C20C4E6860075D840 /* ZYUserItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYUserItem.h; sourceTree = "<group>"; };
 		0CA37B0D20C4E6860075D840 /* ZYUserItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYUserItem.m; sourceTree = "<group>"; };
+		0CA37B0F20C67B240075D840 /* ZYUserTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYUserTool.h; sourceTree = "<group>"; };
+		0CA37B1020C67B240075D840 /* ZYUserTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYUserTool.m; sourceTree = "<group>"; };
 		53EA23ACF22506D07637EC60 /* Pods-MVVMXBBX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMXBBX.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX.release.xcconfig"; sourceTree = "<group>"; };
 		AEF0977223E1FC15820BF5CC /* Pods_MVVMXBBX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MVVMXBBX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD2A202320C3CD7D0001AC18 /* NSURLRequest+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+ZY.h"; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */,
 				0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */,
 				0CA37B0720C1296F0075D840 /* ZYSharedable.h */,
+				0CA37B0F20C67B240075D840 /* ZYUserTool.h */,
+				0CA37B1020C67B240075D840 /* ZYUserTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				0C5A072120AE8595007B0D34 /* ZYProfileHeaderViewModel.m in Sources */,
 				FCDB56EF20A2F3C7009E7AEF /* AppDelegate.m in Sources */,
 				FCDB56F120A2F3C7009E7AEF /* main.m in Sources */,
+				0CA37B1120C67B240075D840 /* ZYUserTool.m in Sources */,
 				0CA37B0E20C4E6860075D840 /* ZYUserItem.m in Sources */,
 				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,
 				FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */,

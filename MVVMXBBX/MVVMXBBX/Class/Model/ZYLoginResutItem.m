@@ -7,7 +7,8 @@
 //
 
 #import "ZYLoginResutItem.h"
+#import "MJExtension.h"
 
 @implementation ZYLoginResutItem
-
+MJCodingImplementation
 @end

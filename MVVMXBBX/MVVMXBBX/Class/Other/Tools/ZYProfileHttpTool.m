@@ -41,14 +41,12 @@
         [ZYLoginResutItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"userId":@"id"};
         }];
-        NSLog(@"%@",[respJson valueForKey:@"param"][0]);
+//        NSLog(@"%@",[respJson valueForKey:@"param"][0]);
         ZYLoginResutItem *loginResult = [ZYLoginResutItem mj_objectWithKeyValues:[respJson valueForKey:@"param"][0]];
         if (loginResult.success == 1) {
-            ZYUserItem *user = loginResult.user[0];
-            NSData* userData = [NSKeyedArchiver archivedDataWithRootObject:user];
-            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-            [userDefault setObject:userData forKey:@"user"];
-            [userDefault synchronize];
+            ZYUserItem *user =[ZYUserItem mj_objectWithKeyValues: loginResult.user[0]];
+            
+           
             successHandler(user);
             
         }else {

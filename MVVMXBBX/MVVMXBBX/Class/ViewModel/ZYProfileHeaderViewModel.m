@@ -12,8 +12,9 @@
 
 - (instancetype)initWithUser:(ZYUserItem*)user {
     if (self = [super init]) {
+        NSLog(@"%@",user);
         NSString *pic = user.appHeadPic;
-        NSLog(@"%@",pic);
+        
         self.avatar = pic;// @"image.xiaobaibao.com/xxxx.jpg";
         int level = 1;
         if (level==1) {
