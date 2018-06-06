@@ -8,9 +8,13 @@
 
 #import "ZYUserTool.h"
 #import "MJExtension.h"
+#import "NSString+ZY.h"
 
 NSString *K_user = @"user";
-NSString *user2 = @"user";
+NSString *K = @"user";
+#define k_user @"user"
+#define k_isLoging @"isLoging"
+#define k_userPlist @"user.plist"
 @implementation ZYUserTool
 
 + (instancetype)shareInstance {
@@ -25,25 +29,34 @@ NSString *user2 = @"user";
 }
 - (BOOL)saveUser:(ZYUserItem *)user {
     // NSKeyedArchiver 是NSCoder的子类 coder是编码器 用于把对象进行编码 变成可存储的data  keyed: 通过key来编码 而非顺序
-    NSData* userData = [NSKeyedArchiver archivedDataWithRootObject:user];
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:userData forKey:K_user];
-    [userDefault synchronize];
-    return true;
+
+    BOOL isSuccess = [NSKeyedArchiver archiveRootObject:user toFile:k_userPlist.documentPath];
+    [self setIsLoging:true];
+    return isSuccess;
 }
 - (ZYUserItem *)getUser {
-    NSData *data = [[NSUserDefaults standardUserDefaults] valueForKey:K_user];
-    ZYUserItem *user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    return user;
-}
-
-- (BOOL)isLoging {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:@"isLoging"];
+    if ([self isLoging]) {
+        ZYUserItem *user = [NSKeyedUnarchiver unarchiveObjectWithFile:k_userPlist.documentPath];
+        return user;
+    }
+    return nil;
 }
 
 - (void)removeUser {
-     [[NSUserDefaults standardUserDefaults]removeObjectForKey:K_user];
+    if ([[NSFileManager defaultManager] isDeletableFileAtPath:k_userPlist]) {
+        [[NSFileManager defaultManager] removeItemAtPath:k_userPlist error:nil];
+    }
+    [self setIsLoging:false];
 }
 
-//- (BOOL)isLoging;
+- (BOOL)isLoging {
+    return [[NSUserDefaults standardUserDefaults] boolForKey:k_isLoging];
+}
+
+- (void)setIsLoging:(BOOL)isLoging{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setBool:isLoging forKey:k_isLoging];
+    [userDefault synchronize];
+}
+
 @end
