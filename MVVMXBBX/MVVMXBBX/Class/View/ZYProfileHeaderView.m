@@ -21,8 +21,8 @@
 
 - (void)setViewModel:(ZYProfileHeaderViewModel *)viewModel {
     _viewModel = viewModel;
-    
-    self.avatarImgView.image = [UIImage imageWithUrlStr:viewModel.avatar];
+    NSString *imgUrl = [NSString stringWithFormat:@"http://images.xiaobaibao.com/%@",viewModel.avatar];
+    self.avatarImgView.image = [UIImage imageWithUrlStr:imgUrl];
     self.nameLabel.text = viewModel.name;
     self.levelLabel.text = viewModel.level;
 }

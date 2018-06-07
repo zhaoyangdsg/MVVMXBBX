@@ -31,7 +31,7 @@ NSString *K = @"user";
     // NSKeyedArchiver 是NSCoder的子类 coder是编码器 用于把对象进行编码 变成可存储的data  keyed: 通过key来编码 而非顺序
 
     BOOL isSuccess = [NSKeyedArchiver archiveRootObject:user toFile:k_userPlist.documentPath];
-    [self setIsLoging:true];
+    [self setIsLoging:isSuccess];
     return isSuccess;
 }
 - (ZYUserItem *)getUser {

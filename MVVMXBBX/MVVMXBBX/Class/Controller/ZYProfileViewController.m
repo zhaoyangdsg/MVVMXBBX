@@ -8,13 +8,16 @@
 
 #import "ZYProfileViewController.h"
 #import "ZYLoginView.h"
-#import "ZYLogViewModel.h"
+#import "ZYlogViewModel.h"
 #import "UIView+ZY.h"
 #import "ZYProfileHeaderViewModel.h"
 #import "ZYProfileHeaderView.h"
+#import "ZYUserTool.h"
+#import "SVProgressHUD.h"
+//#import "UIViewController+ZY.h"
 
 @interface ZYProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong) ZYLogViewModel *logViewModel;
+@property(nonatomic,strong) ZYLogViewModel *loginViewModel;
 /** loginView */
 @property (weak,nonatomic)ZYLoginView *loginView;
 /** tableView */
@@ -36,30 +39,19 @@
 
 
 - (void)setupSubView {
-    Boolean isLogin = false;
+    Boolean isLogin = ZYUserTool.shareInstance.isLoging;
     if (!isLogin) {
-      ZYLoginView *loginView = [[[NSBundle mainBundle] loadNibNamed:@"ZYLoginView" owner:self options:nil] firstObject];
         
-        loginView.frame = self.view.bounds;
-        self.loginView = loginView;
-//        loginView.log
-        [self.view addSubview:loginView];
+        [self.view addSubview:self.loginView];
     }else {
         [self.view addSubview:self.tableView];
         
         self.tableView.frame = self.view.bounds;
-//        UIView *headerView =  [[UIView alloc]init];
-//        headerView.backgroundColor = [UIColor redColor];
-//        headerView.frame = CGRectMake(0, 0, self.view.width, 100);
-        
-        self.headerView = [[NSBundle mainBundle]loadNibNamed:@"ZYProfileHeaderView" owner:self options:nil].firstObject;
         self.headerView.frame = CGRectMake(0, 0, self.view.width, 100);
-        NSData *userData = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
-        ZYUserItem *user = [NSKeyedUnarchiver unarchiveObjectWithData:userData];
-        self.headerViewModel = [[ZYProfileHeaderViewModel alloc]initWithUser:user];
+        self.headerView.backgroundColor = [UIColor greenColor];
+        self.headerViewModel = [[ZYProfileHeaderViewModel alloc]initWithUser:ZYUserTool.shareInstance.getUser];
         self.headerView.viewModel = self.headerViewModel;
         self.tableView.tableHeaderView = self.headerView;
-        
     }
 }
 - (void)bindViewAction {
@@ -69,37 +61,42 @@
 }
 - (void)userChange:(UITextField *)userField{
     //    UITextField *field = userField;
-    self.logViewModel.user = userField.text;
+    self.loginViewModel.user = userField.text;
 }
 - (void)pwdChange:(UITextField *)sender {
-    self.logViewModel.pwd = sender.text;
+    self.loginViewModel.pwd = sender.text;
 }
 - (void)loginAction {
-    
-    [self.logViewModel goLogInSuccess:^(id headerModel) {
+    [SVProgressHUD showWithStatus:@"Logining..."];
+    [self.loginView.loginBtn setEnabled:NO];
+    [self.loginViewModel goLogInSuccess:^(id headerModel) {
         NSLog(@"登录成功 ");
-//        self.headerViewModel = (ZYProfileHeaderViewModel*)headerModel;
-//        self.loginView.hidden = true;
-//        [self.tableView reloadData];
-//        [self setupSubView];
+        //        self.headerViewModel = (ZYProfileHeaderViewModel*)headerModel;
+        //        self.loginView.hidden = true;
+        //        [self.tableView reloadData];
+        //
         self.headerView.viewModel = headerModel;
         dispatch_async(dispatch_get_main_queue(), ^{
-            
+            [UIView animateWithDuration:1 animations:^{
+                self.loginView.alpha = 0.0;
+            }];
             self.loginView.hidden = true;
         });
+        [self setupSubView];
     } fail:^(id error) {
         NSLog(@"登录失败 %@",error);
     }];
 }
 
 - (void)setKVO {
-    [self.logViewModel addObserver:self forKeyPath:@"isEnable" options:NSKeyValueObservingOptionNew context:nil];
-    [self.logViewModel addObserver:self forKeyPath:@"isLogging" options:NSKeyValueObservingOptionNew context:nil];
+    
+    [self.loginViewModel addObserver:self forKeyPath:@"isEnable" options:NSKeyValueObservingOptionNew context:nil];
+    [self.loginViewModel addObserver:self forKeyPath:@"isLogging" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"isEnable"]) {
-        NSLog(@"change %@",change);
+//        NSLog(@"change %@",change);
         
         //        Boolean isEnable = (Boolean)[change valueForKey:@"new"];
         //        NSLog(@"isEnable %d",[change  );
@@ -111,16 +108,21 @@
         [self.loginView.loginBtn setEnabled: [num boolValue]];
         
     }
+    if ([keyPath isEqualToString:@"isLogging"]) {
+        BOOL isLogging = [change objectForKey:@"new"];
+        if (!isLogging) {
+            [SVProgressHUD dismiss];
+        }
+    }
 }
 
-
-- (ZYLogViewModel *)logViewModel {
-    if (_logViewModel != nil) {
-        return _logViewModel;
+// MARK: lazy
+- (ZYLogViewModel *)loginViewModel {
+    if (!_loginViewModel) {
+      _loginViewModel = [[ZYLogViewModel alloc]init];
     }
-    ZYLogViewModel * model = [[ZYLogViewModel alloc]init];
-    _logViewModel = model;
-    return _logViewModel;
+    
+    return _loginViewModel;
 }
 
 - (UITableView *)tableView {
@@ -129,9 +131,25 @@
         _tableView = view;
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.backgroundColor = [UIColor redColor];
         return _tableView;
     }
     return _tableView;
+}
+
+- (ZYLoginView *)loginView {
+    if (!_loginView) {
+        _loginView = [[NSBundle mainBundle]loadNibNamed:@"ZYLoginView" owner:self options:nil].firstObject;
+        _loginView.frame = self.view.bounds;
+    }
+    return _loginView;
+}
+
+- (ZYProfileHeaderView *)headerView {
+    if (!_headerView) {
+        _headerView = [[NSBundle mainBundle]loadNibNamed:@"ZYProfileHeaderView" owner:self options:nil].firstObject;
+    }
+    return _headerView;
 }
 
 
@@ -143,12 +161,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     return 7;
 }
 
@@ -164,7 +182,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         UIView *view = [[UIView alloc]init];
-        view.backgroundColor = [UIColor greenColor];
+        view.backgroundColor = [UIColor yellowColor];
         return view;
     }else {
         return [[UIView alloc]init];
@@ -174,7 +192,10 @@
     return 60;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [ZYUserTool.shareInstance removeUser];
+    [self setupSubView];
+}
 
 
 /*
