@@ -33,16 +33,18 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self setupSubView];
     [self bindViewAction];
-    [self setKVO];
+   
     
 }
 
 
 - (void)setupSubView {
     Boolean isLogin = ZYUserTool.shareInstance.isLoging;
-    if (!isLogin) {
+    
+    if (!isLogin ) {
         
         [self.view addSubview:self.loginView];
+        [self setLoginViewKVO];
     }else {
         [self.view addSubview:self.tableView];
         
@@ -81,14 +83,15 @@
                 self.loginView.alpha = 0.0;
             }];
             self.loginView.hidden = true;
+            [self setupSubView];
         });
-        [self setupSubView];
+        
     } fail:^(id error) {
         NSLog(@"登录失败 %@",error);
     }];
 }
 
-- (void)setKVO {
+- (void)setLoginViewKVO {
     
     [self.loginViewModel addObserver:self forKeyPath:@"isEnable" options:NSKeyValueObservingOptionNew context:nil];
     [self.loginViewModel addObserver:self forKeyPath:@"isLogging" options:NSKeyValueObservingOptionNew context:nil];
@@ -109,8 +112,8 @@
         
     }
     if ([keyPath isEqualToString:@"isLogging"]) {
-        BOOL isLogging = [change objectForKey:@"new"];
-        if (!isLogging) {
+        NSNumber *isLogging = [change objectForKey:@"new"];
+        if (isLogging.intValue == 0) {
             [SVProgressHUD dismiss];
         }
     }

@@ -51,7 +51,7 @@
     [self setIsLogging:YES];
     [ZYProfileHttpTool.shareInstance loginWithUser:self.user password:self.pwd successHandler:^(id user) {
         NSLog(@"%@",user);
-        [self setIsLogging:NO];
+        self.isLogging = NO;
         if (user) {
             [[ZYUserTool shareInstance]saveUser:user];
             ZYProfileHeaderViewModel *model = [[ZYProfileHeaderViewModel alloc]initWithUser:user];
@@ -62,7 +62,7 @@
         
     } failureHandler:^(id error) {
         NSLog(@"%@",error);
-        [self setIsLogging:NO];
+        self.isLogging = NO;
         failBlk(error);
     }];
     

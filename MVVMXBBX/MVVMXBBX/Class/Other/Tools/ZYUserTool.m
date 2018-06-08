@@ -10,10 +10,10 @@
 #import "MJExtension.h"
 #import "NSString+ZY.h"
 
-NSString *K_user = @"user";
-NSString *K = @"user";
+//NSString *K_user = @"user";
+//NSString *K = @"user";
 #define k_user @"user"
-#define k_isLoging @"isLoging"
+#define k_isLogined @"isLogined"
 #define k_userPlist @"user.plist"
 @implementation ZYUserTool
 
@@ -46,16 +46,22 @@ NSString *K = @"user";
     if ([[NSFileManager defaultManager] isDeletableFileAtPath:k_userPlist]) {
         [[NSFileManager defaultManager] removeItemAtPath:k_userPlist error:nil];
     }
-    [self setIsLoging:false];
+    [self setIsLoging:NO];
 }
 
 - (BOOL)isLoging {
-    return [[NSUserDefaults standardUserDefaults] boolForKey:k_isLoging];
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults] valueForKey :k_isLogined]);
+    NSNumber *isLogined  = [[NSUserDefaults standardUserDefaults] valueForKey :k_isLogined];
+    if (isLogined.intValue == 0) {
+        return NO;
+    }else {
+        return YES;
+    }
 }
 
 - (void)setIsLoging:(BOOL)isLoging{
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setBool:isLoging forKey:k_isLoging];
+    [userDefault setBool:isLoging forKey:k_isLogined];
     [userDefault synchronize];
 }
 
