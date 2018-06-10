@@ -265,6 +265,7 @@
 				FCDB56C620A1A8BD009E7AEF /* Frameworks */,
 				FCDB56C720A1A8BD009E7AEF /* Resources */,
 				4FC6C9DD46BD1C36D502CC32 /* [CP] Embed Pods Frameworks */,
+				215E6D7BFEF552838B60E0F1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,6 +327,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		215E6D7BFEF552838B60E0F1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4FC6C9DD46BD1C36D502CC32 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

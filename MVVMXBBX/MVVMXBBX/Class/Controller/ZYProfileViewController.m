@@ -14,7 +14,7 @@
 #import "ZYProfileHeaderView.h"
 #import "ZYUserTool.h"
 #import "SVProgressHUD.h"
-//#import "UIViewController+ZY.h"
+
 
 @interface ZYProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) ZYLogViewModel *loginViewModel;
@@ -32,28 +32,20 @@
     [super viewDidLoad];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self setupSubView];
-    [self bindViewAction];
-   
-    
-}
+    }
 
 
 - (void)setupSubView {
     Boolean isLogin = ZYUserTool.shareInstance.isLoging;
     
     if (!isLogin ) {
-        
         [self.view addSubview:self.loginView];
         [self setLoginViewKVO];
+        [self bindViewAction];
+
     }else {
         [self.view addSubview:self.tableView];
         
-        self.tableView.frame = self.view.bounds;
-        self.headerView.frame = CGRectMake(0, 0, self.view.width, 100);
-        self.headerView.backgroundColor = [UIColor greenColor];
-        self.headerViewModel = [[ZYProfileHeaderViewModel alloc]initWithUser:ZYUserTool.shareInstance.getUser];
-        self.headerView.viewModel = self.headerViewModel;
-        self.tableView.tableHeaderView = self.headerView;
     }
 }
 - (void)bindViewAction {
@@ -68,6 +60,8 @@
 - (void)pwdChange:(UITextField *)sender {
     self.loginViewModel.pwd = sender.text;
 }
+
+/// 点击登陆
 - (void)loginAction {
     [SVProgressHUD showWithStatus:@"Logining..."];
     [self.loginView.loginBtn setEnabled:NO];
@@ -82,7 +76,10 @@
             [UIView animateWithDuration:1 animations:^{
                 self.loginView.alpha = 0.0;
             }];
-            self.loginView.hidden = true;
+//            self.loginView.hidden = true;
+//            [self.view sendSubviewToBack:self.loginView];
+            [self.loginView removeFromSuperview];
+//            self.loginView = nil;
             [self setupSubView];
         });
         
@@ -90,7 +87,13 @@
         NSLog(@"登录失败 %@",error);
     }];
 }
-
+// 退出
+- (void)logout{
+    [ZYUserTool.shareInstance removeUser];
+    [self.tableView removeFromSuperview];
+//    self.tableView = nil;
+    [self setupSubView];
+}
 - (void)setLoginViewKVO {
     
     [self.loginViewModel addObserver:self forKeyPath:@"isEnable" options:NSKeyValueObservingOptionNew context:nil];
@@ -135,6 +138,8 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = [UIColor redColor];
+        _tableView.frame = self.view.bounds;
+        _tableView.tableHeaderView = self.headerView;
         return _tableView;
     }
     return _tableView;
@@ -144,6 +149,8 @@
     if (!_loginView) {
         _loginView = [[NSBundle mainBundle]loadNibNamed:@"ZYLoginView" owner:self options:nil].firstObject;
         _loginView.frame = self.view.bounds;
+        _loginView.logUserField.text = @"18565302545";
+        _loginView.logPwdField.text = @"123456";
     }
     return _loginView;
 }
@@ -151,6 +158,11 @@
 - (ZYProfileHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [[NSBundle mainBundle]loadNibNamed:@"ZYProfileHeaderView" owner:self options:nil].firstObject;
+        _headerView.frame = CGRectMake(0, 0, self.view.width, 100);
+        _headerView.backgroundColor = [UIColor greenColor];
+        self.headerViewModel = [[ZYProfileHeaderViewModel alloc]initWithUser:ZYUserTool.shareInstance.getUser];
+        _headerView.viewModel = self.headerViewModel;
+
     }
     return _headerView;
 }
@@ -196,8 +208,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [ZYUserTool.shareInstance removeUser];
-    [self setupSubView];
+    [self logout];
 }
 
 
