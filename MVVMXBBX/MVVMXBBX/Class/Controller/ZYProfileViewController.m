@@ -32,7 +32,7 @@
     [super viewDidLoad];
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self setupSubView];
-    }
+}
 
 
 - (void)setupSubView {

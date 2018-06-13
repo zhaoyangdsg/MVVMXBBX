@@ -4,5 +4,6 @@ target "MVVMXBBX" do
 
 pod 'MJExtension'
 pod 'SVProgressHUD'
+pod 'ReactiveCocoa', '~> 7.0'
 
 end

@@ -13,6 +13,7 @@
 		0C5A072420AEC6BE007B0D34 /* UIImage+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A072320AEC6BD007B0D34 /* UIImage+ZY.m */; };
 		0C5A072720AEDAD5007B0D34 /* UIViewController+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A072620AEDAD5007B0D34 /* UIViewController+ZY.m */; };
 		0C5A073720B2612F007B0D34 /* ZYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A073620B2612F007B0D34 /* ZYHttpTool.m */; };
+		0C61620C20D1219000B777DA /* ZYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61620B20D1219000B777DA /* ZYHomeViewController.m */; };
 		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
 		0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */; };
@@ -48,6 +49,8 @@
 		0C5A072620AEDAD5007B0D34 /* UIViewController+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZY.m"; sourceTree = "<group>"; };
 		0C5A073520B2612F007B0D34 /* ZYHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYHttpTool.h; sourceTree = "<group>"; };
 		0C5A073620B2612F007B0D34 /* ZYHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHttpTool.m; sourceTree = "<group>"; };
+		0C61620A20D1219000B777DA /* ZYHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeViewController.h; sourceTree = "<group>"; };
+		0C61620B20D1219000B777DA /* ZYHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeViewController.m; sourceTree = "<group>"; };
 		0CA37B0120C0E9DA0075D840 /* ZYProfileHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHttpTool.h; sourceTree = "<group>"; };
 		0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHttpTool.m; sourceTree = "<group>"; };
 		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				FCDB56E520A2F3C7009E7AEF /* ViewController.m */,
 				FCDB56F220A2F55D009E7AEF /* ZYProfileViewController.h */,
 				FCDB56F320A2F55D009E7AEF /* ZYProfileViewController.m */,
+				0C61620A20D1219000B777DA /* ZYHomeViewController.h */,
+				0C61620B20D1219000B777DA /* ZYHomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -265,7 +270,6 @@
 				FCDB56C620A1A8BD009E7AEF /* Frameworks */,
 				FCDB56C720A1A8BD009E7AEF /* Resources */,
 				4FC6C9DD46BD1C36D502CC32 /* [CP] Embed Pods Frameworks */,
-				215E6D7BFEF552838B60E0F1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,21 +331,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		215E6D7BFEF552838B60E0F1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4FC6C9DD46BD1C36D502CC32 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -350,11 +339,17 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +386,7 @@
 				0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */,
 				DD2A202520C3CD7D0001AC18 /* NSURLRequest+ZY.m in Sources */,
 				FCE6A86320A42FF600B6D42F /* ZYLogViewModel.m in Sources */,
+				0C61620C20D1219000B777DA /* ZYHomeViewController.m in Sources */,
 				DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */,
 				0C5A072720AEDAD5007B0D34 /* UIViewController+ZY.m in Sources */,
 				0C5A073720B2612F007B0D34 /* ZYHttpTool.m in Sources */,
