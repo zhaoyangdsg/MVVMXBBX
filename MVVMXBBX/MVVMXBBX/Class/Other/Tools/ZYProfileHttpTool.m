@@ -12,6 +12,8 @@
 #import "ZYLoginResutItem.h"
 #import "ZYUserItem.h"
 #import "MJExtension.h"
+#import "ZYUserTool.h"
+#import "ZYProfileWalletItem.h"
 
 @interface ZYProfileHttpTool()
 @property(nonatomic,strong)ZYHttpTool *httpTool;
@@ -62,6 +64,31 @@
         failureHandler(error);
     };
     
+}
+
+- (void)loadMyWalletDataSuccessHandler:(void (^)(id))success failureHandler:(void (^)(NSError *))failure {
+//    let url = APP_HEAD_URL + "/app/cash/appMoneyBag.do"
+//
+//    var param = Dictionary<String, AnyObject>()
+//    //        param["EnCode"] = "UTF-8"
+//    param["mobile"] = XBBXAccountTool.getAccount()?.mobile as AnyObject?
+//    param["pwd"] = XBBXAccountTool.getAccount()?.password as AnyObject?
+//    param["EnCode"] = "UTF-8" as AnyObject?
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    ZYUserItem *user = [ZYUserTool.shareInstance getUser];
+    parameters[@"mobile"] = user.mobile;
+    parameters[@"pwd"] = user.password;
+    parameters[@"EnCode"] = @"UTF-8";
+    NSURLRequest *request = [self.httpTool postRequestWithUrl:@"/app/cash/appMoneyBag.do" parameters:parameters];
+    request.responseJsonWithSuccess = ^(id respJson) {
+        NSLog(@"%@",respJson[@"param"][0]);
+        ZYProfileWalletItem *walletItem = [ZYProfileWalletItem  mj_objectWithKeyValues:respJson];
+        success(walletItem);
+    };
+    request.failureHandler = ^(NSError *error) {
+        NSLog(@"%@",error);
+        failure(error);
+    };
 }
 
 - (ZYHttpTool *)httpTool {

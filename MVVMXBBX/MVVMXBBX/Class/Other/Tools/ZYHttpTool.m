@@ -89,10 +89,18 @@
 //    NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request];
     
     NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        /** 返回结果:
+         1. 正确;
+         2. 错误:
+                1) 请求错误 (request.error)
+                2) 响应错误 (request.response.error)
+         */
+        // 如果有error 把error给request
         if (error) {
             request.respError = error;
         }
 
+        // 如果有response ,分两种情况,如果200 把返回数据给response,如果不是200 把相应的错误代码给response.error
         if (response) {
             if (((NSHTTPURLResponse*)response).statusCode == 200) {
                 response.data = data;
@@ -103,7 +111,6 @@
         }
 
         request.response = response;
-//        NSLog(@"%@",NSThread.currentThread);
 
     }];
     

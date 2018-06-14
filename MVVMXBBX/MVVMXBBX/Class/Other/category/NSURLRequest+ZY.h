@@ -17,4 +17,6 @@
 /**  */
 @property (nonatomic,strong)void(^failureHandler)(NSError *error) ;
 //responseJsonWithSuccess:success failure:(void(^)(NSError *error))failure;
+//- (NSURLRequest *)successHandler:(void(^)(id resp))success;
+//- (NSURLRequest *)failureHandler:(void(^)(NSError *error))failuer;
 @end

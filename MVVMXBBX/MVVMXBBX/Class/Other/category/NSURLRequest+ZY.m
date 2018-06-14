@@ -30,12 +30,14 @@ const char ZYResponseKey;
     if (response != nil && self.responseJsonWithSuccess) {
         id resp = [NSJSONSerialization JSONObjectWithData:self.response.data   options:NSJSONReadingAllowFragments error:nil];
                 NSLog(@"%@",resp);
+        
         self.responseJsonWithSuccess(resp);
     }
 }
 - (NSURLResponse *)response {
     return  objc_getAssociatedObject(self, &ZYResponseKey);
 }
+
 
 - (void)setRespError:(NSError *)respError {
     objc_setAssociatedObject(self, @"respError", respError, 1);
@@ -46,6 +48,7 @@ const char ZYResponseKey;
 - (NSError *)respError {
     return objc_getAssociatedObject(self, @"respError");
 }
+
 
 - (void)setResponseJsonWithSuccess:(void (^)(id))responseJsonWithSuccess {
     objc_setAssociatedObject(self, @"successHandler", responseJsonWithSuccess, 1);

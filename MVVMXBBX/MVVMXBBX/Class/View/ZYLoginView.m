@@ -8,6 +8,7 @@
 
 #import "ZYLoginView.h"
 #import "ZYLogViewModel.h"
+//#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface ZYLoginView()
 //@property (strong,nonatomic) ZYLogViewModel *logViewModel;
@@ -20,7 +21,6 @@
     [super awakeFromNib];
 //    self.logViewModel = [[ZYLogViewModel alloc]init];
     [self.loginBtn setEnabled:false];
-    
     
 }
 

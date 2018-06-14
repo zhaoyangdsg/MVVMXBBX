@@ -14,7 +14,7 @@
 #import "ZYProfileHeaderView.h"
 #import "ZYUserTool.h"
 #import "SVProgressHUD.h"
-
+#import "ZYMyWalletController.h"
 
 @interface ZYProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) ZYLogViewModel *loginViewModel;
@@ -208,7 +208,29 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self logout];
+//    if (indexPath.row == 6) {
+//        [self logout];
+//    }else {
+//        ZYMyWalletController *controller = [[ZYMyWalletController alloc]init];
+//        [self.navigationController pushViewController:controller animated:YES];
+//    }
+    void (^block1)(void) = ^{
+        NSLog(@"原始block");
+    };
+    NSLog(@"%@,%p",block1,&block1);
+    hookBlock(block1);
+    block1();
+}
+
+void hookBlock(id block) {
+    NSLog(@"%@,%p",block,&block);
+    void *p = &block;
+    void (^newBlock)(void) = ^{
+        NSLog(@"new block");
+    };
+    NSLog(@"%@,%p",newBlock,&newBlock);
+    p = &newBlock;
+    
 }
 
 

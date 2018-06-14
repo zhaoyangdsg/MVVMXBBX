@@ -14,6 +14,9 @@
 		0C5A072720AEDAD5007B0D34 /* UIViewController+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A072620AEDAD5007B0D34 /* UIViewController+ZY.m */; };
 		0C5A073720B2612F007B0D34 /* ZYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A073620B2612F007B0D34 /* ZYHttpTool.m */; };
 		0C61620C20D1219000B777DA /* ZYHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61620B20D1219000B777DA /* ZYHomeViewController.m */; };
+		0C61620F20D203AA00B777DA /* ZYHomeHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61620E20D203AA00B777DA /* ZYHomeHttpTool.m */; };
+		0C61621320D2552400B777DA /* ZYProfileWalletItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61621220D2552400B777DA /* ZYProfileWalletItem.m */; };
+		0C61621720D258BF00B777DA /* ZYMyWalletController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61621620D258BF00B777DA /* ZYMyWalletController.m */; };
 		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
 		0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */; };
@@ -51,6 +54,13 @@
 		0C5A073620B2612F007B0D34 /* ZYHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYHttpTool.m; sourceTree = "<group>"; };
 		0C61620A20D1219000B777DA /* ZYHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeViewController.h; sourceTree = "<group>"; };
 		0C61620B20D1219000B777DA /* ZYHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeViewController.m; sourceTree = "<group>"; };
+		0C61620D20D203AA00B777DA /* ZYHomeHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeHttpTool.h; sourceTree = "<group>"; };
+		0C61620E20D203AA00B777DA /* ZYHomeHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeHttpTool.m; sourceTree = "<group>"; };
+		0C61621020D21AAE00B777DA /* MVVMXBBX.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVVMXBBX.pch; sourceTree = "<group>"; };
+		0C61621120D2552400B777DA /* ZYProfileWalletItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileWalletItem.h; sourceTree = "<group>"; };
+		0C61621220D2552400B777DA /* ZYProfileWalletItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileWalletItem.m; sourceTree = "<group>"; };
+		0C61621520D258BF00B777DA /* ZYMyWalletController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYMyWalletController.h; sourceTree = "<group>"; };
+		0C61621620D258BF00B777DA /* ZYMyWalletController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYMyWalletController.m; sourceTree = "<group>"; };
 		0CA37B0120C0E9DA0075D840 /* ZYProfileHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHttpTool.h; sourceTree = "<group>"; };
 		0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHttpTool.m; sourceTree = "<group>"; };
 		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
@@ -124,8 +134,21 @@
 				0CA37B0720C1296F0075D840 /* ZYSharedable.h */,
 				0CA37B0F20C67B240075D840 /* ZYUserTool.h */,
 				0CA37B1020C67B240075D840 /* ZYUserTool.m */,
+				0C61620D20D203AA00B777DA /* ZYHomeHttpTool.h */,
+				0C61620E20D203AA00B777DA /* ZYHomeHttpTool.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		0C61621420D2589600B777DA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FCDB56F220A2F55D009E7AEF /* ZYProfileViewController.h */,
+				FCDB56F320A2F55D009E7AEF /* ZYProfileViewController.m */,
+				0C61621520D258BF00B777DA /* ZYMyWalletController.h */,
+				0C61621620D258BF00B777DA /* ZYMyWalletController.m */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		259FFA2DD91466C617DC3FFD /* Pods */ = {
@@ -200,10 +223,9 @@
 		FCDB56E320A2F3C7009E7AEF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0C61621420D2589600B777DA /* Profile */,
 				FCDB56E420A2F3C7009E7AEF /* ViewController.h */,
 				FCDB56E520A2F3C7009E7AEF /* ViewController.m */,
-				FCDB56F220A2F55D009E7AEF /* ZYProfileViewController.h */,
-				FCDB56F320A2F55D009E7AEF /* ZYProfileViewController.m */,
 				0C61620A20D1219000B777DA /* ZYHomeViewController.h */,
 				0C61620B20D1219000B777DA /* ZYHomeViewController.m */,
 			);
@@ -217,6 +239,8 @@
 				0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */,
 				0CA37B0C20C4E6860075D840 /* ZYUserItem.h */,
 				0CA37B0D20C4E6860075D840 /* ZYUserItem.m */,
+				0C61621120D2552400B777DA /* ZYProfileWalletItem.h */,
+				0C61621220D2552400B777DA /* ZYProfileWalletItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,6 +254,7 @@
 				FCDB56E920A2F3C7009E7AEF /* AppDelegate.m */,
 				FCDB56EA20A2F3C7009E7AEF /* Info.plist */,
 				FCDB56EB20A2F3C7009E7AEF /* main.m */,
+				0C61621020D21AAE00B777DA /* MVVMXBBX.pch */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -339,17 +364,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,13 +417,16 @@
 				0CA37B1120C67B240075D840 /* ZYUserTool.m in Sources */,
 				0CA37B0E20C4E6860075D840 /* ZYUserItem.m in Sources */,
 				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,
+				0C61621320D2552400B777DA /* ZYProfileWalletItem.m in Sources */,
 				FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */,
 				0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */,
 				0C5A072420AEC6BE007B0D34 /* UIImage+ZY.m in Sources */,
 				DD2A202820C3EAE20001AC18 /* NSURLResponse+ZY.m in Sources */,
 				FCDB56F420A2F55D009E7AEF /* ZYProfileViewController.m in Sources */,
+				0C61620F20D203AA00B777DA /* ZYHomeHttpTool.m in Sources */,
 				0CA37B1420C7E0190075D840 /* NSString+ZY.m in Sources */,
 				0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */,
+				0C61621720D258BF00B777DA /* ZYMyWalletController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +563,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3S239MD82;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MVVMXBBX/Class/Other/MVVMXBBX.pch";
 				INFOPLIST_FILE = MVVMXBBX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -555,6 +581,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H3S239MD82;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/MVVMXBBX/Class/Other/MVVMXBBX.pch";
 				INFOPLIST_FILE = MVVMXBBX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
