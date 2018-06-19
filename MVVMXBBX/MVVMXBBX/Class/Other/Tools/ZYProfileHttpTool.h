@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "ZYBaseHttpTool.h"
 #import "ZYSharedable.h"
+@class ZYProfileWalletItem;
 typedef void(^handlerBlock)(id);
 @interface ZYProfileHttpTool :NSObject<ZYSharedable>
 - (void)loginWithUser:(NSString *)user password:(NSString *)password successHandler:(handlerBlock)successHandler  failureHandler:(handlerBlock)failureHandler;
-- (void)loadMyWalletDataSuccessHandler:(void(^)(id resp))success failureHandler:(void(^)(NSError *error))failure;
+- (void)loadMyWalletDataSuccessHandler:(void(^)(ZYProfileWalletItem *walletItem))success failureHandler:(void(^)(NSError *error))failure;
 @end

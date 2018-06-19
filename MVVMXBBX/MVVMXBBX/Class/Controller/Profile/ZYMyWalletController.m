@@ -22,8 +22,10 @@
 }
 
 - (void)loadData {
-    [ZYProfileHttpTool.shareInstance loadMyWalletDataSuccessHandler:^(id resp) {
-        
+    [ZYProfileHttpTool.shareInstance loadMyWalletDataSuccessHandler:^(ZYProfileWalletItem *walletItem) {
+        if (walletItem) {
+            
+        }
     } failureHandler:^(NSError *error) {
         
     }];

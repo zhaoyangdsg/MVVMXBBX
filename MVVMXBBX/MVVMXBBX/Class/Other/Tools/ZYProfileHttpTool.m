@@ -66,7 +66,7 @@
     
 }
 
-- (void)loadMyWalletDataSuccessHandler:(void (^)(id))success failureHandler:(void (^)(NSError *))failure {
+- (void)loadMyWalletDataSuccessHandler:(void (^)(ZYProfileWalletItem *))success failureHandler:(void (^)(NSError *))failure {
 //    let url = APP_HEAD_URL + "/app/cash/appMoneyBag.do"
 //
 //    var param = Dictionary<String, AnyObject>()
@@ -77,13 +77,20 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     ZYUserItem *user = [ZYUserTool.shareInstance getUser];
     parameters[@"mobile"] = user.mobile;
-    parameters[@"pwd"] = user.password;
+    parameters[@"pwd"] = user.password; //@"1"; //
     parameters[@"EnCode"] = @"UTF-8";
     NSURLRequest *request = [self.httpTool postRequestWithUrl:@"/app/cash/appMoneyBag.do" parameters:parameters];
     request.responseJsonWithSuccess = ^(id respJson) {
-        NSLog(@"%@",respJson[@"param"][0]);
-        ZYProfileWalletItem *walletItem = [ZYProfileWalletItem  mj_objectWithKeyValues:respJson];
-        success(walletItem);
+        NSLog(@"%@",respJson[@"param"][0][@"success"]);
+        NSNumber *isSuccess = (NSNumber*)respJson[@"param"][0][@"success"];
+        
+        if (isSuccess.intValue ) {
+            ZYProfileWalletItem *walletItem = [ZYProfileWalletItem  mj_objectWithKeyValues:respJson[@"param"][0]];
+            success(walletItem);
+        }else {
+            
+            failure([[NSError alloc]initWithDomain:@"参数错误" code: 1 userInfo:nil]);
+        }
     };
     request.failureHandler = ^(NSError *error) {
         NSLog(@"%@",error);

@@ -22,13 +22,13 @@
 ///// 不可提现
 //var jlmxh: NSNumber?
 //var userId: NSNumber?
-@property(nonatomic,assign)NSInteger txsum;
-@property(nonatomic,assign)NSInteger userBankStatus;
-@property(nonatomic,assign)NSInteger totalsum;
-@property(nonatomic,assign)NSInteger jlmx;
-@property(nonatomic,assign)NSInteger djsjl;
-@property(nonatomic,assign)NSInteger success;
-@property(nonatomic,assign)NSInteger jlmxh;
-@property(nonatomic,assign)NSInteger userId;
+@property(nonatomic,strong)NSNumber *txsum;
+@property(nonatomic,strong)NSNumber *userBankStatus;
+@property(nonatomic,strong)NSNumber *totalsum;
+@property(nonatomic,strong)NSNumber *jlmx;
+@property(nonatomic,strong)NSNumber *djsjl;
+@property(nonatomic,strong)NSNumber *success;
+@property(nonatomic,strong)NSNumber *jlmxh;
+@property(nonatomic,strong)NSNumber *userId;
 
 @end
