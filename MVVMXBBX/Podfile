@@ -4,6 +4,6 @@ target "MVVMXBBX" do
 
 pod 'MJExtension'
 pod 'SVProgressHUD'
-pod 'ReactiveObjC'  
-
+pod 'ReactiveObjC'
+pod 'Masonry'
 end

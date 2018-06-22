@@ -18,6 +18,8 @@
 		0C61621320D2552400B777DA /* ZYProfileWalletItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61621220D2552400B777DA /* ZYProfileWalletItem.m */; };
 		0C61621720D258BF00B777DA /* ZYMyWalletController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61621620D258BF00B777DA /* ZYMyWalletController.m */; };
 		0C61622120D9027F00B777DA /* ZYProfileWalletViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61622020D9027E00B777DA /* ZYProfileWalletViewModel.m */; };
+		0C61622820DB843B00B777DA /* ZYProfileWalletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61622720DB843A00B777DA /* ZYProfileWalletView.m */; };
+		0C61622A20DB844A00B777DA /* ZYProfileWalletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C61622920DB844A00B777DA /* ZYProfileWalletView.xib */; };
 		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
 		0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */; };
@@ -64,6 +66,9 @@
 		0C61621620D258BF00B777DA /* ZYMyWalletController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYMyWalletController.m; sourceTree = "<group>"; };
 		0C61621F20D9027E00B777DA /* ZYProfileWalletViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileWalletViewModel.h; sourceTree = "<group>"; };
 		0C61622020D9027E00B777DA /* ZYProfileWalletViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileWalletViewModel.m; sourceTree = "<group>"; };
+		0C61622620DB843A00B777DA /* ZYProfileWalletView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileWalletView.h; sourceTree = "<group>"; };
+		0C61622720DB843A00B777DA /* ZYProfileWalletView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileWalletView.m; sourceTree = "<group>"; };
+		0C61622920DB844A00B777DA /* ZYProfileWalletView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYProfileWalletView.xib; sourceTree = "<group>"; };
 		0CA37B0120C0E9DA0075D840 /* ZYProfileHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHttpTool.h; sourceTree = "<group>"; };
 		0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHttpTool.m; sourceTree = "<group>"; };
 		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
@@ -271,6 +276,9 @@
 				0C5A071A20AE7CAC007B0D34 /* ZYProfileHeaderView.h */,
 				0C5A071B20AE7CAC007B0D34 /* ZYProfileHeaderView.m */,
 				0C5A071D20AE7CBC007B0D34 /* ZYProfileHeaderView.xib */,
+				0C61622620DB843A00B777DA /* ZYProfileWalletView.h */,
+				0C61622720DB843A00B777DA /* ZYProfileWalletView.m */,
+				0C61622920DB844A00B777DA /* ZYProfileWalletView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCDB56F020A2F3C7009E7AEF /* Info.plist in Resources */,
+				0C61622A20DB844A00B777DA /* ZYProfileWalletView.xib in Resources */,
 				FCDB56D920A1A8C0009E7AEF /* LaunchScreen.storyboard in Resources */,
 				FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */,
 				FCDB56F920A2F700009E7AEF /* ZYLoginView.xib in Resources */,
@@ -369,12 +378,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
@@ -410,6 +421,7 @@
 			files = (
 				0C5A071C20AE7CAC007B0D34 /* ZYProfileHeaderView.m in Sources */,
 				0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */,
+				0C61622820DB843B00B777DA /* ZYProfileWalletView.m in Sources */,
 				DD2A202520C3CD7D0001AC18 /* NSURLRequest+ZY.m in Sources */,
 				FCE6A86320A42FF600B6D42F /* ZYLogViewModel.m in Sources */,
 				0C61620C20D1219000B777DA /* ZYHomeViewController.m in Sources */,
