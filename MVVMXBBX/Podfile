@@ -6,4 +6,5 @@ pod 'MJExtension'
 pod 'SVProgressHUD'
 pod 'ReactiveObjC'
 pod 'Masonry'
+pod 'MJRefresh'
 end

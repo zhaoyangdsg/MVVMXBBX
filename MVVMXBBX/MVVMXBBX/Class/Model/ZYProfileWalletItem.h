@@ -22,12 +22,16 @@
 ///// 不可提现
 //var jlmxh: NSNumber?
 //var userId: NSNumber?
+/// 提现
 @property(nonatomic,strong)NSNumber *txsum;
+/// 银行卡状态
 @property(nonatomic,strong)NSNumber *userBankStatus;
 @property(nonatomic,strong)NSNumber *totalsum;
 @property(nonatomic,strong)NSNumber *jlmx;
+/// 待结算
 @property(nonatomic,strong)NSNumber *djsjl;
 @property(nonatomic,strong)NSNumber *success;
+/// 不可提现
 @property(nonatomic,strong)NSNumber *jlmxh;
 @property(nonatomic,strong)NSNumber *userId;
 

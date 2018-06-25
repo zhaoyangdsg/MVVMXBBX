@@ -20,6 +20,10 @@
 		0C61622120D9027F00B777DA /* ZYProfileWalletViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61622020D9027E00B777DA /* ZYProfileWalletViewModel.m */; };
 		0C61622820DB843B00B777DA /* ZYProfileWalletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61622720DB843A00B777DA /* ZYProfileWalletView.m */; };
 		0C61622A20DB844A00B777DA /* ZYProfileWalletView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C61622920DB844A00B777DA /* ZYProfileWalletView.xib */; };
+		0C61622E20E0D81000B777DA /* ZYGetMoneyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61622C20E0D81000B777DA /* ZYGetMoneyController.m */; };
+		0C61622F20E0D81000B777DA /* ZYGetMoneyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C61622D20E0D81000B777DA /* ZYGetMoneyView.xib */; };
+		0C61623220E0DC8600B777DA /* ZYGetMoneyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61623120E0DC8600B777DA /* ZYGetMoneyViewModel.m */; };
+		0C61623520E0DD4700B777DA /* ZYGetMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61623420E0DD4700B777DA /* ZYGetMoneyView.m */; };
 		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
 		0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */; };
@@ -69,6 +73,13 @@
 		0C61622620DB843A00B777DA /* ZYProfileWalletView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileWalletView.h; sourceTree = "<group>"; };
 		0C61622720DB843A00B777DA /* ZYProfileWalletView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileWalletView.m; sourceTree = "<group>"; };
 		0C61622920DB844A00B777DA /* ZYProfileWalletView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYProfileWalletView.xib; sourceTree = "<group>"; };
+		0C61622B20E0D81000B777DA /* ZYGetMoneyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYGetMoneyController.h; sourceTree = "<group>"; };
+		0C61622C20E0D81000B777DA /* ZYGetMoneyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYGetMoneyController.m; sourceTree = "<group>"; };
+		0C61622D20E0D81000B777DA /* ZYGetMoneyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYGetMoneyView.xib; sourceTree = "<group>"; };
+		0C61623020E0DC8600B777DA /* ZYGetMoneyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYGetMoneyViewModel.h; sourceTree = "<group>"; };
+		0C61623120E0DC8600B777DA /* ZYGetMoneyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYGetMoneyViewModel.m; sourceTree = "<group>"; };
+		0C61623320E0DD4700B777DA /* ZYGetMoneyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYGetMoneyView.h; sourceTree = "<group>"; };
+		0C61623420E0DD4700B777DA /* ZYGetMoneyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYGetMoneyView.m; sourceTree = "<group>"; };
 		0CA37B0120C0E9DA0075D840 /* ZYProfileHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHttpTool.h; sourceTree = "<group>"; };
 		0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHttpTool.m; sourceTree = "<group>"; };
 		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
@@ -155,6 +166,8 @@
 				FCDB56F320A2F55D009E7AEF /* ZYProfileViewController.m */,
 				0C61621520D258BF00B777DA /* ZYMyWalletController.h */,
 				0C61621620D258BF00B777DA /* ZYMyWalletController.m */,
+				0C61622B20E0D81000B777DA /* ZYGetMoneyController.h */,
+				0C61622C20E0D81000B777DA /* ZYGetMoneyController.m */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -279,6 +292,9 @@
 				0C61622620DB843A00B777DA /* ZYProfileWalletView.h */,
 				0C61622720DB843A00B777DA /* ZYProfileWalletView.m */,
 				0C61622920DB844A00B777DA /* ZYProfileWalletView.xib */,
+				0C61623320E0DD4700B777DA /* ZYGetMoneyView.h */,
+				0C61623420E0DD4700B777DA /* ZYGetMoneyView.m */,
+				0C61622D20E0D81000B777DA /* ZYGetMoneyView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,6 +308,8 @@
 				0C5A072020AE8595007B0D34 /* ZYProfileHeaderViewModel.m */,
 				0C61621F20D9027E00B777DA /* ZYProfileWalletViewModel.h */,
 				0C61622020D9027E00B777DA /* ZYProfileWalletViewModel.m */,
+				0C61623020E0DC8600B777DA /* ZYGetMoneyViewModel.h */,
+				0C61623120E0DC8600B777DA /* ZYGetMoneyViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -357,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C61622F20E0D81000B777DA /* ZYGetMoneyView.xib in Resources */,
 				FCDB56F020A2F3C7009E7AEF /* Info.plist in Resources */,
 				0C61622A20DB844A00B777DA /* ZYProfileWalletView.xib in Resources */,
 				FCDB56D920A1A8C0009E7AEF /* LaunchScreen.storyboard in Resources */,
@@ -421,10 +440,12 @@
 			files = (
 				0C5A071C20AE7CAC007B0D34 /* ZYProfileHeaderView.m in Sources */,
 				0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */,
+				0C61622E20E0D81000B777DA /* ZYGetMoneyController.m in Sources */,
 				0C61622820DB843B00B777DA /* ZYProfileWalletView.m in Sources */,
 				DD2A202520C3CD7D0001AC18 /* NSURLRequest+ZY.m in Sources */,
 				FCE6A86320A42FF600B6D42F /* ZYLogViewModel.m in Sources */,
 				0C61620C20D1219000B777DA /* ZYHomeViewController.m in Sources */,
+				0C61623220E0DC8600B777DA /* ZYGetMoneyViewModel.m in Sources */,
 				DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */,
 				0C5A072720AEDAD5007B0D34 /* UIViewController+ZY.m in Sources */,
 				0C5A073720B2612F007B0D34 /* ZYHttpTool.m in Sources */,
@@ -433,6 +454,7 @@
 				FCDB56F120A2F3C7009E7AEF /* main.m in Sources */,
 				0CA37B1120C67B240075D840 /* ZYUserTool.m in Sources */,
 				0C61622120D9027F00B777DA /* ZYProfileWalletViewModel.m in Sources */,
+				0C61623520E0DD4700B777DA /* ZYGetMoneyView.m in Sources */,
 				0CA37B0E20C4E6860075D840 /* ZYUserItem.m in Sources */,
 				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,
 				0C61621320D2552400B777DA /* ZYProfileWalletItem.m in Sources */,

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ZYProfileWalletView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *cashLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 
 @end

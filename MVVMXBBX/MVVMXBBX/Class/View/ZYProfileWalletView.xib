@@ -70,6 +70,11 @@
                 <constraint firstItem="Rkn-xn-Wgg" firstAttribute="top" secondItem="pYd-aS-MA9" secondAttribute="bottom" constant="7" id="vHP-mk-YuM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="activityLabel" destination="Rkn-xn-Wgg" id="Bgv-vl-i9y"/>
+                <outlet property="cashLabel" destination="IS3-wm-2mS" id="Uyf-8L-jzU"/>
+                <outlet property="totalLabel" destination="U7u-XI-F3d" id="K9W-PU-2HI"/>
+            </connections>
             <point key="canvasLocation" x="-206" y="-212"/>
         </view>
     </objects>
