@@ -7,15 +7,21 @@
 //
 
 #import "ZYGetMoneyView.h"
+#import "ZYGetMoneyViewModel.h"
+@interface ZYGetMoneyView()
+@property(nonatomic,strong)ZYGetMoneyViewModel *viewModel;
+@end
 
 @implementation ZYGetMoneyView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithViewModel:(nullable ZYGetMoneyViewModel *)viewModel {
+    self = [super init];
+    if (viewModel) {
+        self.viewModel = viewModel;
+    }else {
+        ZYGetMoneyViewModel *viewModel = [[ZYGetMoneyViewModel alloc]init];
+        self.viewModel = viewModel;
+    }
+    return self;
 }
-*/
-
 @end

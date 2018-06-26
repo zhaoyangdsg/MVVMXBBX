@@ -14,6 +14,7 @@
 #import "MJExtension.h"
 #import "ZYUserTool.h"
 #import "ZYProfileWalletItem.h"
+#import "ZYGetMoneyItem.h"
 
 @interface ZYProfileHttpTool()
 @property(nonatomic,strong)ZYHttpTool *httpTool;
@@ -96,6 +97,37 @@
         NSLog(@"%@",error);
         failure(error);
     };
+}
+
+- (void)loadGetMoneyDataSuccess:(void(^)(ZYGetMoneyItem *item))success failure:(void(^)(NSError *error))failure {
+    {
+        NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+        ZYUserItem *user = [ZYUserTool.shareInstance getUser];
+        if (!(user.mobile && user.password)) {
+            NSError *error = [[NSError alloc]initWithDomain:@"用户信息不完整" code:1 userInfo:nil];
+            failure(error);
+        }
+        parameters[@"mobile"] = user.mobile;
+        parameters[@"pwd"] = user.password;
+        parameters[@"EnCode"] = @"UTF-8";
+        NSURLRequest *request = [self.httpTool postRequestWithUrl:@"app/cash/initPrepScore.do" parameters:parameters];
+        request.responseJsonWithSuccess = ^(id respJson) {
+            NSNumber *isSuccess = (NSNumber*)respJson[@"param"][0][@"success"];
+            
+            if (isSuccess.intValue ) {
+                ZYGetMoneyItem *getMoneyItem = [ZYGetMoneyItem  mj_objectWithKeyValues:respJson[@"param"][0]];
+                success(getMoneyItem);
+            }else {
+                failure([[NSError alloc]initWithDomain:@"获取数据错误" code: 1 userInfo:nil]);
+            }
+        };
+        
+        request.failureHandler = ^(NSError *error) {
+            NSLog(@"%@",error);
+            failure(error);
+        };
+  
+    }
 }
 
 - (ZYHttpTool *)httpTool {
