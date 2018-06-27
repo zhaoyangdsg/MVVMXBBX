@@ -9,19 +9,15 @@
 #import "ZYGetMoneyView.h"
 #import "ZYGetMoneyViewModel.h"
 @interface ZYGetMoneyView()
-@property(nonatomic,strong)ZYGetMoneyViewModel *viewModel;
+
 @end
 
 @implementation ZYGetMoneyView
-
-- (instancetype)initWithViewModel:(nullable ZYGetMoneyViewModel *)viewModel {
-    self = [super init];
-    if (viewModel) {
-        self.viewModel = viewModel;
-    }else {
-        ZYGetMoneyViewModel *viewModel = [[ZYGetMoneyViewModel alloc]init];
-        self.viewModel = viewModel;
-    }
-    return self;
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    ZYGetMoneyViewModel *viewModel = [[ZYGetMoneyViewModel alloc]init];
+    self.viewModel = viewModel;
 }
+
+
 @end

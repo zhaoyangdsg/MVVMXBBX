@@ -108,15 +108,18 @@
             failure(error);
         }
         parameters[@"mobile"] = user.mobile;
-        parameters[@"pwd"] = user.password;
+        parameters[@"password"] = user.password;
         parameters[@"EnCode"] = @"UTF-8";
         NSURLRequest *request = [self.httpTool postRequestWithUrl:@"app/cash/initPrepScore.do" parameters:parameters];
         request.responseJsonWithSuccess = ^(id respJson) {
-            NSNumber *isSuccess = (NSNumber*)respJson[@"param"][0][@"success"];
+            NSLog(@"%@",respJson);
+            NSNumber *isSuccess = (NSNumber*)respJson[@"canUserScore"];
             
-            if (isSuccess.intValue ) {
-                ZYGetMoneyItem *getMoneyItem = [ZYGetMoneyItem  mj_objectWithKeyValues:respJson[@"param"][0]];
+            if (isSuccess ) {
+                ZYGetMoneyItem *getMoneyItem = [ZYGetMoneyItem  mj_objectWithKeyValues:respJson];
+                
                 success(getMoneyItem);
+                
             }else {
                 failure([[NSError alloc]initWithDomain:@"获取数据错误" code: 1 userInfo:nil]);
             }

@@ -12,6 +12,7 @@
 #import "UIView+ZY.h"
 #import "ZYProfileWalletViewModel.h"
 #import "SVProgressHUD.h"
+#import "ZYGetMoneyController.h"
 @interface ZYMyWalletController ()<UITableViewDelegate,UITableViewDataSource>
 @property(weak,nonatomic)UITableView *tableView;
 @property(weak,nonatomic)ZYProfileWalletView *walletView;
@@ -132,6 +133,8 @@
         cell.detailTextLabel.text = self.preMoney;
     }else if (indexPath.row == 3) {
         cell.detailTextLabel.text = self.bankStatus;
+    }else if (indexPath.row == 2) {
+        cell.textLabel.text = @"提现";
     }
     return cell;
 }
@@ -142,6 +145,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 2) {    
+        [self.navigationController pushViewController:[[ZYGetMoneyController alloc]init] animated:YES];
+    }
 }
 
 

@@ -8,19 +8,43 @@
 
 #import "ZYGetMoneyController.h"
 #import "ZYGetMoneyView.h"
+#import "ZYGetMoneyViewModel.h"
 @interface ZYGetMoneyController ()
+@property(weak,nonatomic)ZYGetMoneyView *getMoneyView;
+@property(weak,nonatomic)ZYGetMoneyViewModel *viewModel;
 @end
 @implementation ZYGetMoneyController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupSubview];
+    [self bindViewModel];
+}
+- (void)setupSubview {
+    self.view.backgroundColor = UIColor.whiteColor;
+    self.getMoneyView = [[NSBundle mainBundle]loadNibNamed:@"ZYGetMoneyView" owner:self options:nil].firstObject;
+    [self.view addSubview:self.getMoneyView];
+    [self.getMoneyView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.view).offset(80);
+        make.bottom.equalTo(self.view).offset(-60);
+//        make.edges.equalTo(self.view);
+    }];
+    
 }
 
-- (void)setupSubview {
-    ZYGetMoneyView *view = [[NSBundle mainBundle]loadNibNamed:@"ZYGetMoneyView" owner:self options:nil].firstObject;
-    [self.view addSubview:view];
+- (void)bindViewModel {
+    self.viewModel = self.getMoneyView.viewModel;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+    RAC(self.getMoneyView.totalLabel,text) = RACObserve(self.viewModel,allMoney);
+//        [ subscribeNext:^(id  _Nullable x) {
+//            NSLog(@"%@",x);
+//        }]; // self.viewModel.allMoney; RAC(self.getMoneyView.totalLabel,text) =
+//    });
+    
+    
+    [self.getMoneyView.viewModel.loadDataCommand execute:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
