@@ -23,10 +23,10 @@
 //var currentMonthTotalScore: NSNumber?
 ///// 银行卡状态
 //var bankStauts: String?
-@property(nonatomic,assign)double tixianDayNum;
+@property(nonatomic,assign)int tixianDayNum;
 @property(nonatomic,assign)double canUserScore;
 @property(nonatomic,assign)double txScore;
-@property(nonatomic,assign)double tixianNum;
+@property(nonatomic,assign)int tixianNum;
 @property(nonatomic,assign)double currentMonthTotalScore;
 @property(nonatomic,copy)NSString *bankStauts;
 

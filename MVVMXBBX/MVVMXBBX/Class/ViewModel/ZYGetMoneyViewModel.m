@@ -9,8 +9,10 @@
 #import "ZYGetMoneyViewModel.h"
 #import "ZYProfileHttpTool.h"
 #import "ZYGetMoneyItem.h"
+#import "NSNumber+ZY.h"
 @interface ZYGetMoneyViewModel()
 @property(nonatomic,strong)ZYGetMoneyItem *getMoneyItem;
+@property(nonatomic,strong)RACSignal *inputSignal;
 @end
 
 @implementation ZYGetMoneyViewModel
@@ -26,10 +28,10 @@
         RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
             [ZYProfileHttpTool.shareInstance loadGetMoneyDataSuccess:^(ZYGetMoneyItem *item) {
                 self.getMoneyItem = item;
-                self.todayCount = [[NSString alloc]initWithFormat:@"%f", item.tixianDayNum ];
-                self.monthCount = [[NSString alloc]initWithFormat:@"%f",item.tixianNum];
-                self.allMoney = [[NSString alloc]initWithFormat:@"%f",item.canUserScore];
-                self.monthGetMoneyCount = [[NSString alloc] initWithFormat:@"%f",item.currentMonthTotalScore];
+                self.todayCount = [[NSString alloc]initWithFormat:@"%d", item.tixianDayNum ];
+                self.monthCount = [[NSString alloc]initWithFormat:@"%d",item.tixianNum];
+                self.allMoney = @(item.canUserScore/100).keep2String  ;// [[NSString alloc]initWithFormat:@"%f",item.canUserScore];
+                self.monthGetMoneyCount = @(item.currentMonthTotalScore/100).keep2String; // [[NSString alloc] initWithFormat:@"%f",item.currentMonthTotalScore];
                 [subscriber sendNext: nil];
                 [subscriber sendCompleted];
             } failure:^(NSError *error) {
@@ -59,27 +61,32 @@
         
         return nil;
     }]distinctUntilChanged];
+    
+//    RACSignal *inputSignal = [RACObserve(self, inputMoney) distinctUntilChanged];
+//    self.inputSignal = inputSignal;
+//    [inputSignal subscribeNext:^(id  _Nullable x) {
+//        [self computeTax];
+//    }];
+//    [RACObserve(self, inputMoney) subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"%@",x);
+//    }];
 }
 /// 计算税
 - (BOOL)computeTax {
     // 代扣税
     double taxMoney = 0;
-//    var taxMoney: Double = 0
     // 手续费
     double sxfMoney = 0;
-//    var sxfMoney: Double = 0
     // 最后的金额
     double taxedMoney;
-//    var taxedMoney:Double
-    
     // 输入的金额
     double orgMoney = self.inputMoney.doubleValue;
     
     // 提取金额大于800 多出金额20%扣税
-    if (self.getMoneyItem.currentMonthTotalScore >= 800) {
+    if (self.monthGetMoneyCount.doubleValue >= 800) {
         taxMoney = self.inputMoney.doubleValue * 0.2;
-    }else if (self.inputMoney.doubleValue + self.getMoneyItem.currentMonthTotalScore > 800) {
-        taxMoney = (self.inputMoney.doubleValue + self.getMoneyItem.currentMonthTotalScore - 800) * 0.2;
+    }else if (self.inputMoney.doubleValue + self.monthGetMoneyCount.doubleValue > 800) {
+        taxMoney = (self.inputMoney.doubleValue + self.monthGetMoneyCount.doubleValue - 800) * 0.2;
     }
     // 手续费
     if ( self.getMoneyItem.tixianNum >= 2){

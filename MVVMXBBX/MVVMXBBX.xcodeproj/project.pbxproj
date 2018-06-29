@@ -25,6 +25,7 @@
 		0C61623220E0DC8600B777DA /* ZYGetMoneyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61623120E0DC8600B777DA /* ZYGetMoneyViewModel.m */; };
 		0C61623520E0DD4700B777DA /* ZYGetMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61623420E0DD4700B777DA /* ZYGetMoneyView.m */; };
 		0C61623820E228CA00B777DA /* ZYGetMoneyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61623720E228CA00B777DA /* ZYGetMoneyItem.m */; };
+		0C61623B20E4804C00B777DA /* NSNumber+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61623A20E4804C00B777DA /* NSNumber+ZY.m */; };
 		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
 		0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */; };
@@ -83,6 +84,8 @@
 		0C61623420E0DD4700B777DA /* ZYGetMoneyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYGetMoneyView.m; sourceTree = "<group>"; };
 		0C61623620E228CA00B777DA /* ZYGetMoneyItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYGetMoneyItem.h; sourceTree = "<group>"; };
 		0C61623720E228CA00B777DA /* ZYGetMoneyItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYGetMoneyItem.m; sourceTree = "<group>"; };
+		0C61623920E4804C00B777DA /* NSNumber+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ZY.h"; sourceTree = "<group>"; };
+		0C61623A20E4804C00B777DA /* NSNumber+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ZY.m"; sourceTree = "<group>"; };
 		0CA37B0120C0E9DA0075D840 /* ZYProfileHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHttpTool.h; sourceTree = "<group>"; };
 		0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHttpTool.m; sourceTree = "<group>"; };
 		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 				DD2A202720C3EAE20001AC18 /* NSURLResponse+ZY.m */,
 				0CA37B1220C7E0190075D840 /* NSString+ZY.h */,
 				0CA37B1320C7E0190075D840 /* NSString+ZY.m */,
+				0C61623920E4804C00B777DA /* NSNumber+ZY.h */,
+				0C61623A20E4804C00B777DA /* NSNumber+ZY.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				0C61620F20D203AA00B777DA /* ZYHomeHttpTool.m in Sources */,
 				0CA37B1420C7E0190075D840 /* NSString+ZY.m in Sources */,
 				0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */,
+				0C61623B20E4804C00B777DA /* NSNumber+ZY.m in Sources */,
 				0C61621720D258BF00B777DA /* ZYMyWalletController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

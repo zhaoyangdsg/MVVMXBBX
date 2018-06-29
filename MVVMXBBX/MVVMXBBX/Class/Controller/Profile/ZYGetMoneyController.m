@@ -35,15 +35,6 @@
 
 - (void)bindViewModel {
     self.viewModel = self.getMoneyView.viewModel;
-//    dispatch_async(dispatch_get_main_queue(), ^{
-    RAC(self.getMoneyView.totalLabel,text) = RACObserve(self.viewModel,allMoney);
-//        [ subscribeNext:^(id  _Nullable x) {
-//            NSLog(@"%@",x);
-//        }]; // self.viewModel.allMoney; RAC(self.getMoneyView.totalLabel,text) =
-//    });
-    
-    
-    [self.getMoneyView.viewModel.loadDataCommand execute:nil];
     
 }
 
