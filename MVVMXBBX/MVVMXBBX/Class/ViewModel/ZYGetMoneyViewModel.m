@@ -42,34 +42,54 @@
         return signal;
     }];
     
-    _btnEnableSignal = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        NSNumberFormatter *numFormat = [[NSNumberFormatter alloc]init];
-        double inputMoney = [numFormat numberFromString:self.inputMoney].doubleValue;
-        // 如果 输入的值不是数字 或输入负数 或大于总金额 return false
-        if ( !inputMoney || self.getMoneyItem.tixianDayNum >= 3 ||  inputMoney <= 0 || inputMoney > self.allMoney.doubleValue  ) {
-            return false;
-        }else {
-//            if ([self computeTax]) {
-////                [subscriber sendNext: @YES];
-//                return true;
-//            }else {
-////                [subscriber sendNext: @NO];
-//                return false;
-//            }
-            [self computeTax];
-        }
-        
-        return nil;
-    }]distinctUntilChanged];
+//    [RACObserve(self, endEdit) map:^id (NSNumber* x) {
+//        NSLog(@"%d",x.boolValue);
+//        return nil;
+//    }];
     
-//    RACSignal *inputSignal = [RACObserve(self, inputMoney) distinctUntilChanged];
-//    self.inputSignal = inputSignal;
-//    [inputSignal subscribeNext:^(id  _Nullable x) {
-//        [self computeTax];
-//    }];
-//    [RACObserve(self, inputMoney) subscribeNext:^(id  _Nullable x) {
-//        NSLog(@"%@",x);
-//    }];
+    
+//    _btnEnableSignal = [[[RACObserve(self, endEdit) filter:^BOOL(NSNumber *ended) {
+//        return ended.boolValue;
+//    }] map:^id (NSNumber *endEdit) {
+//            NSNumberFormatter *numFormat = [[NSNumberFormatter alloc]init];
+//            double inputMoney = [numFormat numberFromString:self.inputMoney].doubleValue;
+//            // 如果 输入的值不是数字 或输入负数 或大于总金额 return false
+//            if ( !inputMoney || self.getMoneyItem.tixianDayNum >= 3 ||  inputMoney <= 0 || inputMoney > self.allMoney.doubleValue  ) {
+//                return false;
+//            }else {
+//                return @([self computeTax]);
+//            }
+//    }]distinctUntilChanged] ;
+    
+//    _btnEnableSignal = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+//        NSNumberFormatter *numFormat = [[NSNumberFormatter alloc]init];
+//        double inputMoney = [numFormat numberFromString:self.inputMoney].doubleValue;
+//        // 如果 输入的值不是数字 或输入负数 或大于总金额 return false
+//        if ( !inputMoney || self.getMoneyItem.tixianDayNum >= 3 ||  inputMoney <= 0 || inputMoney > self.allMoney.doubleValue  ) {
+//            return false;
+//        }else {
+//            [self computeTax];
+//        }
+//        return nil;
+//    }]distinctUntilChanged];
+    
+    self.btnEnableSignal = [[RACObserve(self, inputMoney) filter:^BOOL(NSString *value) {
+        NSNumberFormatter *format = [[NSNumberFormatter alloc]init];
+        NSNumber *num = [format numberFromString:value];
+        if (num) {
+            return YES;
+        }
+        return NO;
+    }] map:^id (NSString *inputMoney) {
+        // 如果 输入的值不是数字 或输入负数 或大于总金额 return false
+        double inputMoney_d = inputMoney.doubleValue;
+        if ( !inputMoney_d || self.getMoneyItem.tixianDayNum >= 3 ||  inputMoney <= 0 || inputMoney_d > self.allMoney.doubleValue  ) {
+            return @NO;
+        }else {
+            return @([self computeTax]);
+        }
+    }] ;
+    
 }
 /// 计算税
 - (BOOL)computeTax {
@@ -85,15 +105,14 @@
     // 提取金额大于800 多出金额20%扣税
     if (self.monthGetMoneyCount.doubleValue >= 800) {
         taxMoney = self.inputMoney.doubleValue * 0.2;
-    }else if (self.inputMoney.doubleValue + self.monthGetMoneyCount.doubleValue > 800) {
-        taxMoney = (self.inputMoney.doubleValue + self.monthGetMoneyCount.doubleValue - 800) * 0.2;
+    }else if (orgMoney + self.monthGetMoneyCount.doubleValue > 800) {
+        taxMoney = (orgMoney + self.monthGetMoneyCount.doubleValue - 800) * 0.2;
     }
     // 手续费
-    if ( self.getMoneyItem.tixianNum >= 2){
-        if (self.inputMoney.doubleValue <= 1)
-        {
+    if ( self.getMoneyItem.tixianNum >= 2) {
+        if (self.inputMoney.doubleValue <= 1) {
 //            XBBXAlertTool.showAlertWith(time: 1.5, info: "您的提现金额不足1元,不足以支付手续费")
-            return false;
+            return NO;
         }else {
             sxfMoney = 1;
         }
@@ -101,10 +120,10 @@
     // 扣完手续费和税的金额
     taxedMoney = orgMoney - taxMoney - sxfMoney;
     
-    self.taxMoney = [NSString stringWithFormat:@"¥%f",taxMoney];
-    self.serviceMoney = [NSString stringWithFormat:@"¥%f",sxfMoney];
-    self.finalMoney = [NSString stringWithFormat:@"¥%f",taxedMoney];
-    return true;
+    self.taxMoney = [NSString stringWithFormat:@"¥%.2f",taxMoney];
+    self.serviceMoney = [NSString stringWithFormat:@"¥%.2f",sxfMoney];
+    self.finalMoney = [NSString stringWithFormat:@"¥%.2f",taxedMoney];
+    return YES;
 }
 
 @end

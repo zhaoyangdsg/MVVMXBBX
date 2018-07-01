@@ -27,4 +27,5 @@
 @property(nonatomic,strong)RACCommand *commitCommand;
 /// 按钮是否可按signal
 @property(nonatomic,strong)RACSignal *btnEnableSignal;
+@property(nonatomic,assign)BOOL endEdit;
 @end
