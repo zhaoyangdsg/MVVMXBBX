@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZYHomeTopicView">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="229"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHy-Kb-Vcz">
+                    <rect key="frame" x="1" y="1" width="206.5" height="227"/>
+                    <color key="backgroundColor" red="0.94017578130000001" green="0.63973597630000001" blue="0.19610685929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZY-a6-zLi">
+                    <rect key="frame" x="208.5" y="1" width="205.5" height="113"/>
+                    <color key="backgroundColor" red="1" green="0.40784313729999999" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-x6-2ED">
+                    <rect key="frame" x="208.5" y="115" width="205.5" height="113"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bYF-x6-2ED" secondAttribute="trailing" constant="1" id="3df-Yg-p8R"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bYF-x6-2ED" secondAttribute="bottom" constant="1" id="D5j-kb-xK5"/>
+                <constraint firstItem="yZY-a6-zLi" firstAttribute="leading" secondItem="lHy-Kb-Vcz" secondAttribute="trailing" constant="1" id="DjB-jK-nL1"/>
+                <constraint firstItem="yZY-a6-zLi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="1" id="Jez-oD-4s3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="lHy-Kb-Vcz" secondAttribute="bottom" constant="1" id="V2O-Y5-WoU"/>
+                <constraint firstItem="lHy-Kb-Vcz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="1" id="YnN-4O-1bp"/>
+                <constraint firstItem="lHy-Kb-Vcz" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-1" id="cFC-oo-9Bf"/>
+                <constraint firstItem="lHy-Kb-Vcz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="1" id="cLL-gT-nPW"/>
+                <constraint firstItem="bYF-x6-2ED" firstAttribute="leading" secondItem="lHy-Kb-Vcz" secondAttribute="trailing" constant="1" id="dpG-4i-RXm"/>
+                <constraint firstItem="bYF-x6-2ED" firstAttribute="top" secondItem="yZY-a6-zLi" secondAttribute="bottom" constant="1" id="hZc-tI-wel"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yZY-a6-zLi" secondAttribute="trailing" constant="1" id="tOm-I3-ZpA"/>
+                <constraint firstItem="yZY-a6-zLi" firstAttribute="height" secondItem="bYF-x6-2ED" secondAttribute="height" id="zk5-Zq-2lW"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="btn1" destination="lHy-Kb-Vcz" id="Avs-rx-6do"/>
+                <outlet property="btn2" destination="yZY-a6-zLi" id="UfD-as-6Vq"/>
+                <outlet property="btn3" destination="bYF-x6-2ED" id="9dX-Oq-fyA"/>
+            </connections>
+            <point key="canvasLocation" x="-145.5" y="-61.5"/>
+        </view>
+    </objects>
+</document>

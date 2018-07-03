@@ -26,6 +26,11 @@
 		0C61623520E0DD4700B777DA /* ZYGetMoneyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61623420E0DD4700B777DA /* ZYGetMoneyView.m */; };
 		0C61623820E228CA00B777DA /* ZYGetMoneyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61623720E228CA00B777DA /* ZYGetMoneyItem.m */; };
 		0C61623B20E4804C00B777DA /* NSNumber+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C61623A20E4804C00B777DA /* NSNumber+ZY.m */; };
+		0C716F4F20E9D6110000CA84 /* ZYHomeCarouseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C716F4E20E9D6110000CA84 /* ZYHomeCarouseView.m */; };
+		0C716F5220EB55D50000CA84 /* ZYHomeCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C716F5120EB55D50000CA84 /* ZYHomeCategoryView.m */; };
+		0C716F5420EB56970000CA84 /* ZYHomeCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C716F5320EB56970000CA84 /* ZYHomeCategoryView.xib */; };
+		0C716F5720EB58E30000CA84 /* ZYHomeTopicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C716F5620EB58E30000CA84 /* ZYHomeTopicView.m */; };
+		0C716F5920EB60C70000CA84 /* ZYHomeTopicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C716F5820EB60C70000CA84 /* ZYHomeTopicView.xib */; };
 		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
 		0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */; };
@@ -86,6 +91,14 @@
 		0C61623720E228CA00B777DA /* ZYGetMoneyItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYGetMoneyItem.m; sourceTree = "<group>"; };
 		0C61623920E4804C00B777DA /* NSNumber+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumber+ZY.h"; sourceTree = "<group>"; };
 		0C61623A20E4804C00B777DA /* NSNumber+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+ZY.m"; sourceTree = "<group>"; };
+		0C716F4D20E9D6110000CA84 /* ZYHomeCarouseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeCarouseView.h; sourceTree = "<group>"; };
+		0C716F4E20E9D6110000CA84 /* ZYHomeCarouseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeCarouseView.m; sourceTree = "<group>"; };
+		0C716F5020EB55D50000CA84 /* ZYHomeCategoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeCategoryView.h; sourceTree = "<group>"; };
+		0C716F5120EB55D50000CA84 /* ZYHomeCategoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeCategoryView.m; sourceTree = "<group>"; };
+		0C716F5320EB56970000CA84 /* ZYHomeCategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYHomeCategoryView.xib; sourceTree = "<group>"; };
+		0C716F5520EB58E30000CA84 /* ZYHomeTopicView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeTopicView.h; sourceTree = "<group>"; };
+		0C716F5620EB58E30000CA84 /* ZYHomeTopicView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeTopicView.m; sourceTree = "<group>"; };
+		0C716F5820EB60C70000CA84 /* ZYHomeTopicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYHomeTopicView.xib; sourceTree = "<group>"; };
 		0CA37B0120C0E9DA0075D840 /* ZYProfileHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHttpTool.h; sourceTree = "<group>"; };
 		0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHttpTool.m; sourceTree = "<group>"; };
 		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
@@ -176,6 +189,37 @@
 				0C61622C20E0D81000B777DA /* ZYGetMoneyController.m */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		0C716F4B20E9D4CB0000CA84 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				0C716F4D20E9D6110000CA84 /* ZYHomeCarouseView.h */,
+				0C716F4E20E9D6110000CA84 /* ZYHomeCarouseView.m */,
+				0C716F5020EB55D50000CA84 /* ZYHomeCategoryView.h */,
+				0C716F5120EB55D50000CA84 /* ZYHomeCategoryView.m */,
+				0C716F5320EB56970000CA84 /* ZYHomeCategoryView.xib */,
+				0C716F5520EB58E30000CA84 /* ZYHomeTopicView.h */,
+				0C716F5620EB58E30000CA84 /* ZYHomeTopicView.m */,
+				0C716F5820EB60C70000CA84 /* ZYHomeTopicView.xib */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		0C716F4C20E9D4DC0000CA84 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				0C5A071A20AE7CAC007B0D34 /* ZYProfileHeaderView.h */,
+				0C5A071B20AE7CAC007B0D34 /* ZYProfileHeaderView.m */,
+				0C5A071D20AE7CBC007B0D34 /* ZYProfileHeaderView.xib */,
+				0C61622620DB843A00B777DA /* ZYProfileWalletView.h */,
+				0C61622720DB843A00B777DA /* ZYProfileWalletView.m */,
+				0C61622920DB844A00B777DA /* ZYProfileWalletView.xib */,
+				0C61623320E0DD4700B777DA /* ZYGetMoneyView.h */,
+				0C61623420E0DD4700B777DA /* ZYGetMoneyView.m */,
+				0C61622D20E0D81000B777DA /* ZYGetMoneyView.xib */,
+			);
+			path = profile;
 			sourceTree = "<group>";
 		};
 		259FFA2DD91466C617DC3FFD /* Pods */ = {
@@ -293,18 +337,11 @@
 		FCDB56EC20A2F3C7009E7AEF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0C716F4C20E9D4DC0000CA84 /* profile */,
+				0C716F4B20E9D4CB0000CA84 /* home */,
 				FCDB56F520A2F694009E7AEF /* ZYLoginView.h */,
 				FCDB56F620A2F694009E7AEF /* ZYLoginView.m */,
 				FCDB56F820A2F700009E7AEF /* ZYLoginView.xib */,
-				0C5A071A20AE7CAC007B0D34 /* ZYProfileHeaderView.h */,
-				0C5A071B20AE7CAC007B0D34 /* ZYProfileHeaderView.m */,
-				0C5A071D20AE7CBC007B0D34 /* ZYProfileHeaderView.xib */,
-				0C61622620DB843A00B777DA /* ZYProfileWalletView.h */,
-				0C61622720DB843A00B777DA /* ZYProfileWalletView.m */,
-				0C61622920DB844A00B777DA /* ZYProfileWalletView.xib */,
-				0C61623320E0DD4700B777DA /* ZYGetMoneyView.h */,
-				0C61623420E0DD4700B777DA /* ZYGetMoneyView.m */,
-				0C61622D20E0D81000B777DA /* ZYGetMoneyView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -387,8 +424,10 @@
 			files = (
 				0C61622F20E0D81000B777DA /* ZYGetMoneyView.xib in Resources */,
 				FCDB56F020A2F3C7009E7AEF /* Info.plist in Resources */,
+				0C716F5920EB60C70000CA84 /* ZYHomeTopicView.xib in Resources */,
 				0C61622A20DB844A00B777DA /* ZYProfileWalletView.xib in Resources */,
 				FCDB56D920A1A8C0009E7AEF /* LaunchScreen.storyboard in Resources */,
+				0C716F5420EB56970000CA84 /* ZYHomeCategoryView.xib in Resources */,
 				FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */,
 				FCDB56F920A2F700009E7AEF /* ZYLoginView.xib in Resources */,
 				0C5A071E20AE7CBC007B0D34 /* ZYProfileHeaderView.xib in Resources */,
@@ -407,15 +446,21 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,11 +515,14 @@
 				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,
 				0C61621320D2552400B777DA /* ZYProfileWalletItem.m in Sources */,
 				FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */,
+				0C716F5720EB58E30000CA84 /* ZYHomeTopicView.m in Sources */,
 				0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */,
+				0C716F4F20E9D6110000CA84 /* ZYHomeCarouseView.m in Sources */,
 				0C5A072420AEC6BE007B0D34 /* UIImage+ZY.m in Sources */,
 				DD2A202820C3EAE20001AC18 /* NSURLResponse+ZY.m in Sources */,
 				FCDB56F420A2F55D009E7AEF /* ZYProfileViewController.m in Sources */,
 				0C61620F20D203AA00B777DA /* ZYHomeHttpTool.m in Sources */,
+				0C716F5220EB55D50000CA84 /* ZYHomeCategoryView.m in Sources */,
 				0CA37B1420C7E0190075D840 /* NSString+ZY.m in Sources */,
 				0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */,
 				0C61623B20E4804C00B777DA /* NSNumber+ZY.m in Sources */,

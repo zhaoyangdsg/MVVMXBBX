@@ -7,4 +7,5 @@ pod 'SVProgressHUD'
 pod 'ReactiveObjC'
 pod 'Masonry'
 pod 'MJRefresh'
+pod 'SDCycleScrollView','~> 1.75'
 end
