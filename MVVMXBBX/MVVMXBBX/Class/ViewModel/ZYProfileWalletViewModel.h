@@ -15,6 +15,6 @@
 @property(nonatomic,copy)NSString *preMoney;
 @property(nonatomic,copy)NSString *cardStatus;
 @property(nonatomic,strong)RACCommand *loadDataCommand;
-- (void)loadWalletDataWithSuccessHandler:(void(^) (id resp))success failureHandler:(void(^)(NSError *error))failureHandler;
+//- (void)loadWalletDataWithSuccessHandler:(void(^) (id resp))success failureHandler:(void(^)(NSError *error))failureHandler;
 
 @end

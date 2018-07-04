@@ -26,7 +26,7 @@
 - (void)initialBind {
     _loadDataCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-            [ZYProfileHttpTool.shareInstance loadGetMoneyDataSuccess:^(ZYGetMoneyItem *item) {
+            [ZYProfileHttpTool.shareTool loadGetMoneyDataSuccess:^(ZYGetMoneyItem *item) {
                 self.getMoneyItem = item;
                 self.todayCount = [[NSString alloc]initWithFormat:@"%d", item.tixianDayNum ];
                 self.monthCount = [[NSString alloc]initWithFormat:@"%d",item.tixianNum];

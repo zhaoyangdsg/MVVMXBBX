@@ -136,13 +136,13 @@
 - (ZYHttpTool *)httpTool {
     return ZYHttpTool.defaultTool;
 }
-+ (instancetype)shareInstance {
-    static ZYProfileHttpTool* tool;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        tool = [[ZYProfileHttpTool alloc]init];
-    });
-    return tool;
-}
+//+ (instancetype)shareInstance {
+//    static ZYProfileHttpTool* tool;
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        tool = [[ZYProfileHttpTool alloc]init];
+//    });
+//    return tool;
+//}
 
 @end

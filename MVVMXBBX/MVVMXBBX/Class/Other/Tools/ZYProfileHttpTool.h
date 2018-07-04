@@ -12,7 +12,7 @@
 @class ZYGetMoneyItem;
 @class ZYProfileWalletItem;
 typedef void(^handlerBlock)(id);
-@interface ZYProfileHttpTool :NSObject<ZYSharedable>
+@interface ZYProfileHttpTool :ZYBaseHttpTool
 - (void)loginWithUser:(NSString *)user password:(NSString *)password successHandler:(handlerBlock)successHandler  failureHandler:(handlerBlock)failureHandler;
 - (void)loadMyWalletDataSuccessHandler:(void(^)(ZYProfileWalletItem *walletItem))success failureHandler:(void(^)(NSError *error))failure;
 - (void)loadGetMoneyDataSuccess:(void(^)(ZYGetMoneyItem *item))success failure:(void(^)(NSError *error))failure;

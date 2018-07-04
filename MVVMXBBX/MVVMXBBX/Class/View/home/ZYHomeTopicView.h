@@ -13,4 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btn2;
 @property (weak, nonatomic) IBOutlet UIButton *btn3;
 
+@property (strong, nonatomic) RACSubject *btn1ClickSubject;
+@property (strong, nonatomic) RACSubject *btn2ClickSubject;
+@property (strong, nonatomic) RACSubject *btn3ClickSubject;
 @end

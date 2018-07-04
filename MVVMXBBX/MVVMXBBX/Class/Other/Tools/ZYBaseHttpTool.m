@@ -7,16 +7,38 @@
 //
 
 #import "ZYBaseHttpTool.h"
+//#import <objc/runtime.h>
+
 
 @implementation ZYBaseHttpTool
+static ZYBaseHttpTool* _instance;
+
++ (instancetype)allocWithZone:(struct _NSZone *)zone {
+    
+    static dispatch_once_t onceToken;
+
+    dispatch_once(&onceToken, ^{
+        if (_instance == nil) {
+            _instance = [[super allocWithZone:nil] init];
+        }
+    });
+    
+    return _instance;
+}
 
 + (instancetype)shareTool {
-    static ZYBaseHttpTool* tool;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        tool = [[ZYBaseHttpTool alloc]init];
-    });
-    return tool;
+    return  [[self alloc]init];
 }
+
+- (id)copy {
+    return _instance;
+}
+
+
+- (id)mutableCopy {
+    return _instance;
+}
+
+
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "NSURLRequest+ZY.h"
 @interface ZYBaseHttpTool : NSObject
 + (instancetype)shareTool;
 @end

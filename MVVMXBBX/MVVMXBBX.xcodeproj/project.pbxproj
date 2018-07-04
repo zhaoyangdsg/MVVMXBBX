@@ -31,6 +31,9 @@
 		0C716F5420EB56970000CA84 /* ZYHomeCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C716F5320EB56970000CA84 /* ZYHomeCategoryView.xib */; };
 		0C716F5720EB58E30000CA84 /* ZYHomeTopicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C716F5620EB58E30000CA84 /* ZYHomeTopicView.m */; };
 		0C716F5920EB60C70000CA84 /* ZYHomeTopicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C716F5820EB60C70000CA84 /* ZYHomeTopicView.xib */; };
+		0C716F5C20ECCD710000CA84 /* ZYHomeTopicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C716F5B20ECCD710000CA84 /* ZYHomeTopicItem.m */; };
+		0C716F5F20ECCEE40000CA84 /* ZYHomeProductItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C716F5E20ECCEE40000CA84 /* ZYHomeProductItem.m */; };
+		0C716F6220ECCFFB0000CA84 /* ZYHomeAdItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C716F6120ECCFFB0000CA84 /* ZYHomeAdItem.m */; };
 		0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */; };
 		0CA37B0620C123220075D840 /* ZYBaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0520C123220075D840 /* ZYBaseHttpTool.m */; };
 		0CA37B0B20C4E34E0075D840 /* ZYLoginResutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA37B0A20C4E34E0075D840 /* ZYLoginResutItem.m */; };
@@ -99,6 +102,12 @@
 		0C716F5520EB58E30000CA84 /* ZYHomeTopicView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeTopicView.h; sourceTree = "<group>"; };
 		0C716F5620EB58E30000CA84 /* ZYHomeTopicView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeTopicView.m; sourceTree = "<group>"; };
 		0C716F5820EB60C70000CA84 /* ZYHomeTopicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYHomeTopicView.xib; sourceTree = "<group>"; };
+		0C716F5A20ECCD710000CA84 /* ZYHomeTopicItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeTopicItem.h; sourceTree = "<group>"; };
+		0C716F5B20ECCD710000CA84 /* ZYHomeTopicItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeTopicItem.m; sourceTree = "<group>"; };
+		0C716F5D20ECCEE40000CA84 /* ZYHomeProductItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeProductItem.h; sourceTree = "<group>"; };
+		0C716F5E20ECCEE40000CA84 /* ZYHomeProductItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeProductItem.m; sourceTree = "<group>"; };
+		0C716F6020ECCFFB0000CA84 /* ZYHomeAdItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeAdItem.h; sourceTree = "<group>"; };
+		0C716F6120ECCFFB0000CA84 /* ZYHomeAdItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeAdItem.m; sourceTree = "<group>"; };
 		0CA37B0120C0E9DA0075D840 /* ZYProfileHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHttpTool.h; sourceTree = "<group>"; };
 		0CA37B0220C0E9DA0075D840 /* ZYProfileHttpTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHttpTool.m; sourceTree = "<group>"; };
 		0CA37B0420C123220075D840 /* ZYBaseHttpTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYBaseHttpTool.h; sourceTree = "<group>"; };
@@ -316,6 +325,12 @@
 				0C61621220D2552400B777DA /* ZYProfileWalletItem.m */,
 				0C61623620E228CA00B777DA /* ZYGetMoneyItem.h */,
 				0C61623720E228CA00B777DA /* ZYGetMoneyItem.m */,
+				0C716F5A20ECCD710000CA84 /* ZYHomeTopicItem.h */,
+				0C716F5B20ECCD710000CA84 /* ZYHomeTopicItem.m */,
+				0C716F5D20ECCEE40000CA84 /* ZYHomeProductItem.h */,
+				0C716F5E20ECCEE40000CA84 /* ZYHomeProductItem.m */,
+				0C716F6020ECCFFB0000CA84 /* ZYHomeAdItem.h */,
+				0C716F6120ECCFFB0000CA84 /* ZYHomeAdItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -505,8 +520,10 @@
 				0C5A072720AEDAD5007B0D34 /* UIViewController+ZY.m in Sources */,
 				0C5A073720B2612F007B0D34 /* ZYHttpTool.m in Sources */,
 				0C5A072120AE8595007B0D34 /* ZYProfileHeaderViewModel.m in Sources */,
+				0C716F6220ECCFFB0000CA84 /* ZYHomeAdItem.m in Sources */,
 				FCDB56EF20A2F3C7009E7AEF /* AppDelegate.m in Sources */,
 				FCDB56F120A2F3C7009E7AEF /* main.m in Sources */,
+				0C716F5F20ECCEE40000CA84 /* ZYHomeProductItem.m in Sources */,
 				0CA37B1120C67B240075D840 /* ZYUserTool.m in Sources */,
 				0C61623820E228CA00B777DA /* ZYGetMoneyItem.m in Sources */,
 				0C61622120D9027F00B777DA /* ZYProfileWalletViewModel.m in Sources */,
@@ -520,6 +537,7 @@
 				0C716F4F20E9D6110000CA84 /* ZYHomeCarouseView.m in Sources */,
 				0C5A072420AEC6BE007B0D34 /* UIImage+ZY.m in Sources */,
 				DD2A202820C3EAE20001AC18 /* NSURLResponse+ZY.m in Sources */,
+				0C716F5C20ECCD710000CA84 /* ZYHomeTopicItem.m in Sources */,
 				FCDB56F420A2F55D009E7AEF /* ZYProfileViewController.m in Sources */,
 				0C61620F20D203AA00B777DA /* ZYHomeHttpTool.m in Sources */,
 				0C716F5220EB55D50000CA84 /* ZYHomeCategoryView.m in Sources */,

@@ -24,14 +24,24 @@
 //};
 
 const char ZYResponseKey;
+// 在session获得response的时候 把response
 - (void)setResponse:(NSURLResponse *)response {
 
     objc_setAssociatedObject(self, &ZYResponseKey, response, 1);
-    if (response != nil && self.responseJsonWithSuccess) {
-        id resp = [NSJSONSerialization JSONObjectWithData:self.response.data   options:NSJSONReadingAllowFragments error:nil];
-                NSLog(@"%@",resp);
-        
-        self.responseJsonWithSuccess(resp);
+    if (response != nil ) {
+        // response 返回code== 200(response.error 为nil) && request的successHandler block 有实现
+        if (!response.error && self.responseJsonWithSuccess) {
+            id resp = [NSJSONSerialization JSONObjectWithData:self.response.data   options:NSJSONReadingAllowFragments error:nil];
+            NSLog(@"%@",resp);
+            
+            // 执行successBlock
+            self.responseJsonWithSuccess(resp);
+        }
+        // response 返回不是200 && request的failureHandler block 有实现:  把response的error 当做参数传给failureBlock
+        if (response.error && self.failureHandler) {
+            self.failureHandler(response.error);
+        }
+       
     }
 }
 - (NSURLResponse *)response {
@@ -74,4 +84,10 @@ const char ZYResponseKey;
 //    }
 //}
 
+//- (NSURLRequest *(^)(void))success {
+//    return ^NSURLRequest *(void) {
+//        
+//        return self;
+//    };
+//}
 @end

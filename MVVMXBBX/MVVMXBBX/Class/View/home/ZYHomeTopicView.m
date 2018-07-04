@@ -9,13 +9,21 @@
 #import "ZYHomeTopicView.h"
 
 @implementation ZYHomeTopicView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (IBAction)btn1Click:(id)sender {
+    if (self.btn1ClickSubject) {
+        [self.btn1ClickSubject sendNext:self.btn1];
+    }
 }
-*/
+- (IBAction)btn2Click:(id)sender {
+    if (self.btn2ClickSubject) {
+        [self.btn2ClickSubject sendNext:self.btn2];
+    }
+}
+
+- (IBAction)btn3Click:(id)sender {
+    if (self.btn3ClickSubject) {
+        [self.btn3ClickSubject sendNext:self.btn3];
+    }
+}
 
 @end

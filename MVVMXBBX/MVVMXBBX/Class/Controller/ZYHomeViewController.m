@@ -10,6 +10,7 @@
 #import "SDCycleScrollView.h"
 #import "ZYHomeTopicView.h"
 #import "ZYHomeCategoryView.h"
+#import "ZYHomeHttpTool.h"
 
 @interface ZYHomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
@@ -36,6 +37,12 @@
 //    [self.tableView addSubview:scrollView];
     self.tableView.tableHeaderView = scrollView;
     scrollView.localizationImageNamesGroup = @[@"pic_1",@"pic_1"];
+    
+    [ZYHomeHttpTool.shareTool loadHomeDataWithSuccess:^(id resp) {
+        
+    } Failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,6 +88,7 @@
                 NSLog(@"点击btn2");
             }] ;
             view.btn3ClkSubject = [[RACSubject alloc]init];
+            // subscribeNext:^(id x)  ->信号接收方获取发送方传过来的数据x的方法
             [view.btn3ClkSubject subscribeNext:^(UIButton *btn) {
                 NSLog(@"点击btn3");
                 [btn setImage:nil forState:UIControlStateNormal];
@@ -104,7 +112,15 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2"];
         ZYHomeTopicView *view = [[NSBundle mainBundle]loadNibNamed:@"ZYHomeTopicView" owner:self options:nil].firstObject;
         if (view) {
-            
+            [view.btn1ClickSubject subscribeNext:^(UIButton *btn) {
+                NSLog(@"点击btn11");
+            }];
+            [view.btn2ClickSubject subscribeNext:^(UIButton *btn) {
+                NSLog(@"点击btn2");
+            }];
+            [view.btn3ClickSubject subscribeNext:^(UIButton *btn) {
+                NSLog(@"点击btn33");
+            }];
             [cell.contentView addSubview:view];
             [view mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.right.top.bottom.equalTo(cell.contentView);

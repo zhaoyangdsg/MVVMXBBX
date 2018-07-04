@@ -19,4 +19,5 @@
 //responseJsonWithSuccess:success failure:(void(^)(NSError *error))failure;
 //- (NSURLRequest *)successHandler:(void(^)(id resp))success;
 //- (NSURLRequest *)failureHandler:(void(^)(NSError *error))failuer;
+//- (NSURLRequest *(^)(void))success;
 @end
