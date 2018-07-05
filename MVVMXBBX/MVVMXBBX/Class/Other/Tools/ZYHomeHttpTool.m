@@ -9,8 +9,13 @@
 #import "ZYHomeHttpTool.h"
 #import "ZYHttpTool.h"
 #import "NSURLRequest+ZY.h"
+#import "ZYHomeItem.h"
+#import "MJExtension.h"
+#import "ZYHomeTopicItem.h"
+#import "ZYHomeAdItem.h"
+#import "ZYHomeProductItem.h"
 @implementation ZYHomeHttpTool
-
+singleM(ZYHomeHttpTool)
 - (void)loadHomeDataWithSuccess:(void (^)(id))success Failure:(void (^)(NSError *))failure {
 //    let url = APP_HEAD_URL + "app/home/homePicList.do"
 //    var param = Dictionary<String, Any>()
@@ -21,9 +26,24 @@
     // 
     req.responseJsonWithSuccess = ^(id respJson) {
         NSLog(@"%@",respJson);
+        [ZYHomeTopicItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"pdtId":@"id"};
+        }];
+        [ZYHomeProductItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{@"pdtId":@"id"};
+        }];
+        // 设置数组属性的model
+        [ZYHomeItem mj_setupObjectClassInArray:^NSDictionary *{
+            return @{@"featureList":@"ZYHomeTopicItem",
+                     @"recommend":@"ZYHomeProductItem",
+                     @"result":@"ZYHomeAdItem"
+                     };
+        }];
+        ZYHomeItem *homeItem = [ZYHomeItem mj_objectWithKeyValues:respJson];
+        success(homeItem);
     };
     req.failureHandler = ^(NSError *error) {
-        
+        failure(error);
     };
     
     

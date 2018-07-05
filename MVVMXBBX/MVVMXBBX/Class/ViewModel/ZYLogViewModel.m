@@ -49,7 +49,7 @@
     // 访问网络
     NSLog(@"访问登录接口");
     [self setIsLogging:YES];
-    [ZYProfileHttpTool.shareTool loginWithUser:self.user password:self.pwd successHandler:^(id user) {
+    [ZYProfileHttpTool.shareZYProfileHttpTool loginWithUser:self.user password:self.pwd successHandler:^(id user) {
         NSLog(@"%@",user);
         self.isLogging = NO;
         if (user) {

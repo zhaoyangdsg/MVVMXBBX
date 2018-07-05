@@ -11,6 +11,7 @@
 #import "ZYHomeTopicView.h"
 #import "ZYHomeCategoryView.h"
 #import "ZYHomeHttpTool.h"
+#import "ZYHomeItem.h"
 
 @interface ZYHomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *tableView;
@@ -38,11 +39,11 @@
     self.tableView.tableHeaderView = scrollView;
     scrollView.localizationImageNamesGroup = @[@"pic_1",@"pic_1"];
     
-    [ZYHomeHttpTool.shareTool loadHomeDataWithSuccess:^(id resp) {
-        
-    } Failure:^(NSError *error) {
-        
-    }];
+
+}
+
+- (void)loadData {
+    
 }
 
 - (void)didReceiveMemoryWarning {

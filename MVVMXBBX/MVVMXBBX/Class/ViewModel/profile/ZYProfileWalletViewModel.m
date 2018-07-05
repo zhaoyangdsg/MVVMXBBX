@@ -23,7 +23,9 @@
 - (void)initialBind {
     _loadDataCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         RACSignal *loadDataSignal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-            [ZYProfileHttpTool.shareTool loadMyWalletDataSuccessHandler:^(ZYProfileWalletItem *walletItem) {
+            
+            
+            [ZYProfileHttpTool.shareZYProfileHttpTool loadMyWalletDataSuccessHandler:^(ZYProfileWalletItem *walletItem) {
                 self.allMoney =  [@"¥" stringByAppendingString: [walletItem.totalsum stringValue]];
                 self.cashMoney = [@"¥" stringByAppendingString: [walletItem.jlmx stringValue]];
                 self.activityMoney =  [@"¥" stringByAppendingString:  [walletItem.jlmxh stringValue]];

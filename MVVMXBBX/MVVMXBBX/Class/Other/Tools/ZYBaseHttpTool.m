@@ -19,7 +19,7 @@ static ZYBaseHttpTool* _instance;
 
     dispatch_once(&onceToken, ^{
         if (_instance == nil) {
-            _instance = [[super allocWithZone:nil] init];
+            _instance = [super allocWithZone:zone];
         }
     });
     

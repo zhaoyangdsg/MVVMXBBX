@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZYBaseHttpTool.h"
-@interface ZYHomeHttpTool : ZYBaseHttpTool
 
+@interface ZYHomeHttpTool : NSObject
+singleH(ZYHomeHttpTool)
 - (void)loadHomeDataWithSuccess:(void(^)(id resp))success Failure:(void(^)(NSError *error))failure;
 @end

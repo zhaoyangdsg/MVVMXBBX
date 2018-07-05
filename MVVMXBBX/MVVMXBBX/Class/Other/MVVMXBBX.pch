@@ -15,3 +15,33 @@
 #import <Masonry/Masonry.h>
 #import "UIView+ZY.h"
 #endif /* MVVMXBBX_pch */
+
+
+// 单例宏 在.h文件中调用singleH(xx)
+#define singleH(name) +(instancetype)share##name;
+//       在.m文件中调用singleM(xx)
+#define singleM(name) static id _instance;\
++(instancetype)allocWithZone:(struct _NSZone *)zone\
+{\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+_instance = [super allocWithZone:zone];\
+});\
+return _instance;\
+}\
+\
++(instancetype)share##name\
+{\
+return [[self alloc]init];\
+}\
+-(id)copyWithZone:(NSZone *)zone\
+{\
+return _instance;\
+}\
+\
+-(id)mutableCopyWithZone:(NSZone *)zone\
+{\
+return _instance;\
+}
+
+

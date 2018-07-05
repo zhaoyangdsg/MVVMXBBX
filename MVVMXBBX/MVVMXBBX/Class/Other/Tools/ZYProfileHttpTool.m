@@ -17,13 +17,14 @@
 #import "ZYGetMoneyItem.h"
 
 @interface ZYProfileHttpTool()
+
 @property(nonatomic,strong)ZYHttpTool *httpTool;
 /** request */
 @property (nonatomic,strong)NSURLRequest *request;
 @end
 @implementation ZYProfileHttpTool
 
-
+singleM(ZYProfileHttpTool)
 - (void)loginWithUser:(NSString *)user password:(NSString *)password successHandler:(handlerBlock)successHandler  failureHandler:(handlerBlock)failureHandler {
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     paramDic[@"mobile"] = user;
@@ -33,7 +34,7 @@
     paramDic[@"versionName"] = @"ios.xiaobai";
     paramDic[@"EnCode"] = @"UTF-8";
     paramDic[@"version"] = [NSString stringWithFormat:@"%@",NSBundle.mainBundle.infoDictionary[@"CFBundleVersion"]];
-    
+    NSLog(@"%@",paramDic);
     NSString *apiUrl = @"app/user/login.do";
     
     self.request = [self.httpTool postRequestWithUrl:apiUrl parameters:paramDic];
