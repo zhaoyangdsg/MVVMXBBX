@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface ZYHomeItem : NSObject
+/// 专题
 @property (nonatomic,strong) NSArray *featureList;
+/// 推荐产品
 @property (nonatomic,strong) NSArray *recommend;
+/// 轮播图
 @property (nonatomic,strong) NSArray *result;
 @end

@@ -12,9 +12,12 @@
 #import "ZYHomeCategoryView.h"
 #import "ZYHomeHttpTool.h"
 #import "ZYHomeItem.h"
+#import "ZYHomeViewModel.h"
 
 @interface ZYHomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
-@property(nonatomic,strong)UITableView *tableView;
+@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) ZYHomeViewModel *homeViewModel;
+@property (nonatomic,weak) SDCycleScrollView *carouseView;
 @end
 
 @implementation ZYHomeViewController
@@ -23,6 +26,8 @@
     [super viewDidLoad];
     
     [self setupSubview];
+    
+    [self bindViewModel];
 }
 - (void)setupSubview {
     
@@ -37,9 +42,15 @@
     SDCycleScrollView *scrollView =  [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.view.width , 0.6*self.view.width) delegate:self placeholderImage:[UIImage imageNamed:@"pic_1"]];
 //    [self.tableView addSubview:scrollView];
     self.tableView.tableHeaderView = scrollView;
-    scrollView.localizationImageNamesGroup = @[@"pic_1",@"pic_1"];
-    
+    self.carouseView = scrollView;
+//    scrollView.localizationImageNamesGroup = @[@"pic_1",@"pic_1"];
+}
 
+- (void)bindViewModel {
+    self.homeViewModel = [[ZYHomeViewModel alloc]init];
+    [[[self.homeViewModel.loadDataCommand execute:nil] deliverOnMainThread] subscribeCompleted:^{
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)loadData {
@@ -112,17 +123,31 @@
     } else if (indexPath.section == 1) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2"];
         ZYHomeTopicView *view = [[NSBundle mainBundle]loadNibNamed:@"ZYHomeTopicView" owner:self options:nil].firstObject;
+       
         if (view) {
+            
+            UIImage * imageView1 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.homeViewModel.topic1Img]]];
+            [view.btn1 setImage: imageView1 forState:UIControlStateNormal];
+            
+            UIImage * imageView2 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.homeViewModel.topic2Img]]];
+            [view.btn2 setImage: imageView2 forState:UIControlStateNormal];
+            
+            UIImage * imageView3 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.homeViewModel.topic3Img]]];
+            [view.btn3 setImage: imageView3 forState:UIControlStateNormal];
+            
             [view.btn1ClickSubject subscribeNext:^(UIButton *btn) {
-                NSLog(@"点击btn11");
+                NSLog(@"点击btn1 %@",self.homeViewModel.topic1Url);
+                
             }];
             [view.btn2ClickSubject subscribeNext:^(UIButton *btn) {
-                NSLog(@"点击btn2");
+                NSLog(@"点击btn2 %@",self.homeViewModel.topic2Url);
             }];
             [view.btn3ClickSubject subscribeNext:^(UIButton *btn) {
-                NSLog(@"点击btn33");
+                NSLog(@"点击btn3 %@",self.homeViewModel.topic3Url);
             }];
+            
             [cell.contentView addSubview:view];
+            
             [view mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.left.right.top.bottom.equalTo(cell.contentView);
             }];
@@ -135,6 +160,9 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 2) {
+        return self.homeViewModel.pdtVMAry.count>0?self.homeViewModel.pdtVMAry.count:0;
+    }
     return 1;
 }
 

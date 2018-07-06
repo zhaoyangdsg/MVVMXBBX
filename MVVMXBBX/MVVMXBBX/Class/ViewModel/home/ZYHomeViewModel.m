@@ -9,26 +9,74 @@
 #import "ZYHomeViewModel.h"
 #import "ZYHomeHttpTool.h"
 #import "ZYHomeItem.h"
-
+#import "ZYHomeTopicItem.h"
+#import "ZYHomeProductItem.h"
+#import "ZYHomeAdItem.h"
+#import "ZYHomePdtCellViewModel.h"
 
 @implementation ZYHomeViewModel
 
-- (RACCommand *)loadDataCommand {
-    if (!_loadDataCommand ) {
-        _loadDataCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-            RACSignal * signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-                [ZYHomeHttpTool.shareZYHomeHttpTool loadHomeDataWithSuccess:^(id resp) {
-                    ZYHomeItem *item = resp;
-                    NSLog(@"%@",item);
-                } Failure:^(NSError *error) {
-                    
-                }];
-                return  nil;
-            }];
-            return signal;
-        }];
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        [self initialBinding];
     }
-   
-    return _loadDataCommand;
+    return self;
 }
+- (void)initialBinding {
+    _loadDataCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        RACSignal * signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            [ZYHomeHttpTool.shareZYHomeHttpTool loadHomeDataWithSuccess:^(id resp) {
+                ZYHomeItem *item = resp;
+//                NSLog(@"%@",item);
+                // 专题
+                for (int i = 0; i<item.featureList.count; i++) {
+                    ZYHomeTopicItem *topicItem = item.featureList[i];
+                    if (i == 0) {
+                        self.topic1Img = [@"" stringByAppendingString: topicItem.homeImgUrl];
+                        self.topic1Url = [@"" stringByAppendingString: topicItem.pdtId];
+                    }
+                    if (i == 1) {
+                        self.topic2Img = [@"" stringByAppendingString:topicItem.homeImgUrl];
+                        self.topic2Url = [@"" stringByAppendingString: topicItem.pdtId];
+                    }
+                    if (i == 2) {
+                        self.topic3Img = [@"" stringByAppendingString:topicItem.homeImgUrl];
+                        self.topic3Url = [@"" stringByAppendingString: topicItem.pdtId];
+                    }
+                }
+                // 轮播图
+                for (ZYHomeAdItem *adItem in item.result) {
+                    [self.adImgAry addObject: [@"" stringByAppendingString: adItem.picUrl]];
+                    [self.adUrlAry addObject:[@"" stringByAppendingString: adItem.adUrl]];
+                }
+                
+                // 推荐产品
+                for (ZYHomeProductItem *pdtItem in item.recommend ) {
+                    ZYHomePdtCellViewModel * model = [[ZYHomePdtCellViewModel alloc]initWithModel:pdtItem];
+                    [self.pdtVMAry addObject:model];
+                }
+                
+                [subscriber sendNext: nil];
+                [subscriber sendCompleted];
+                
+            } Failure:^(NSError *error) {
+                [subscriber sendError:error];
+            }];
+            return  nil;
+        }];
+        return signal;
+    }];
+    
+    
+}
+
+- (NSMutableArray *)pdtVMAry {
+    if (!_pdtVMAry) {
+        _pdtVMAry = [NSMutableArray array];
+    }
+    return _pdtVMAry;
+}
+
 @end

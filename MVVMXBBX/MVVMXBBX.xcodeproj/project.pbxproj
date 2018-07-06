@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C2D2A2920EE21A500AA372F /* ZYHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A2820EE21A500AA372F /* ZYHomeViewModel.m */; };
+		0C2D2A2C20EF151F00AA372F /* ZYHomePdtCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A2B20EF151F00AA372F /* ZYHomePdtCellViewModel.m */; };
 		0C5A071C20AE7CAC007B0D34 /* ZYProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A071B20AE7CAC007B0D34 /* ZYProfileHeaderView.m */; };
 		0C5A071E20AE7CBC007B0D34 /* ZYProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5A071D20AE7CBC007B0D34 /* ZYProfileHeaderView.xib */; };
 		0C5A072120AE8595007B0D34 /* ZYProfileHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A072020AE8595007B0D34 /* ZYProfileHeaderViewModel.m */; };
@@ -62,6 +63,8 @@
 /* Begin PBXFileReference section */
 		0C2D2A2720EE21A500AA372F /* ZYHomeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomeViewModel.h; sourceTree = "<group>"; };
 		0C2D2A2820EE21A500AA372F /* ZYHomeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomeViewModel.m; sourceTree = "<group>"; };
+		0C2D2A2A20EF151F00AA372F /* ZYHomePdtCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomePdtCellViewModel.h; sourceTree = "<group>"; };
+		0C2D2A2B20EF151F00AA372F /* ZYHomePdtCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomePdtCellViewModel.m; sourceTree = "<group>"; };
 		0C5A071A20AE7CAC007B0D34 /* ZYProfileHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHeaderView.h; sourceTree = "<group>"; };
 		0C5A071B20AE7CAC007B0D34 /* ZYProfileHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHeaderView.m; sourceTree = "<group>"; };
 		0C5A071D20AE7CBC007B0D34 /* ZYProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYProfileHeaderView.xib; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 			children = (
 				0C2D2A2720EE21A500AA372F /* ZYHomeViewModel.h */,
 				0C2D2A2820EE21A500AA372F /* ZYHomeViewModel.m */,
+				0C2D2A2A20EF151F00AA372F /* ZYHomePdtCellViewModel.h */,
+				0C2D2A2B20EF151F00AA372F /* ZYHomePdtCellViewModel.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -195,6 +200,15 @@
 				0C61623120E0DC8600B777DA /* ZYGetMoneyViewModel.m */,
 			);
 			path = profile;
+			sourceTree = "<group>";
+		};
+		0C2D2A2D20EF479200AA372F /* home */ = {
+			isa = PBXGroup;
+			children = (
+				0C61620A20D1219000B777DA /* ZYHomeViewController.h */,
+				0C61620B20D1219000B777DA /* ZYHomeViewController.m */,
+			);
+			path = home;
 			sourceTree = "<group>";
 		};
 		0C5A073420B2610E007B0D34 /* Tools */ = {
@@ -333,11 +347,10 @@
 		FCDB56E320A2F3C7009E7AEF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0C2D2A2D20EF479200AA372F /* home */,
 				0C61621420D2589600B777DA /* Profile */,
 				FCDB56E420A2F3C7009E7AEF /* ViewController.h */,
 				FCDB56E520A2F3C7009E7AEF /* ViewController.m */,
-				0C61620A20D1219000B777DA /* ZYHomeViewController.h */,
-				0C61620B20D1219000B777DA /* ZYHomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -537,6 +550,7 @@
 				0C5A071C20AE7CAC007B0D34 /* ZYProfileHeaderView.m in Sources */,
 				0CA37B0320C0E9DB0075D840 /* ZYProfileHttpTool.m in Sources */,
 				0C61622E20E0D81000B777DA /* ZYGetMoneyController.m in Sources */,
+				0C2D2A2C20EF151F00AA372F /* ZYHomePdtCellViewModel.m in Sources */,
 				0C61622820DB843B00B777DA /* ZYProfileWalletView.m in Sources */,
 				DD2A202520C3CD7D0001AC18 /* NSURLRequest+ZY.m in Sources */,
 				FCE6A86320A42FF600B6D42F /* ZYLogViewModel.m in Sources */,
