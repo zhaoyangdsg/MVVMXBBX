@@ -7,6 +7,10 @@
 //
 
 #import "ZYHomeTopicView.h"
+#import "ZYHomeViewModel.h"
+@interface ZYHomeTopicView()
+@property(nonatomic,strong) ZYHomeViewModel *viewModel;
+@end
 
 @implementation ZYHomeTopicView
 - (IBAction)btn1Click:(id)sender {
@@ -26,4 +30,17 @@
     }
 }
 
+- (void)bindHomeViewModel:(ZYHomeViewModel *)viewModel {
+    self.viewModel = viewModel;
+    UIImage *img1 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:viewModel.topic1Img]]];
+    [self.btn1 setImage: img1 forState:UIControlStateNormal];
+    
+    UIImage *img2 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:viewModel.topic2Img]]];
+    [self.btn2 setImage: img2 forState:UIControlStateNormal];
+    
+    UIImage *img3 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:viewModel.topic3Img]]];
+    [self.btn3 setImage: img3 forState:UIControlStateNormal];
+    
+    
+}
 @end

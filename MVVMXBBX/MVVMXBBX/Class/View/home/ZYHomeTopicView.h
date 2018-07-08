@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ZYHomeViewModel;
 @interface ZYHomeTopicView : UIView
 @property (weak, nonatomic) IBOutlet UIButton *btn1;
 @property (weak, nonatomic) IBOutlet UIButton *btn2;
@@ -16,4 +16,6 @@
 @property (strong, nonatomic) RACSubject *btn1ClickSubject;
 @property (strong, nonatomic) RACSubject *btn2ClickSubject;
 @property (strong, nonatomic) RACSubject *btn3ClickSubject;
+
+- (void)bindHomeViewModel:(ZYHomeViewModel *)viewModel;
 @end

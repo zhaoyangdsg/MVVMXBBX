@@ -47,6 +47,8 @@
 		DD2A202520C3CD7D0001AC18 /* NSURLRequest+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A202420C3CD7D0001AC18 /* NSURLRequest+ZY.m */; };
 		DD2A202820C3EAE20001AC18 /* NSURLResponse+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A202720C3EAE20001AC18 /* NSURLResponse+ZY.m */; };
 		DD2E162920A9835400C1E7C9 /* UIView+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2E162820A9835400C1E7C9 /* UIView+ZY.m */; };
+		DD3FB68320F2624E00946FA4 /* ZYHomePdtCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD3FB68120F2624E00946FA4 /* ZYHomePdtCell.m */; };
+		DD3FB68420F2624E00946FA4 /* ZYHomePdtCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3FB68220F2624E00946FA4 /* ZYHomePdtCell.xib */; };
 		FCDB56D420A1A8C0009E7AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D220A1A8C0009E7AEF /* Main.storyboard */; };
 		FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */; };
 		FCDB56D920A1A8C0009E7AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D720A1A8C0009E7AEF /* LaunchScreen.storyboard */; };
@@ -138,6 +140,9 @@
 		DD2A202720C3EAE20001AC18 /* NSURLResponse+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+ZY.m"; sourceTree = "<group>"; };
 		DD2E162720A9835400C1E7C9 /* UIView+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ZY.h"; sourceTree = "<group>"; };
 		DD2E162820A9835400C1E7C9 /* UIView+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZY.m"; sourceTree = "<group>"; };
+		DD3FB68020F2624E00946FA4 /* ZYHomePdtCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYHomePdtCell.h; sourceTree = "<group>"; };
+		DD3FB68120F2624E00946FA4 /* ZYHomePdtCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYHomePdtCell.m; sourceTree = "<group>"; };
+		DD3FB68220F2624E00946FA4 /* ZYHomePdtCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYHomePdtCell.xib; sourceTree = "<group>"; };
 		DFA55980665EA08D47826424 /* Pods-MVVMXBBX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVMXBBX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX.debug.xcconfig"; sourceTree = "<group>"; };
 		FCDB56C920A1A8BD009E7AEF /* MVVMXBBX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMXBBX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCDB56D320A1A8C0009E7AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -253,6 +258,9 @@
 				0C716F5520EB58E30000CA84 /* ZYHomeTopicView.h */,
 				0C716F5620EB58E30000CA84 /* ZYHomeTopicView.m */,
 				0C716F5820EB60C70000CA84 /* ZYHomeTopicView.xib */,
+				DD3FB68020F2624E00946FA4 /* ZYHomePdtCell.h */,
+				DD3FB68120F2624E00946FA4 /* ZYHomePdtCell.m */,
+				DD3FB68220F2624E00946FA4 /* ZYHomePdtCell.xib */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -427,6 +435,7 @@
 				FCDB56C620A1A8BD009E7AEF /* Frameworks */,
 				FCDB56C720A1A8BD009E7AEF /* Resources */,
 				4FC6C9DD46BD1C36D502CC32 /* [CP] Embed Pods Frameworks */,
+				75A37CE8D3C764AB24D859A6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -482,6 +491,7 @@
 				0C61622A20DB844A00B777DA /* ZYProfileWalletView.xib in Resources */,
 				FCDB56D920A1A8C0009E7AEF /* LaunchScreen.storyboard in Resources */,
 				0C716F5420EB56970000CA84 /* ZYHomeCategoryView.xib in Resources */,
+				DD3FB68420F2624E00946FA4 /* ZYHomePdtCell.xib in Resources */,
 				FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */,
 				FCDB56F920A2F700009E7AEF /* ZYLoginView.xib in Resources */,
 				0C5A071E20AE7CBC007B0D34 /* ZYProfileHeaderView.xib in Resources */,
@@ -520,6 +530,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75A37CE8D3C764AB24D859A6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MVVMXBBX/Pods-MVVMXBBX-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EC7E694686E5BB63C2E1BE74 /* [CP] Check Pods Manifest.lock */ = {
@@ -567,6 +592,7 @@
 				0C716F5F20ECCEE40000CA84 /* ZYHomeProductItem.m in Sources */,
 				0CA37B1120C67B240075D840 /* ZYUserTool.m in Sources */,
 				0C61623820E228CA00B777DA /* ZYGetMoneyItem.m in Sources */,
+				DD3FB68320F2624E00946FA4 /* ZYHomePdtCell.m in Sources */,
 				0C61622120D9027F00B777DA /* ZYProfileWalletViewModel.m in Sources */,
 				0C61623520E0DD4700B777DA /* ZYGetMoneyView.m in Sources */,
 				0CA37B0E20C4E6860075D840 /* ZYUserItem.m in Sources */,

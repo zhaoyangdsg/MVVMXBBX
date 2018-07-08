@@ -34,21 +34,21 @@
                 for (int i = 0; i<item.featureList.count; i++) {
                     ZYHomeTopicItem *topicItem = item.featureList[i];
                     if (i == 0) {
-                        self.topic1Img = [@"" stringByAppendingString: topicItem.homeImgUrl];
+                        self.topic1Img = [k_img_Url stringByAppendingString: topicItem.homeImgUrl];
                         self.topic1Url = [@"" stringByAppendingString: topicItem.pdtId];
                     }
                     if (i == 1) {
-                        self.topic2Img = [@"" stringByAppendingString:topicItem.homeImgUrl];
+                        self.topic2Img = [k_img_Url stringByAppendingString:topicItem.homeImgUrl];
                         self.topic2Url = [@"" stringByAppendingString: topicItem.pdtId];
                     }
                     if (i == 2) {
-                        self.topic3Img = [@"" stringByAppendingString:topicItem.homeImgUrl];
+                        self.topic3Img = [k_img_Url stringByAppendingString:topicItem.homeImgUrl];
                         self.topic3Url = [@"" stringByAppendingString: topicItem.pdtId];
                     }
                 }
                 // 轮播图
                 for (ZYHomeAdItem *adItem in item.result) {
-                    [self.adImgAry addObject: [@"" stringByAppendingString: adItem.picUrl]];
+                    [self.adImgAry addObject: [k_img_Url stringByAppendingString: adItem.picUrl]];
                     [self.adUrlAry addObject:[@"" stringByAppendingString: adItem.adUrl]];
                 }
                 
@@ -77,6 +77,20 @@
         _pdtVMAry = [NSMutableArray array];
     }
     return _pdtVMAry;
+}
+
+- (NSMutableArray *)adUrlAry {
+    if (!_adUrlAry) {
+        _adUrlAry = [NSMutableArray array];
+    }
+    return _adUrlAry;
+}
+
+- (NSMutableArray *)adImgAry {
+    if (!_adImgAry) {
+        _adImgAry = [NSMutableArray array];
+    }
+    return  _adImgAry;
 }
 
 @end

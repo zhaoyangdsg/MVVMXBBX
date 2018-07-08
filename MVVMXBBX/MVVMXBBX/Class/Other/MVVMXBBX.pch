@@ -14,8 +14,12 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <Masonry/Masonry.h>
 #import "UIView+ZY.h"
+#import <SDWebImage/SDWebImage-umbrella.h>
 #endif /* MVVMXBBX_pch */
 
+#define k_img_Url @"http://images.xiaobaibao.com/"
+#define k_app_Url @"http://app.xiaobaibao.com/"
+#define k_m_Url
 
 // 单例宏 在.h文件中调用singleH(xx)
 #define singleH(name) +(instancetype)share##name;

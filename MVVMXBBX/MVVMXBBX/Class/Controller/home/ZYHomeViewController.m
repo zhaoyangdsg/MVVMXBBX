@@ -13,11 +13,13 @@
 #import "ZYHomeHttpTool.h"
 #import "ZYHomeItem.h"
 #import "ZYHomeViewModel.h"
+#import "ZYHomePdtCell.h"
 
 @interface ZYHomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) ZYHomeViewModel *homeViewModel;
 @property (nonatomic,weak) SDCycleScrollView *carouseView;
+@property (nonatomic,weak) ZYHomeTopicView *topicView;
 @end
 
 @implementation ZYHomeViewController
@@ -37,18 +39,21 @@
     }];
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell1"];
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell2"];
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"cell3"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ZYHomePdtCell" bundle:nil] forCellReuseIdentifier:@"cell3"];
+
     
     SDCycleScrollView *scrollView =  [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.view.width , 0.6*self.view.width) delegate:self placeholderImage:[UIImage imageNamed:@"pic_1"]];
-//    [self.tableView addSubview:scrollView];
+    //    [self.tableView addSubview:scrollView];
     self.tableView.tableHeaderView = scrollView;
     self.carouseView = scrollView;
-//    scrollView.localizationImageNamesGroup = @[@"pic_1",@"pic_1"];
+    //    scrollView.localizationImageNamesGroup = @[@"pic_1",@"pic_1"];
 }
 
 - (void)bindViewModel {
     self.homeViewModel = [[ZYHomeViewModel alloc]init];
     [[[self.homeViewModel.loadDataCommand execute:nil] deliverOnMainThread] subscribeCompleted:^{
+        [self.topicView bindHomeViewModel:self.homeViewModel];
+        self.carouseView.imageURLStringsGroup = self.homeViewModel.adImgAry;
         [self.tableView reloadData];
     }];
 }
@@ -73,20 +78,22 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 // MARK:- SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
-    NSLog(@"%ld",index);
+    NSLog(@"%ld",self.homeViewModel.adUrlAry[index]);
+    
 }
 
+// MARK:- UITableViewDataSource
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     if (indexPath.section == 0) {
@@ -122,46 +129,30 @@
         return cell;
     } else if (indexPath.section == 1) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2"];
-        ZYHomeTopicView *view = [[NSBundle mainBundle]loadNibNamed:@"ZYHomeTopicView" owner:self options:nil].firstObject;
-       
-        if (view) {
-            
-            UIImage * imageView1 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.homeViewModel.topic1Img]]];
-            [view.btn1 setImage: imageView1 forState:UIControlStateNormal];
-            
-            UIImage * imageView2 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.homeViewModel.topic2Img]]];
-            [view.btn2 setImage: imageView2 forState:UIControlStateNormal];
-            
-            UIImage * imageView3 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.homeViewModel.topic3Img]]];
-            [view.btn3 setImage: imageView3 forState:UIControlStateNormal];
-            
-            [view.btn1ClickSubject subscribeNext:^(UIButton *btn) {
-                NSLog(@"点击btn1 %@",self.homeViewModel.topic1Url);
-                
-            }];
-            [view.btn2ClickSubject subscribeNext:^(UIButton *btn) {
-                NSLog(@"点击btn2 %@",self.homeViewModel.topic2Url);
-            }];
-            [view.btn3ClickSubject subscribeNext:^(UIButton *btn) {
-                NSLog(@"点击btn3 %@",self.homeViewModel.topic3Url);
-            }];
-            
-            [cell.contentView addSubview:view];
-            
-            [view mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.right.top.bottom.equalTo(cell.contentView);
-            }];
-        }
+        //        ZYHomeTopicView *view = [[NSBundle mainBundle]loadNibNamed:@"ZYHomeTopicView" owner:self options:nil].firstObject;
+        
+        //        if (view) {
+        NSLog(@"%@",cell.contentView.subviews);
+        [cell.contentView addSubview:self.topicView];
+        
+        [self.topicView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.top.bottom.equalTo(cell.contentView);
+        }];
+        
         return cell;
     }else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell3"];
+        ZYHomePdtCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell3"];
+        if (self.homeViewModel.pdtVMAry.count >0) {
+            [cell bindViewModel:self.homeViewModel.pdtVMAry[indexPath.row]];
+        }
+        
         return cell;
     }
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 2) {
-        return self.homeViewModel.pdtVMAry.count>0?self.homeViewModel.pdtVMAry.count:0;
+        return self.homeViewModel.pdtVMAry.count<=6?self.homeViewModel.pdtVMAry.count:6;
     }
     return 1;
 }
@@ -178,6 +169,29 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
+}
+
+- (ZYHomeTopicView *)topicView {
+    if (!_topicView) {
+        ZYHomeTopicView *view = [[NSBundle mainBundle]loadNibNamed:@"ZYHomeTopicView" owner:self options:nil].firstObject;
+        _topicView = view;
+        
+        
+        self.topicView.btn1ClickSubject = [RACSubject subject];
+        [self.topicView.btn1ClickSubject subscribeNext:^(UIButton *btn) {
+            NSLog(@"点击btn1 %@",self.homeViewModel.topic1Url);
+        }];
+        self.topicView.btn2ClickSubject = [RACSubject subject];
+        [self.topicView.btn2ClickSubject subscribeNext:^(UIButton *btn) {
+            NSLog(@"点击btn2 %@",self.homeViewModel.topic2Url);
+        }];
+        self.topicView.btn3ClickSubject = [RACSubject subject];
+        [self.topicView.btn3ClickSubject subscribeNext:^(UIButton *btn) {
+            NSLog(@"点击btn3 %@",self.homeViewModel.topic3Url);
+        }];
+        
+    }
+    return _topicView;
 }
 
 @end
