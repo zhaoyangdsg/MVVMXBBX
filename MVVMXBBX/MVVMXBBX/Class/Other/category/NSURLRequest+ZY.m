@@ -32,7 +32,6 @@ const char ZYResponseKey;
         // response 返回code== 200(response.error 为nil) && request的successHandler block 有实现
         if (!response.error && self.responseJsonWithSuccess) {
             id resp = [NSJSONSerialization JSONObjectWithData:self.response.data   options:NSJSONReadingAllowFragments error:nil];
-            NSLog(@"%@",resp);
             
             // 执行successBlock
             self.responseJsonWithSuccess(resp);

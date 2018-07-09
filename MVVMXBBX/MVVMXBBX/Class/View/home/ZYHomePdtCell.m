@@ -21,6 +21,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    NSLog(@"cell init");
 }
 
 - (void)bindViewModel:(ZYHomePdtCellViewModel *)viewModel {

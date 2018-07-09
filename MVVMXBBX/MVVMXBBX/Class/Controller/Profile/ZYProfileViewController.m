@@ -36,6 +36,8 @@
 
 
 - (void)setupSubView {
+    self.title = @"我";
+    
     Boolean isLogin = ZYUserTool.shareInstance.isLoging;
     
     if (!isLogin ) {

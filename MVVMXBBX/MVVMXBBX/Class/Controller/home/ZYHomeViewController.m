@@ -14,6 +14,8 @@
 #import "ZYHomeItem.h"
 #import "ZYHomeViewModel.h"
 #import "ZYHomePdtCell.h"
+#import "ZYHomeTopicItem.h"
+#import "ZYHomeProductItem.h"
 
 @interface ZYHomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
@@ -29,9 +31,12 @@
     
     [self setupSubview];
     
+    [self loadCacheData];
+    
     [self bindViewModel];
 }
 - (void)setupSubview {
+    self.title = @"首页";
     
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -43,23 +48,45 @@
 
     
     SDCycleScrollView *scrollView =  [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, self.view.width , 0.6*self.view.width) delegate:self placeholderImage:[UIImage imageNamed:@"pic_1"]];
-    //    [self.tableView addSubview:scrollView];
     self.tableView.tableHeaderView = scrollView;
     self.carouseView = scrollView;
-    //    scrollView.localizationImageNamesGroup = @[@"pic_1",@"pic_1"];
 }
 
 - (void)bindViewModel {
     self.homeViewModel = [[ZYHomeViewModel alloc]init];
+    @weakify(self)
     [[[self.homeViewModel.loadDataCommand execute:nil] deliverOnMainThread] subscribeCompleted:^{
+        @strongify(self)
         [self.topicView bindHomeViewModel:self.homeViewModel];
         self.carouseView.imageURLStringsGroup = self.homeViewModel.adImgAry;
         [self.tableView reloadData];
     }];
 }
 
-- (void)loadData {
+// 加载缓存数据
+- (void)loadCacheData {
+    id cacheData =[[NSUserDefaults standardUserDefaults] objectForKey:k_homeData];
+    [ZYHomeTopicItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"pdtId":@"id"};
+    }];
+    [ZYHomeProductItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"pdtId":@"id"};
+    }];
+    // 设置数组属性的model
+    [ZYHomeItem mj_setupObjectClassInArray:^NSDictionary *{
+        return @{@"featureList":@"ZYHomeTopicItem",
+                 @"recommend":@"ZYHomeProductItem",
+                 @"result":@"ZYHomeAdItem"
+                 };
+    }];
     
+    ZYHomeItem *homeItem = [ZYHomeItem mj_objectWithKeyValues:cacheData];
+    if (homeItem) {
+        self.homeViewModel = [[ZYHomeViewModel alloc]initWithHomeItem:homeItem];
+        [self.topicView bindHomeViewModel:self.homeViewModel];
+        self.carouseView.imageURLStringsGroup = self.homeViewModel.adImgAry;
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,7 +116,7 @@
 
 // MARK:- SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
-    NSLog(@"%ld",self.homeViewModel.adUrlAry[index]);
+    NSLog(@"%@",self.homeViewModel.adUrlAry[index]);
     
 }
 
@@ -100,7 +127,10 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1"];
         ZYHomeCategoryView *view = [[NSBundle mainBundle]loadNibNamed:@"ZYHomeCategoryView" owner:self options:nil].firstObject;
         if (view) {
+            @weakify(self)
             [[view.btn1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+                @strongify(self)
+                self.view;
                 NSLog(@"点击btn1");
             }] ;
             [[view.btn2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -129,9 +159,6 @@
         return cell;
     } else if (indexPath.section == 1) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2"];
-        //        ZYHomeTopicView *view = [[NSBundle mainBundle]loadNibNamed:@"ZYHomeTopicView" owner:self options:nil].firstObject;
-        
-        //        if (view) {
         NSLog(@"%@",cell.contentView.subviews);
         [cell.contentView addSubview:self.topicView];
         
@@ -152,7 +179,7 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 2) {
-        return self.homeViewModel.pdtVMAry.count<=6?self.homeViewModel.pdtVMAry.count:6;
+        return self.homeViewModel.pdtVMAry.count<=6?self.homeViewModel.pdtVMAry.count:10;
     }
     return 1;
 }

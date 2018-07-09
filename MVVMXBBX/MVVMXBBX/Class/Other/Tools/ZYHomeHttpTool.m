@@ -10,7 +10,7 @@
 #import "ZYHttpTool.h"
 #import "NSURLRequest+ZY.h"
 #import "ZYHomeItem.h"
-#import "MJExtension.h"
+
 #import "ZYHomeTopicItem.h"
 #import "ZYHomeAdItem.h"
 #import "ZYHomeProductItem.h"
@@ -25,7 +25,9 @@ singleM(ZYHomeHttpTool)
     NSURLRequest *req = [ZYHttpTool.defaultTool postRequestWithUrl:@"app/home/homePicList.do" parameters:parameter];
     // 
     req.responseJsonWithSuccess = ^(id respJson) {
-        NSLog(@"%@",respJson);
+        // 缓存首页数据
+        [[NSUserDefaults standardUserDefaults] setObject:respJson forKey:k_homeData];
+        
         [ZYHomeTopicItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{@"pdtId":@"id"};
         }];

@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class ZYHomeItem;
 @interface ZYHomeViewModel : NSObject
+- (instancetype) initWithHomeItem:(ZYHomeItem *)item;
 @property (nonatomic,strong) RACCommand *loadDataCommand;
 
 @property (nonatomic,strong) NSString *topic1Img;
