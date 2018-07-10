@@ -33,7 +33,7 @@
     
     [self loadCacheData];
     
-    [self bindViewModel];
+//    [self bindViewModel];
 }
 - (void)setupSubview {
     self.title = @"首页";
@@ -53,10 +53,12 @@
 }
 
 - (void)bindViewModel {
-    self.homeViewModel = [[ZYHomeViewModel alloc]init];
+    ZYHomeViewModel *viewModel = [[ZYHomeViewModel alloc]init];
     @weakify(self)
     [[[self.homeViewModel.loadDataCommand execute:nil] deliverOnMainThread] subscribeCompleted:^{
         @strongify(self)
+        // 如果获取网络数据 成功 覆盖self.homeViewModel 
+        self.homeViewModel = viewModel;
         [self.topicView bindHomeViewModel:self.homeViewModel];
         self.carouseView.imageURLStringsGroup = self.homeViewModel.adImgAry;
         [self.tableView reloadData];
@@ -179,7 +181,8 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 2) {
-        return self.homeViewModel.pdtVMAry.count<=6?self.homeViewModel.pdtVMAry.count:10;
+        NSInteger rows = self.homeViewModel.pdtVMAry.count<=6?self.homeViewModel.pdtVMAry.count:10;
+        return rows;
     }
     return 1;
 }
