@@ -9,5 +9,9 @@
 #import "ZYHomeTopicItem.h"
 
 @implementation ZYHomeTopicItem
-
++ (void)initialize {
+    [ZYHomeTopicItem mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"pdtId":@"id"};
+    }];
+}
 @end

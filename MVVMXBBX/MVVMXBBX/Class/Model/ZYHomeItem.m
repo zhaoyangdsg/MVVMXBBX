@@ -9,5 +9,13 @@
 #import "ZYHomeItem.h"
 
 @implementation ZYHomeItem
-
++ (void)initialize {
+    // 设置数组属性的model
+    [ZYHomeItem mj_setupObjectClassInArray:^NSDictionary *{
+        return @{@"featureList":@"ZYHomeTopicItem",
+                 @"recommend":@"ZYHomeProductItem",
+                 @"result":@"ZYHomeAdItem"
+                 };
+    }];
+}
 @end

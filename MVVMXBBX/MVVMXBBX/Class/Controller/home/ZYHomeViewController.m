@@ -16,6 +16,7 @@
 #import "ZYHomePdtCell.h"
 #import "ZYHomeTopicItem.h"
 #import "ZYHomeProductItem.h"
+#import "ZYPersonInsController.h"
 
 @interface ZYHomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
@@ -33,7 +34,7 @@
     
     [self loadCacheData];
     
-//    [self bindViewModel];
+    [self bindViewModel];
 }
 - (void)setupSubview {
     self.title = @"首页";
@@ -55,9 +56,9 @@
 - (void)bindViewModel {
     ZYHomeViewModel *viewModel = [[ZYHomeViewModel alloc]init];
     @weakify(self)
-    [[[self.homeViewModel.loadDataCommand execute:nil] deliverOnMainThread] subscribeCompleted:^{
+    [[[viewModel.loadDataCommand execute:nil] deliverOnMainThread] subscribeCompleted:^{
         @strongify(self)
-        // 如果获取网络数据 成功 覆盖self.homeViewModel 
+        // 如果获取网络数据 成功 覆盖self.homeViewModel
         self.homeViewModel = viewModel;
         [self.topicView bindHomeViewModel:self.homeViewModel];
         self.carouseView.imageURLStringsGroup = self.homeViewModel.adImgAry;
@@ -136,6 +137,7 @@
                 NSLog(@"点击btn1");
             }] ;
             [[view.btn2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+                [self.navigationController pushViewController:[ZYPersonInsController new] animated:YES];
                 NSLog(@"点击btn2");
             }] ;
             view.btn3ClkSubject = [[RACSubject alloc]init];
