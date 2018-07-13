@@ -13,6 +13,7 @@
 		0C2D2A3320F7058E00AA372F /* ZYProductItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A3220F7058E00AA372F /* ZYProductItem.m */; };
 		0C2D2A3620F73C2B00AA372F /* ZYProductEnsureItem1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A3520F73C2B00AA372F /* ZYProductEnsureItem1.m */; };
 		0C2D2A3A20F7400500AA372F /* ZYCategoryScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A3920F7400500AA372F /* ZYCategoryScrollView.m */; };
+		0C2D2A3D20F861BE00AA372F /* ZYAllPersonInsControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A3C20F861BE00AA372F /* ZYAllPersonInsControllerViewController.m */; };
 		0C5A071C20AE7CAC007B0D34 /* ZYProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A071B20AE7CAC007B0D34 /* ZYProfileHeaderView.m */; };
 		0C5A071E20AE7CBC007B0D34 /* ZYProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5A071D20AE7CBC007B0D34 /* ZYProfileHeaderView.xib */; };
 		0C5A072120AE8595007B0D34 /* ZYProfileHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A072020AE8595007B0D34 /* ZYProfileHeaderViewModel.m */; };
@@ -79,6 +80,8 @@
 		0C2D2A3520F73C2B00AA372F /* ZYProductEnsureItem1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProductEnsureItem1.m; sourceTree = "<group>"; };
 		0C2D2A3820F7400500AA372F /* ZYCategoryScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYCategoryScrollView.h; sourceTree = "<group>"; };
 		0C2D2A3920F7400500AA372F /* ZYCategoryScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYCategoryScrollView.m; sourceTree = "<group>"; };
+		0C2D2A3B20F861BE00AA372F /* ZYAllPersonInsControllerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYAllPersonInsControllerViewController.h; sourceTree = "<group>"; };
+		0C2D2A3C20F861BE00AA372F /* ZYAllPersonInsControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYAllPersonInsControllerViewController.m; sourceTree = "<group>"; };
 		0C5A071A20AE7CAC007B0D34 /* ZYProfileHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHeaderView.h; sourceTree = "<group>"; };
 		0C5A071B20AE7CAC007B0D34 /* ZYProfileHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHeaderView.m; sourceTree = "<group>"; };
 		0C5A071D20AE7CBC007B0D34 /* ZYProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYProfileHeaderView.xib; sourceTree = "<group>"; };
@@ -226,6 +229,8 @@
 				0C61620B20D1219000B777DA /* ZYHomeViewController.m */,
 				0C2D2A2E20F700C000AA372F /* ZYPersonInsController.h */,
 				0C2D2A2F20F700C000AA372F /* ZYPersonInsController.m */,
+				0C2D2A3B20F861BE00AA372F /* ZYAllPersonInsControllerViewController.h */,
+				0C2D2A3C20F861BE00AA372F /* ZYAllPersonInsControllerViewController.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -623,6 +628,7 @@
 				0C2D2A3020F700C000AA372F /* ZYPersonInsController.m in Sources */,
 				0CA37B1120C67B240075D840 /* ZYUserTool.m in Sources */,
 				0C61623820E228CA00B777DA /* ZYGetMoneyItem.m in Sources */,
+				0C2D2A3D20F861BE00AA372F /* ZYAllPersonInsControllerViewController.m in Sources */,
 				DD3FB68320F2624E00946FA4 /* ZYHomePdtCell.m in Sources */,
 				0C61622120D9027F00B777DA /* ZYProfileWalletViewModel.m in Sources */,
 				0C61623520E0DD4700B777DA /* ZYGetMoneyView.m in Sources */,

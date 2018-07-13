@@ -9,6 +9,7 @@
 #import "ZYPersonInsController.h"
 #import "ZYHomeHttpTool.h"
 #import "ZYProductItem.h"
+
 @interface ZYPersonInsController ()
 
 @end
@@ -23,19 +24,30 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-     Class clazz = NSClassFromString(@"ZYProductEnsureItem");
-    NSLog(@"%@",clazz);
-    clazz = NSClassFromString(@"ZYProductItem");
-    NSLog(@"%@",clazz);
-    [[ZYHomeHttpTool shareZYHomeHttpTool]loadPersonInsByType:1 withSuccess:^(id resp) {
-        NSString *pageCount = resp[@"pageCount"];
-        NSArray *pdtAry = resp[@"pdtItemAry"];
-        NSString *total = resp[@"total"];
 
-    } failure:^(NSError *error) {
-        
-    }];
+//    [[ZYHomeHttpTool shareZYHomeHttpTool]loadPersonInsByType:1 withSuccess:^(id resp) {
+//        NSString *pageCount = resp[@"pageCount"];
+//        NSArray *pdtAry = resp[@"pdtItemAry"];
+//        NSString *total = resp[@"total"];
+//
+//    } failure:^(NSError *error) {
+//
+//    }];
+
+    
+//    [catView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.top.bottom.equalTo(self.view);
+//    }];
+//    UIView *v = [UIView new];
+//    v.backgroundColor = UIColor.redColor;
+//    v.frame = CGRectMake(100, 100, 100, 100);
+//    [self.view addSubview:v];
+//    [v mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.top.bottom.equalTo(self.view);
+//    }];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
