@@ -38,6 +38,10 @@ static const float kBtmLineHeight = 2;
     }
     return self;
 }
+
+- (void)layoutSubviews {
+    [self setupSubview];
+}
 - (void)setupSubview {
     [self setupItems];
     [self setupCategoryView];
@@ -120,6 +124,7 @@ static const float kBtmLineHeight = 2;
 
 - (void)setupDefaultData {
     // _defaultIdx 默认为0
+    _currentIdx = _defaultIdx;
     [self hand_moveViewPositionWithIdx:_defaultIdx];
 }
 
@@ -206,7 +211,7 @@ static const float kBtmLineHeight = 2;
 - (void)setBtmLinePositionWith:(int)idx {
     // line的x
     self.btmLine.hidden = NO;
-    float lineX = self.categoryBtnWidth * idx + (self.categoryBtnWidth - self.btmLine.width)/2;
+    float lineX = self.categoryBtnWidth * idx + (self.categoryBtnWidth - kBtmLineWidth)/2;
     self.btmLine.frame = CGRectMake(lineX, self.categoryView.height-kBtmLineHeight, kBtmLineWidth, kBtmLineHeight);
 }
 
@@ -215,6 +220,7 @@ static const float kBtmLineHeight = 2;
         UIScrollView *view = [[UIScrollView alloc]init];
         view.pagingEnabled = YES;
         view.delegate = self;
+        view.bounces = NO;
         _scrollView = view;
     }
     return _scrollView;
@@ -229,7 +235,7 @@ static const float kBtmLineHeight = 2;
 }
 - (void)setItems:(NSMutableArray *)items {
     _items = items;
-    [self setupSubview];
+    
 }
 
 // scrollview减速结束后
@@ -249,11 +255,34 @@ static const float kBtmLineHeight = 2;
 // 拖拽时
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     float offsetX = scrollView.contentOffset.x;
-    
+    NSLog(@"%f",offsetX);
+    float btmLineLength = (offsetX-_currentIdx*self.scrollView.width)/self.scrollView.width * self.categoryBtnWidth ;
+    NSLog(@"%f",btmLineLength);
+    if (btmLineLength > 0) {
+        self.btmLine.width = kBtmLineWidth + btmLineLength;
+        UIButton *btn = self.btnAry[_currentIdx+1];
+        if (btn) {
+            // r1: normal颜色 r2: select颜色
+            // 选中颜色: select->normal : normal-select
+            // 将被选中颜色: normal->select : select-normal
+            CGFloat r1,g1,b1,a1,r2,g2,b2,a2,r3,g3,b3,a3;
+            [UIColor.grayColor getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
+            [UIColor.redColor getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
+            UIColor *cur_color = [UIColor colorWithRed:(r1-r2) green:(g1-g2) blue:(b1-b2) alpha:(a1-a2)];
+            UIColor *next_color = [UIColor colorWithRed:(r2-r1) green:(g2-g1) blue:(b2-b1) alpha:(a2-a1)];
+            [btn setTitleColor:next_color forState:UIControlStateNormal];
+            [self.btnAry[_currentIdx] setTitleColor:cur_color forState:UIControlStateSelected];
+        }
+    }else if (btmLineLength < 0) {
+        float lineX = self.categoryBtnWidth * _currentIdx + (self.categoryBtnWidth - kBtmLineWidth)/2;
+        self.btmLine.x = lineX + btmLineLength;
+        self.btmLine.width = kBtmLineWidth - btmLineLength;
+    }else {
+        [self setBtmLinePositionWith:_currentIdx];
+    }
     // 动态 修改btmLine的长度
 }
 @end
-
 
 
 
