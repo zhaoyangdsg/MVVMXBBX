@@ -214,7 +214,7 @@
         [self logout];
     }else {
         ZYMyWalletController *controller = [[ZYMyWalletController alloc]init];
-        
+        controller.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:controller animated:YES];
     }
    

@@ -17,6 +17,7 @@
 #import "ZYHomeTopicItem.h"
 #import "ZYHomeProductItem.h"
 #import "ZYPersonInsController.h"
+#import "ZYAllPersonInsControllerViewController.h"
 
 @interface ZYHomeViewController ()<SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) UITableView *tableView;
@@ -137,7 +138,9 @@
                 NSLog(@"点击btn1");
             }] ;
             [[view.btn2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-                [self.navigationController pushViewController:[ZYPersonInsController new] animated:YES];
+                ZYAllPersonInsControllerViewController *ctrl = [[ZYAllPersonInsControllerViewController alloc]init];
+                ctrl.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:ctrl animated:YES];
                 NSLog(@"点击btn2");
             }] ;
             view.btn3ClkSubject = [[RACSubject alloc]init];

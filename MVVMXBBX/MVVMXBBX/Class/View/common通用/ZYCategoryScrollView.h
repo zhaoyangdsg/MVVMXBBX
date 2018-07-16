@@ -10,7 +10,8 @@
 
 @interface ZYCategoryScrollView : UIView
 @property (nonatomic,strong)NSMutableArray *items;
-@property (nonatomic,assign)float categoryPersent;
+@property (nonatomic,assign)float categoryViewHeight;
+@property (nonatomic,assign)int defaultIdx;
 @end
 
 @interface ZYCategoryScrollViewItem : NSObject

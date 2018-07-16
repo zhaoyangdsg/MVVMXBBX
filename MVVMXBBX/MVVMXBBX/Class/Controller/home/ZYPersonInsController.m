@@ -45,6 +45,7 @@
 //    [v mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.left.right.top.bottom.equalTo(self.view);
 //    }];
+    self.view.backgroundColor = UIColor.blueColor;
 }
 
 

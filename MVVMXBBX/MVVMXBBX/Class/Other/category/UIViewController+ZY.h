@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UIViewController (ZY)
-
+//- (void)hideTabBar:(bool)isHide;
+//@property (nonatomic,assign)bool hidesBottomBarWhenPushed;
 @end

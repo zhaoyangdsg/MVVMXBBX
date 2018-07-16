@@ -18,12 +18,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    ZYCategoryScrollViewItem *item1 = [[ZYCategoryScrollViewItem alloc]initWithTitle:@"myWallet" andViewName:@"ZYMyWalletController"];
-    ZYCategoryScrollViewItem *item2 = [[ZYCategoryScrollViewItem alloc]initWithTitle:@"getMoney" andViewName:@"ZYGetMoneyController"];
+    ZYCategoryScrollViewItem *item1 = [[ZYCategoryScrollViewItem alloc]initWithTitle:@"境内险" andViewName:@"ZYPersonInsController"];
+    ZYCategoryScrollViewItem *item2 = [[ZYCategoryScrollViewItem alloc]initWithTitle:@"境外险" andViewName:@"ZYPersonInsController"];
     ZYCategoryScrollView *catView = [[ZYCategoryScrollView alloc]init];
-    catView.frame = self.view.bounds;
+    catView.categoryViewHeight = 30;
+    catView.defaultIdx = 1;
+    CGRect frame = self.view.bounds;
+    frame.origin.y = 64;
+    frame.size.height -= 64;
+    catView.frame = frame;
     catView.items = [NSMutableArray arrayWithArray: @[item1,item2]];
     [self.view addSubview:catView];
+    
 }
 
 - (void)didReceiveMemoryWarning {
