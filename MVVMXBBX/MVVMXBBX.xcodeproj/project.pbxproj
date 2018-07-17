@@ -15,6 +15,7 @@
 		0C2D2A3A20F7400500AA372F /* ZYCategoryScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A3920F7400500AA372F /* ZYCategoryScrollView.m */; };
 		0C2D2A3D20F861BE00AA372F /* ZYAllPersonInsControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A3C20F861BE00AA372F /* ZYAllPersonInsControllerViewController.m */; };
 		0C2D2A4020FC377B00AA372F /* UINavigationController+ZY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A3F20FC377A00AA372F /* UINavigationController+ZY.m */; };
+		0C2D2A4320FDA06B00AA372F /* ZYPersonInsCtrlViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2D2A4220FDA06B00AA372F /* ZYPersonInsCtrlViewModel.m */; };
 		0C5A071C20AE7CAC007B0D34 /* ZYProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A071B20AE7CAC007B0D34 /* ZYProfileHeaderView.m */; };
 		0C5A071E20AE7CBC007B0D34 /* ZYProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5A071D20AE7CBC007B0D34 /* ZYProfileHeaderView.xib */; };
 		0C5A072120AE8595007B0D34 /* ZYProfileHeaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5A072020AE8595007B0D34 /* ZYProfileHeaderViewModel.m */; };
@@ -58,7 +59,6 @@
 		FCDB56D420A1A8C0009E7AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D220A1A8C0009E7AEF /* Main.storyboard */; };
 		FCDB56D620A1A8C0009E7AEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */; };
 		FCDB56D920A1A8C0009E7AEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56D720A1A8C0009E7AEF /* LaunchScreen.storyboard */; };
-		FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56E520A2F3C7009E7AEF /* ViewController.m */; };
 		FCDB56EF20A2F3C7009E7AEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56E920A2F3C7009E7AEF /* AppDelegate.m */; };
 		FCDB56F020A2F3C7009E7AEF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCDB56EA20A2F3C7009E7AEF /* Info.plist */; };
 		FCDB56F120A2F3C7009E7AEF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCDB56EB20A2F3C7009E7AEF /* main.m */; };
@@ -85,6 +85,8 @@
 		0C2D2A3C20F861BE00AA372F /* ZYAllPersonInsControllerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYAllPersonInsControllerViewController.m; sourceTree = "<group>"; };
 		0C2D2A3E20FC377A00AA372F /* UINavigationController+ZY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+ZY.h"; sourceTree = "<group>"; };
 		0C2D2A3F20FC377A00AA372F /* UINavigationController+ZY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+ZY.m"; sourceTree = "<group>"; };
+		0C2D2A4120FDA06B00AA372F /* ZYPersonInsCtrlViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYPersonInsCtrlViewModel.h; sourceTree = "<group>"; };
+		0C2D2A4220FDA06B00AA372F /* ZYPersonInsCtrlViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYPersonInsCtrlViewModel.m; sourceTree = "<group>"; };
 		0C5A071A20AE7CAC007B0D34 /* ZYProfileHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYProfileHeaderView.h; sourceTree = "<group>"; };
 		0C5A071B20AE7CAC007B0D34 /* ZYProfileHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYProfileHeaderView.m; sourceTree = "<group>"; };
 		0C5A071D20AE7CBC007B0D34 /* ZYProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZYProfileHeaderView.xib; sourceTree = "<group>"; };
@@ -166,8 +168,6 @@
 		FCDB56D320A1A8C0009E7AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCDB56D520A1A8C0009E7AEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCDB56D820A1A8C0009E7AEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FCDB56E420A2F3C7009E7AEF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FCDB56E520A2F3C7009E7AEF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FCDB56E820A2F3C7009E7AEF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FCDB56E920A2F3C7009E7AEF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FCDB56EA20A2F3C7009E7AEF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -208,6 +208,8 @@
 				0C2D2A2820EE21A500AA372F /* ZYHomeViewModel.m */,
 				0C2D2A2A20EF151F00AA372F /* ZYHomePdtCellViewModel.h */,
 				0C2D2A2B20EF151F00AA372F /* ZYHomePdtCellViewModel.m */,
+				0C2D2A4120FDA06B00AA372F /* ZYPersonInsCtrlViewModel.h */,
+				0C2D2A4220FDA06B00AA372F /* ZYPersonInsCtrlViewModel.m */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -390,8 +392,6 @@
 			children = (
 				0C2D2A2D20EF479200AA372F /* home */,
 				0C61621420D2589600B777DA /* Profile */,
-				FCDB56E420A2F3C7009E7AEF /* ViewController.h */,
-				FCDB56E520A2F3C7009E7AEF /* ViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -636,10 +636,10 @@
 				0C2D2A3D20F861BE00AA372F /* ZYAllPersonInsControllerViewController.m in Sources */,
 				DD3FB68320F2624E00946FA4 /* ZYHomePdtCell.m in Sources */,
 				0C2D2A4020FC377B00AA372F /* UINavigationController+ZY.m in Sources */,
+				0C2D2A4320FDA06B00AA372F /* ZYPersonInsCtrlViewModel.m in Sources */,
 				0C61622120D9027F00B777DA /* ZYProfileWalletViewModel.m in Sources */,
 				0C61623520E0DD4700B777DA /* ZYGetMoneyView.m in Sources */,
 				0CA37B0E20C4E6860075D840 /* ZYUserItem.m in Sources */,
-				FCDB56EE20A2F3C7009E7AEF /* ViewController.m in Sources */,
 				0C61621320D2552400B777DA /* ZYProfileWalletItem.m in Sources */,
 				FCDB56F720A2F694009E7AEF /* ZYLoginView.m in Sources */,
 				0C716F5720EB58E30000CA84 /* ZYHomeTopicView.m in Sources */,

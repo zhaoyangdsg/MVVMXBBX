@@ -18,20 +18,13 @@
 @implementation ZYHomeHttpTool
 singleM(ZYHomeHttpTool)
 
-- (void)loadPersonInsByType:(int)type withSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
-//    let url = APP_HEAD_URL + "/app/product/initSearch.do"
-//
-//    var param = Dictionary<String, Any>()
-//    param["EnCode"] = "UTF-8"
-//
-//    if listType == XBBXPersonListType.GNX {
-//        param["typeId"] = "0" //as AnyObject?
-//        param["type"] = "gn" //as AnyObject?
+- (void)loadPersonInsByType:(int)type pageNo:(int)pageNo withSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure {
+
     NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
     paramDic[@"EnCode"] = @"UTF-8";
     paramDic[@"typeId"] = @"0";
     paramDic[@"type"] = @"gn";
-    paramDic[@"offset"] = @"0";
+    paramDic[@"offset"] = [NSString stringWithFormat:@"%d", pageNo];
     NSURLRequest *request = [ZYHttpTool.defaultTool postRequestWithUrl:@"/app/product/searchlist.do" parameters:paramDic];
     request.responseJsonWithSuccess = ^(id respJson) {
         NSArray *pdtItemAry = [ZYProductItem mj_objectArrayWithKeyValuesArray:respJson[@"result"]];

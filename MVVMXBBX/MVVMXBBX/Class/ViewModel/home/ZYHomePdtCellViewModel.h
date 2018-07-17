@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 @class ZYHomeProductItem;
+@class ZYProductItem;
 @interface ZYHomePdtCellViewModel : NSObject
 - (instancetype)initWithModel:(ZYHomeProductItem *)productItem;
+- (instancetype)initWithPdtModel:(ZYProductItem *)productItem;
 @property (nonatomic,copy) NSString *imgUrl;
 @property (nonatomic,copy) NSString *money;
 @property (nonatomic,copy) NSString *pdtName;

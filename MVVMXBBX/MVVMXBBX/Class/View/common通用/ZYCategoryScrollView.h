@@ -12,6 +12,8 @@
 @property (nonatomic,strong)NSMutableArray *items;
 @property (nonatomic,assign)float categoryViewHeight;
 @property (nonatomic,assign)int defaultIdx;
+@property (nonatomic,strong)UIColor *selectedColor;
+@property (nonatomic,strong)UIColor *normalColor;
 @end
 
 @interface ZYCategoryScrollViewItem : NSObject

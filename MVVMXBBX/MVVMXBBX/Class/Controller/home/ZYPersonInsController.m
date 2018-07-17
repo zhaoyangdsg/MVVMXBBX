@@ -9,9 +9,14 @@
 #import "ZYPersonInsController.h"
 #import "ZYHomeHttpTool.h"
 #import "ZYProductItem.h"
+#import "ZYPersonInsCtrlViewModel.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "ZYHomePdtCell.h"
+#import "ZYHomePdtCellViewModel.h"
 
 @interface ZYPersonInsController ()
-
+@property (nonatomic,strong)ZYPersonInsCtrlViewModel *viewModel;
+@property (nonatomic,assign)int totalCount;
 @end
 
 @implementation ZYPersonInsController
@@ -19,33 +24,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if (!self.insType) {
+        self.insType = ZYPersonInsType_GN;
+    }
+//    self.view.backgroundColor = UIColor.blueColor;
+    [self bindViewModel];
+}
 
-//    [[ZYHomeHttpTool shareZYHomeHttpTool]loadPersonInsByType:1 withSuccess:^(id resp) {
-//        NSString *pageCount = resp[@"pageCount"];
-//        NSArray *pdtAry = resp[@"pdtItemAry"];
-//        NSString *total = resp[@"total"];
-//
-//    } failure:^(NSError *error) {
-//
-//    }];
-
+- (void)bindViewModel {
     
-//    [catView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.top.bottom.equalTo(self.view);
-//    }];
-//    UIView *v = [UIView new];
-//    v.backgroundColor = UIColor.redColor;
-//    v.frame = CGRectMake(100, 100, 100, 100);
-//    [self.view addSubview:v];
-//    [v mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.right.top.bottom.equalTo(self.view);
-//    }];
-    self.view.backgroundColor = UIColor.blueColor;
+    
+    
+    [SVProgressHUD show];
+    ZYPersonInsCtrlViewModel *vm = [[ZYPersonInsCtrlViewModel alloc]initWithType:self.insType];
+    self.viewModel = vm;
+    
+    RAC(self,totalCount) = RACObserve(vm, total);
+    // 加载数据
+    @weakify(self)
+    [vm.loadDataCommand.executionSignals.switchToLatest subscribeNext:^(id  x) {
+        @strongify(self)
+        [SVProgressHUD dismiss];
+        [self.tableView reloadData];
+       
+    } error:^(NSError * _Nullable error) {
+        [SVProgressHUD showErrorWithStatus:error.domain];
+        [SVProgressHUD dismissWithDelay:2];
+    }];
+    [vm.loadDataCommand execute:nil];
+    //    [[[vm.loadDataCommand  execute:nil ] subscribeError:^(NSError * error) {
+    //
+    //    } deliverOnMainThread] subscribeCompleted:^{
+    //        @strongify(self)
+    //        [self.tableView reloadData];
+    //    } ]  ;
 }
 
 
@@ -57,25 +69,27 @@
 
 #pragma mark - Table view data source
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+
+    return self.viewModel.pdtVMArray.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
+    ZYHomePdtCell  *cell = [tableView dequeueReusableCellWithIdentifier:@"cellId" forIndexPath:indexPath];
+    if (!cell) {
+        cell = [[ZYHomePdtCell alloc]init];
+        [cell bindViewModel:self.viewModel.pdtVMArray[indexPath.row]];
+    }
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

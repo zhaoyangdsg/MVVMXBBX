@@ -35,6 +35,8 @@ static const float kBtmLineHeight = 2;
         self.viewNameAry = [NSMutableArray array];
         self.btnAry = [NSMutableArray array];
         self.currentIdx = 0;
+        self.selectedColor = UIColor.redColor;
+        self.normalColor = UIColor.grayColor;
     }
     return self;
 }
@@ -58,6 +60,15 @@ static const float kBtmLineHeight = 2;
             [self.viewNameAry addObject:item.viewName];
         }
     }
+//    if (!self.selectedColor) {
+//        self.selectedColor = UIColor.redColor;
+//    }
+//    if (!self.normalColor) {
+//        self.normalColor = UIColor.grayColor;
+//    }
+    
+    // _defaultIdx 默认为0
+    _currentIdx = _defaultIdx;
 }
 
 - (void)setupCategoryView {
@@ -85,15 +96,20 @@ static const float kBtmLineHeight = 2;
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(x, y, width, height);
         
-        NSMutableAttributedString *normalAttbtStr = [[NSMutableAttributedString alloc]initWithString:self.titleAry[i]];
-        [normalAttbtStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, _titleAry[i].length)];
-        [normalAttbtStr addAttribute:NSForegroundColorAttributeName value:UIColor.grayColor range:NSMakeRange(0,self.titleAry[i].length)];
-        [btn setAttributedTitle:normalAttbtStr forState:UIControlStateNormal];
+//        NSMutableAttributedString *normalAttbtStr = [[NSMutableAttributedString alloc]initWithString:self.titleAry[i]];
+//        [normalAttbtStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14] range:NSMakeRange(0, _titleAry[i].length)];
+//        [normalAttbtStr addAttribute:NSForegroundColorAttributeName value:self.normalColor range:NSMakeRange(0,self.titleAry[i].length)];
+//        [btn setAttributedTitle:normalAttbtStr forState:UIControlStateNormal];
+        [btn setTitle:_titleAry[i] forState:UIControlStateNormal];
+        [btn setTitleColor:self.normalColor forState:UIControlStateNormal];
         
-        NSAttributedString *selectedAttbtStr =
-        [[NSAttributedString alloc]initWithString:self.titleAry[i] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15 weight:UIFontWeightBold],
-                                                                                NSForegroundColorAttributeName:UIColor.redColor}];
-        [btn setAttributedTitle:selectedAttbtStr forState:UIControlStateSelected];
+        
+        [btn setTitle:_titleAry[i] forState:UIControlStateSelected];
+        [btn setTitleColor:self.selectedColor forState:UIControlStateSelected];
+//        NSAttributedString *selectedAttbtStr =
+//        [[NSAttributedString alloc]initWithString:self.titleAry[i] attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15 weight:UIFontWeightBold],
+//                                                                                NSForegroundColorAttributeName:self.selectedColor}];
+//        [btn setAttributedTitle:selectedAttbtStr forState:UIControlStateSelected];
         
         [self.categoryView addSubview:btn];
         [self.btnAry addObject:btn];
@@ -123,8 +139,7 @@ static const float kBtmLineHeight = 2;
 }
 
 - (void)setupDefaultData {
-    // _defaultIdx 默认为0
-    _currentIdx = _defaultIdx;
+
     [self hand_moveViewPositionWithIdx:_defaultIdx];
 }
 
@@ -182,8 +197,12 @@ static const float kBtmLineHeight = 2;
     }else { // 否则 设置btn.selected 并且加载view
         for (UIButton *bt in _btnAry) {
             bt.selected = NO;
+            bt.titleLabel.font = [UIFont systemFontOfSize:14];
+            [bt setTitleColor:self.normalColor forState:UIControlStateNormal];
         }
         btn.selected = YES;
+        btn.titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightBold];
+        [btn setTitleColor:self.selectedColor forState:UIControlStateSelected];
     }
     
     // 如果btn在屏幕外,移动categoryView,让btn显示在最后一个
@@ -248,6 +267,8 @@ static const float kBtmLineHeight = 2;
     [self setBtmLinePositionWith:_currentIdx];
    // 滑动触发添加view 移动view
     [self moveViewPositionWithIdx:_currentIdx];
+    
+    // 设置btn 颜色
 }
 
 
@@ -255,28 +276,39 @@ static const float kBtmLineHeight = 2;
 // 拖拽时
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     float offsetX = scrollView.contentOffset.x;
-    NSLog(@"%f",offsetX);
+    
     float btmLineLength = (offsetX-_currentIdx*self.scrollView.width)/self.scrollView.width * self.categoryBtnWidth ;
-    NSLog(@"%f",btmLineLength);
+    // r1: normal颜色 r2: select颜色
+    // 选中颜色: select->normal : normal-select
+    // 将被选中颜色: normal->select : select-normal
+    CGFloat r1,g1,b1,a1,r2,g2,b2,a2,r3,g3,b3,a3;
+    [self.selectedColor getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
+    [self.normalColor getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
+    r3 = fabs((offsetX-_currentIdx*self.scrollView.width)/self.scrollView.width) * (r2-r1) ;
+    g3 = fabs((offsetX-_currentIdx*self.scrollView.width)/self.scrollView.width) * (g2-g1) ;
+    b3 = fabs((offsetX-_currentIdx*self.scrollView.width)/self.scrollView.width) * (b2-b1) ;
+    a3 = fabs((offsetX-_currentIdx*self.scrollView.width)/self.scrollView.width) * (a2-a1) ;
+    UIColor *cur_color = [UIColor colorWithRed:(r1+r3) green:(g1+g3) blue:(b1+b3) alpha:(a1+a3)];
+    UIColor *next_color = [UIColor colorWithRed:(r2-r3) green:(g2-g3) blue:(b2-b3) alpha:(a2-a3)];
+//    self.categoryView.backgroundColor = next_color;
+    // 手指往左划
     if (btmLineLength > 0) {
         self.btmLine.width = kBtmLineWidth + btmLineLength;
-        UIButton *btn = self.btnAry[_currentIdx+1];
-        if (btn) {
-            // r1: normal颜色 r2: select颜色
-            // 选中颜色: select->normal : normal-select
-            // 将被选中颜色: normal->select : select-normal
-            CGFloat r1,g1,b1,a1,r2,g2,b2,a2,r3,g3,b3,a3;
-            [UIColor.grayColor getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
-            [UIColor.redColor getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
-            UIColor *cur_color = [UIColor colorWithRed:(r1-r2) green:(g1-g2) blue:(b1-b2) alpha:(a1-a2)];
-            UIColor *next_color = [UIColor colorWithRed:(r2-r1) green:(g2-g1) blue:(b2-b1) alpha:(a2-a1)];
-            [btn setTitleColor:next_color forState:UIControlStateNormal];
+        UIButton *nextBtn = self.btnAry[_currentIdx+1];
+        if (nextBtn) {
+            
+            [nextBtn setTitleColor:next_color forState:UIControlStateNormal];
             [self.btnAry[_currentIdx] setTitleColor:cur_color forState:UIControlStateSelected];
         }
     }else if (btmLineLength < 0) {
         float lineX = self.categoryBtnWidth * _currentIdx + (self.categoryBtnWidth - kBtmLineWidth)/2;
         self.btmLine.x = lineX + btmLineLength;
         self.btmLine.width = kBtmLineWidth - btmLineLength;
+        UIButton *nextBtn = self.btnAry[_currentIdx -1];
+        if (nextBtn) {
+            [nextBtn setTitleColor:next_color forState:UIControlStateNormal];
+            [self.btnAry[_currentIdx] setTitleColor:cur_color forState:UIControlStateSelected];
+        }
     }else {
         [self setBtmLinePositionWith:_currentIdx];
     }

@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZYPersonInsController : UIViewController
+typedef NS_ENUM(NSInteger, ZYPersonInsType) {
+    ZYPersonInsType_GN = 1,
+    ZYPersonInsType_GW,
+    ZYPersonInsType_YW,
+    ZYPersonInsType_JC,
+    ZYPersonInsType_JK
 
+};
+
+
+@interface ZYPersonInsController : UITableViewController
+@property (nonatomic) ZYPersonInsType insType;
 @end

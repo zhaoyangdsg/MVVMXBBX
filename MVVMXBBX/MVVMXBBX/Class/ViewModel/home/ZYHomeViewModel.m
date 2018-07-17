@@ -25,6 +25,7 @@
     return self;
 }
 
+// 用于已有缓存
 - (instancetype) initWithHomeItem:(ZYHomeItem *)item {
     self = [super init];
     if (self) {

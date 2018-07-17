@@ -11,5 +11,5 @@
 @interface ZYHomeHttpTool : NSObject
 singleH(ZYHomeHttpTool)
 - (void)loadHomeDataWithSuccess:(void(^)(id resp))success Failure:(void(^)(NSError *error))failure;
-- (void)loadPersonInsByType: (int)type withSuccess:(void(^)(id resp))success failure:(void(^)(NSError *error))failure;
+- (void)loadPersonInsByType:(int)type pageNo:(int)pageNo withSuccess:(void (^)(id))success failure:(void (^)(NSError *))failure;
 @end
